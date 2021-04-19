@@ -2,14 +2,14 @@ import './App.css';
 import NineLineCreator from './NineLineCreator';
 import Responder from "./Responder";
 import { Component } from 'react';
-
 import ResponderCreator from "./ResponderCreator";
 import DispatchView from "./DispatchView";
-import { Dropdown,Container } from 'react-bootstrap';
+import { Dropdown,Container,Jumbotron } from 'react-bootstrap';
 import { Select } from 'react-dropdown-select';
 import Navigator from './Navigator';
-import { Jumbotron } from 'react-bootstrap'
-import{Button} from 'bootstrap'
+import SWFlogo from "./ThemedStyles/SF_logo_grayscale_dark_bg.png"
+
+
 
 //with local repo
 const baseURL = "http://localhost:9090";
@@ -20,11 +20,12 @@ var sectionStyle = {
   backgroundRepeat: 'no-repeat' , //your welcome #w3schools ftw
   backgroundSize: '100%' ,
   backgroundPosition: "center top",
-  height: "500px" ,
+  height: "400px" ,
   width: '95%' ,
   marginLeft: 'auto',
   marginRight: 'auto',
   align: "center", 
+  
 }
 //sectionStyle.background-size = 100%
 
@@ -194,26 +195,53 @@ export default class App extends Component {
       <div className="App"  >
         <title>9 Line</title>
         <Jumbotron fluid>
-          <Container style={sectionStyle} >
-            <h1><strong className="title-main">REDLINE MEDEVAC</strong></h1>
+        <div class="Container"> 
+            <div class="row">
+              <div class="col-md-8 col-xs-8">
+                {/* <img src="..."></img> */}
+              
+              
+
+
+              </div>
+            </div>
+
+          </div>
+          
+          <Container  >
+            <div> 
+            
+            <h1>
+              {/* <img src={SWFlogo} align="left" style={{}}/> */}
+              <strong className="title-main">
+                REDLINE MEDEVAC
+              </strong>
+              <img src="." align="right"/>
+            </h1>
+
+            </div>
             <p className="white-text"><strong>
               Medical Evacuation Application</strong></p>
             <p className="white-text"><strong>
             AFC Software Factory Capstone APR 2021
             </strong>
             </p>
+          <div style={sectionStyle}></div>
           </Container>
         </Jumbotron>
 
-        <Navigator />
+        {/* <Navigator /> */}
         <hr />
+        <link rel="stylesheet" href="./styles/styles.scss"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleNineLineButton()}>Create New 9 Line</button>{' '}
+        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleNineLineButton()}><i class="fas fa-first-aid"></i>  Create New 9 Line <i class="fas fa-first-aid"></i>
+        </button>{' '}
         {this.state.toggleNineLine?<NineLineCreator handleNewRequest={this.handleNewRequest.bind(this)} />:""}
 
         <hr />
 
-        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleDispatchButton()}>View Dispatch Controller</button>{' '}
+        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleDispatchButton()}> <i class="fas fa-notes-medical"></i> View Dispatch Controller <i class="fas fa-notes-medical"></i></button>{' '}
         {this.state.toggleDispatch?
             <DispatchView requests={this.state.requestList}
             setCurrentResponderAssignment={this.setCurrentResponderAssignment.bind(this)}
@@ -232,8 +260,7 @@ export default class App extends Component {
         
 
         <hr />
-        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleResponderButton()}>
-         Responder Controller</button>{' '}
+        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleResponderButton()}><i class="fas fa-helicopter fa-flip-horizontal"></i> Responder Controller <i class="fas fa-helicopter"></i></button>{' '}
         {
           this.state.toggleResponder ?
           <Select options={ this.state.responderList } onChange={(choice) => this.setCurrentSelection(choice) }/>
@@ -251,6 +278,7 @@ export default class App extends Component {
 
         <hr />
 
+        <footer class= "white-text">AFC Software Factory Capstone APR 2021</footer>
       </div>
     );
   }
