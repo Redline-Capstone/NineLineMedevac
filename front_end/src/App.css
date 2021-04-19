@@ -5,6 +5,22 @@
   
 }
 
+.table {
+  text-align: left;
+}
+
+.required{
+  background-color: rgb(249, 137, 0);
+}
+
+.form-control:valid {
+  background-color:  #02fb38!important;
+}
+
+.form-control:invalid {
+  background-color:  #fb0202!important;
+}
+
 .white-text{
 color: black;
 
