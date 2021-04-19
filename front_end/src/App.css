@@ -1,11 +1,13 @@
 .App {
   text-align: center;
-  /* background-image: "https://api.army.mil/e2/c/images/2017/06/07/480781/max1200.jpg"; */
+  background-color: rgb(168, 167, 166);
+  
+  
 }
 
 .white-text{
 color: black;
-background-color: white;
+
 
 }
 
@@ -21,7 +23,7 @@ background-color: white;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #343a47;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -46,28 +48,55 @@ background-color: white;
 }
 
 .dispatch-table{
+  height:100px;
+  width: 1000px;
+ margin-right: auto;
   margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
+  border: 3px solid black;
+  
+ 
+
+  
 }
 
 .responder-table{
+  height:100px;
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid black;
+  border: 3px solid black;
+  
 }
 
+
 .row {
+  
   display: flex; /* equal height of the children */
+  
 }
 
 .col {
   flex: 1; /* additionally, equal width */
   
   padding: 1em;
-  border: solid;
+  
 }
 
 .title-main{
   color: red;
+  /* background-color: rgb(10, 0, 0); */
 }
+/* all front  */
+.btn-light {
+  border: 3px solid rgb(73, 69, 69);
+  color:white;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 20px;
+}
+
+
+
+
+
+

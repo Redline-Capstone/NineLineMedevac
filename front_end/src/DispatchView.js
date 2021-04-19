@@ -4,6 +4,7 @@ import Request from './Request';
 import ResponderCreator from './ResponderCreator'
 import './App.css';
 import { Select } from 'react-dropdown-select'
+import { Jumbotron, Table } from 'react-bootstrap'
 
 const DispatchView = (props) => {
 
@@ -14,8 +15,11 @@ const DispatchView = (props) => {
             <br />
             Dispatch Table
             <br />
+        
             <table class="dispatch-table">
+            
                 <tr class="dispatch-table">
+                
                     <th class="dispatch-table">Select</th>
                     <th class="dispatch-table">Location</th>
                     <th class="dispatch-table">Callsign</th>
@@ -26,7 +30,11 @@ const DispatchView = (props) => {
                     <th class="dispatch-table">hlzMarking</th>
                     <th class="dispatch-table">Nationality</th>
                     <th class="dispatch-table">NBC</th>
+                   
                 </tr>
+               
+        
+                
                 {props.requests.map(
                     (request, index) => {
                         if (request.responder === "") {
@@ -52,7 +60,7 @@ const DispatchView = (props) => {
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
 ___________________________________<br />
-<button onClick={()=>props.toggleAddResponderButton()}>Add Responder</button>   
+<button onClick={ ()=>props.toggleAddResponderButton()}>Add Responder</button>   
             <br/>
             <div hidden={!props.toggleAddResponder}>
 <ResponderCreator 
