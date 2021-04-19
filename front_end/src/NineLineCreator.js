@@ -33,228 +33,207 @@ class NineLineCreator extends Component {
         this.setState({ [event.target.name]: event.target.value })
     }
 
-    handleUrgency(e){
+    handleUrgency(e) {
         let patientUrgency = e.target.value;
         this.setState({ patientUrgency: e.target.value });
         console.log(patientUrgency);
     }
-    handleEquipment(e){
+    handleEquipment(e) {
         let specialEquipment = e.target.value;
         this.setState({ specialEquipment: e.target.value });
         console.log(specialEquipment);
     }
-    handleType(e){
+    handleType(e) {
         let patientType = e.target.value;
         this.setState({ patientType: e.target.value });
         console.log(patientType);
     }
-    handleSecurity(e){
+    handleSecurity(e) {
         let security = e.target.value;
         this.setState({ security: e.target.value });
         console.log(security);
     }
-    handleMarking(e){
+    handleMarking(e) {
         let hlzMarking = e.target.value;
         this.setState({ hlzMarking: e.target.value });
         console.log(hlzMarking);
     }
-    handleNationality(e){
+    handleNationality(e) {
         let nationality = e.target.value;
         this.setState({ nationality: e.target.value });
         console.log(nationality);
-    }    
-    handleNBC(e){
+    }
+    handleNBC(e) {
         let nbc = e.target.value;
         this.setState({ nbc: e.target.value });
         console.log(nbc);
     }
 
     render() {
-    return (
-    <div>
-        <fieldset onChange={this.onChangeValue}>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Line</th>
-      <th scope="col">Description</th>
-      <th scope="col">Section</th>
-      <th scope="col"># of Patient(s)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>
-        Location
-      </td>
-      <td>
-        <input defaultValue="Line 1" value={this.state.location} name="location"></input>
-      </td>
-      <td>
-        N/A
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Call Sign</td>
-      <td>
-        <input defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br /> 
-      </td>
-      <td>              
-        N/A
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>
-        Patient Urgency
-      </td>
-      <td>
-            <select value={this.state.patientUrgency} onChange={this.handleUrgency}> 
-                <option value='Select one'>Select One</option>,
-                <option value='A – Urgent'>A – Urgent</option>,
-                <option value='B – Urgent Surgical'>B – Urgent Surgical</option>
-                <option value='C – Priority'>C – Priority</option>
-                <option value='D – Routine'>D – Routine</option>
-                <option value='E – Convenience'> E – Convenience </option>
-            </select>
-      </td>
-      <td>              
-        <input type="number" name="urgencyNumber" min={0} max={10} value={this.state.urgencyNumber}/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>
-        Special Equipment
-      </td>
-      <td>
-        <select value={this.state.specialEquipment} onChange={this.handleEquipment}>        
-            <option value='Select one'>Select One</option>,
-            <option value='A – None'>A – None</option>,
-            <option value='B – Hoist'>B – Hoist</option>
-            <option value='C – Extraction equipment'>C – Extraction equipment</option>
-            <option value='D – Ventilator'>D – Ventilator</option>
-        </select>
-      </td>
-      <td>              
-        N/A
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>
-        Patient Type
-      </td>
-      <td>
-        <select value={this.state.patientType} onChange={this.handleType}>        
-            <option value='Select one'>Select One</option>,
-            <option value='A – Litter'>A – Litter</option>,
-            <option value='B – Ambulatory'>B – Ambulatory</option>
-        </select>
-      </td>
-      <td>              
-        <input type="number" name="typeNumber" min={0} max={10} value={this.state.typeNumber}/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>
-        Security
-      </td>
-      <td>
-        <select value={this.state.security} onChange={this.handleSecurity}>        
-            <option value='Select one'>Select One</option>,
-            <option value='N – No enemy troops in area'>N – No enemy troops in area</option>,
-            <option value='P – Possible enemy troops in area (approach with caution)'>P – Possible enemy troops in area (approach with caution)</option>
-            <option value='E – Enemy troops in area (approach with caution)'>E – Enemy troops in area (approach with caution)</option>
-            <option value='X – Enemy troops in area (armed escort required)'>X – Enemy troops in area (armed escort required)</option>
-        </select>
-      </td>
-      <td>              
-        N/A
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>
-        hlzMarking
-      </td>
-      <td>
-        <select value={this.state.hlzMarking} onChange={this.handleMarking}>        
-            <option value='Select one'>Select One</option>,
-            <option value='A – Panels'>A – Panels</option>,
-            <option value='B – Pyrotechnic signal'>B – Pyrotechnic signal</option>,
-            <option value='C – Smoke signal'>C – Smoke signal</option>,
-            <option value='D – None'>D – None</option>,
-            <option value='E – Other'>E – Other</option>,
-        </select>
-      </td>
-      <td>              
-        N/A
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">8</th>
-      <td>
-        Nationality
-      </td>
-      <td>
-        <select value={this.state.nationality} onChange={this.handleNationality}>        
-            <option value='Select one'>Select One</option>,
-            <option value='A – US Military'>A – US Military</option>,
-            <option value='B – US Civilian'>B – US Civilian</option>,
-            <option value='C – Non-US Military'>C – Non-US Military</option>,
-            <option value='D – Non-US Civilian'>D – Non-US Civilian</option>,
-            <option value='E – EPW'>E – EPW</option>,
-        </select>
-      </td>
-      <td>              
-        N/A
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">9</th>
-      <td>
-        NBC
-      </td>
-      <td>
-        <select value={this.state.nbc} onChange={this.handleNBC}>        
-            <option value='Select one'>Select One</option>,
-            <option value='None'>None</option>,
-            <option value='N – Nuclear'>N – Nuclear</option>,
-            <option value='B – Biological'>B – Biological</option>,
-            <option value='C – Chemical'>C – Chemical</option>,
-        </select>
-      </td>
-      <td>              
-        N/A
-      </td>
-    </tr>
-  </tbody>
-</table>
-    <button onClick={() => 
-        (this.state.location && 
-            this.state.callSign && 
-            this.state.patientUrgency && 
-            this.state.specialEquipment && 
-            this.state.patientType) ? 
-            this.props.handleNewRequest(
-                        {
-                            location: this.state.location,
-                            callSign: this.state.callSign,
-                            patientUrgency: "" + this.state.urgencyNumber + " " + this.state.patientUrgency,
-                            specialEquipment: this.state.specialEquipment,
-                            patientType: "" + this.state.typeNumber +" "+ this.state.patientType,
-                            security: " " +this.state.security,
-                            hlzMarking: " " +this.state.hlzMarking,
-                            nationality: " " +this.state.nationality,
-                            nbc: " " +this.state.nbc,
-                        }
-                    ) : alert("Please Provide Data for Lines 1 through 5")}>Submit</button>
-        </fieldset>
-    </div>
+        return (
+            <div class="d-flex justify-content-center" >
+                <fieldset onChange={this.onChangeValue}>
+                    <table class="table w-50 p-4">
+                        <thead>
+                            <tr>
+                                <th scope="col">Line</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Section</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="required">
+                                <th scope="row">1</th>
+                                <td>
+                                    Location
+                                </td>
+                                <td>
+                                    <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location"></input>
+                                </td>
+                            </tr>
+                            <tr class="required">
+                                <th scope="row">2</th>
+                                <td>Call Sign</td>
+                                <td>
+                                    <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br />
+                                </td>
+                            </tr>
+                            <tr class="required">
+                                <th scope="row">3</th>
+                                <td>
+                                    Patient Urgency
+                                </td>
+                                <td>
+                                    <input type="number" name="urgencyNumber" min={0} max={10} value={this.state.urgencyNumber} />
+                                    <select value={this.state.patientUrgency} onChange={this.handleUrgency}>
+                                        <option value='Select one'>Select One</option>,
+                                        <option value='A – Urgent'>A – Urgent</option>,
+                                        <option value='B – Urgent Surgical'>B – Urgent Surgical</option>
+                                        <option value='C – Priority'>C – Priority</option>
+                                        <option value='D – Routine'>D – Routine</option>
+                                        <option value='E – Convenience'> E – Convenience </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="required">
+                                <th scope="row">4</th>
+                                <td>
+                                    Special Equipment
+                                </td>
+                                <td>
+                                    <select value={this.state.specialEquipment} onChange={this.handleEquipment}>
+                                        <option value='Select one'>Select One</option>,
+                                        <option value='A – None'>A – None</option>,
+                                        <option value='B – Hoist'>B – Hoist</option>
+                                        <option value='C – Extraction equipment'>C – Extraction equipment</option>
+                                        <option value='D – Ventilator'>D – Ventilator</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="required">
+                                <th scope="row">5</th>
+                                <td>
+                                    Patient Type
+                                </td>
+                                <td>
+                                    <input type="number" name="litterNumber" min={0} max={10} value={this.state.litterNumber} onChange={this.onChangeValue} />
+                                    <span> A – Litter </span>
+                                    <input type="number" name="ambulatoryNumber" min={0} max={10} value={this.state.ambulatoryNumber} onChange={this.onChangeValue} />
+                                    <span> B – Ambulatory </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>
+                                    Security
+                                </td>
+                                <td>
+                                    <select value={this.state.security} onChange={this.handleSecurity}>
+                                        <option value='Select one'>Select One</option>,
+                                        <option value='N – No enemy troops in area'>N – No enemy troops in area</option>,
+                                        <option value='P – Possible enemy troops in area (approach with caution)'>P – Possible enemy troops in area (approach with caution)</option>
+                                        <option value='E – Enemy troops in area (approach with caution)'>E – Enemy troops in area (approach with caution)</option>
+                                        <option value='X – Enemy troops in area (armed escort required)'>X – Enemy troops in area (armed escort required)</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>
+                                    hlzMarking
+                                </td>
+                                <td>
+                                    <select value={this.state.hlzMarking} onChange={this.handleMarking}>
+                                        <option value='Select one'>Select One</option>,
+                                        <option value='A – Panels'>A – Panels</option>,
+                                        <option value='B – Pyrotechnic signal'>B – Pyrotechnic signal</option>,
+                                        <option value='C – Smoke signal'>C – Smoke signal</option>,
+                                        <option value='D – None'>D – None</option>,
+                                        <option value='E – Other'>E – Other</option>,
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td>
+                                    Nationality
+                                </td>
+                                <td>
+                                    <select value={this.state.nationality} onChange={this.handleNationality}>
+                                        <option value='Select one'>Select One</option>,
+                                        <option value='A – US Military'>A – US Military</option>,
+                                        <option value='B – US Civilian'>B – US Civilian</option>,
+                                        <option value='C – Non-US Military'>C – Non-US Military</option>,
+                                        <option value='D – Non-US Civilian'>D – Non-US Civilian</option>,
+                                        <option value='E – EPW'>E – EPW</option>,
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td>
+                                    NBC
+                                </td>
+                                <td>
+                                    <select value={this.state.nbc} onChange={this.handleNBC}>
+                                        <option value='Select one'>Select One</option>,
+                                        <option value='None'>None</option>,
+                                        <option value='N – Nuclear'>N – Nuclear</option>,
+                                        <option value='B – Biological'>B – Biological</option>,
+                                        <option value='C – Chemical'>C – Chemical</option>,
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button onClick={() => {
+                        var pType = ""
+                        if (this.state.litterNumber > 0){ pType += this.state.litterNumber + " A - Litter "}
+                        if (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0){ pType += ", "}
+                        if (this.state.ambulatoryNumber > 0){ pType += this.state.ambulatoryNumber + " B - Ambulatory"}
+                            (this.state.location &&
+                                this.state.callSign &&
+                                this.state.patientUrgency &&
+                                this.state.specialEquipment && (
+                                    this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
+                            this.props.handleNewRequest(
+                                {
+                        location: this.state.location,
+                                    callSign: this.state.callSign,
+                                    patientUrgency: "" + this.state.urgencyNumber + " " + this.state.patientUrgency,
+                                    specialEquipment: this.state.specialEquipment,
+                                    patientType: pType ,
+                                    security: " " + this.state.security,
+                                    hlzMarking: " " + this.state.hlzMarking,
+                                    nationality: " " + this.state.nationality,
+                                    nbc: " " + this.state.nbc,
+                                }
+                            ) : alert("Please Provide Data for Lines 1 through 5")
+                    }
+                    }
+                    >Submit</button>
+                </fieldset>
+            </div >
         );
 
     }
