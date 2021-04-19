@@ -78,8 +78,8 @@ class NineLineCreator extends Component {
     <tr>
       <th scope="col">Line</th>
       <th scope="col">Description</th>
-      <th scope="col"># of Patient(s)</th>
       <th scope="col">Section</th>
+      <th scope="col"># of Patient(s)</th>
     </tr>
   </thead>
   <tbody>
@@ -88,19 +88,21 @@ class NineLineCreator extends Component {
       <td>
         Location
       </td>
-      <td>N/A</td>
       <td>
         <input defaultValue="Line 1" value={this.state.location} name="location"></input>
+      </td>
+      <td>
+        N/A
       </td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Call Sign</td>
       <td>
-        N/A
+        <input defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br /> 
       </td>
       <td>              
-        <input defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br /> 
+        N/A
       </td>
     </tr>
     <tr>
@@ -109,9 +111,6 @@ class NineLineCreator extends Component {
         Patient Urgency
       </td>
       <td>
-        <input type="number" name="urgencyNumber" min={0} max={10} value={this.state.urgencyNumber}/>
-      </td>
-      <td>              
             <select value={this.state.patientUrgency} onChange={this.handleUrgency}> 
                 <option value='Select one'>Select One</option>,
                 <option value='A – Urgent'>A – Urgent</option>,
@@ -119,7 +118,10 @@ class NineLineCreator extends Component {
                 <option value='C – Priority'>C – Priority</option>
                 <option value='D – Routine'>D – Routine</option>
                 <option value='E – Convenience'> E – Convenience </option>
-            </select><br></br>
+            </select>
+      </td>
+      <td>              
+        <input type="number" name="urgencyNumber" min={0} max={10} value={this.state.urgencyNumber}/>
       </td>
     </tr>
     <tr>
@@ -128,9 +130,6 @@ class NineLineCreator extends Component {
         Special Equipment
       </td>
       <td>
-        N/A
-      </td>
-      <td>              
         <select value={this.state.specialEquipment} onChange={this.handleEquipment}>        
             <option value='Select one'>Select One</option>,
             <option value='A – None'>A – None</option>,
@@ -139,6 +138,9 @@ class NineLineCreator extends Component {
             <option value='D – Ventilator'>D – Ventilator</option>
         </select>
       </td>
+      <td>              
+        N/A
+      </td>
     </tr>
     <tr>
       <th scope="row">5</th>
@@ -146,14 +148,14 @@ class NineLineCreator extends Component {
         Patient Type
       </td>
       <td>
-        <input type="number" name="typeNumber" min={0} max={10} value={this.state.typeNumber}/>
-      </td>
-      <td>              
         <select value={this.state.patientType} onChange={this.handleType}>        
             <option value='Select one'>Select One</option>,
             <option value='A – Litter'>A – Litter</option>,
             <option value='B – Ambulatory'>B – Ambulatory</option>
         </select>
+      </td>
+      <td>              
+        <input type="number" name="typeNumber" min={0} max={10} value={this.state.typeNumber}/>
       </td>
     </tr>
     <tr>
@@ -162,9 +164,6 @@ class NineLineCreator extends Component {
         Security
       </td>
       <td>
-        N/A
-      </td>
-      <td>              
         <select value={this.state.security} onChange={this.handleSecurity}>        
             <option value='Select one'>Select One</option>,
             <option value='N – No enemy troops in area'>N – No enemy troops in area</option>,
@@ -173,6 +172,9 @@ class NineLineCreator extends Component {
             <option value='X – Enemy troops in area (armed escort required)'>X – Enemy troops in area (armed escort required)</option>
         </select>
       </td>
+      <td>              
+        N/A
+      </td>
     </tr>
     <tr>
       <th scope="row">7</th>
@@ -180,9 +182,6 @@ class NineLineCreator extends Component {
         hlzMarking
       </td>
       <td>
-        N/A
-      </td>
-      <td>              
         <select value={this.state.hlzMarking} onChange={this.handleMarking}>        
             <option value='Select one'>Select One</option>,
             <option value='A – Panels'>A – Panels</option>,
@@ -192,6 +191,9 @@ class NineLineCreator extends Component {
             <option value='E – Other'>E – Other</option>,
         </select>
       </td>
+      <td>              
+        N/A
+      </td>
     </tr>
     <tr>
       <th scope="row">8</th>
@@ -199,9 +201,6 @@ class NineLineCreator extends Component {
         Nationality
       </td>
       <td>
-        N/A
-      </td>
-      <td>              
         <select value={this.state.nationality} onChange={this.handleNationality}>        
             <option value='Select one'>Select One</option>,
             <option value='A – US Military'>A – US Military</option>,
@@ -211,6 +210,9 @@ class NineLineCreator extends Component {
             <option value='E – EPW'>E – EPW</option>,
         </select>
       </td>
+      <td>              
+        N/A
+      </td>
     </tr>
     <tr>
       <th scope="row">9</th>
@@ -218,9 +220,6 @@ class NineLineCreator extends Component {
         NBC
       </td>
       <td>
-        N/A
-      </td>
-      <td>              
         <select value={this.state.nbc} onChange={this.handleNBC}>        
             <option value='Select one'>Select One</option>,
             <option value='None'>None</option>,
@@ -228,6 +227,9 @@ class NineLineCreator extends Component {
             <option value='B – Biological'>B – Biological</option>,
             <option value='C – Chemical'>C – Chemical</option>,
         </select>
+      </td>
+      <td>              
+        N/A
       </td>
     </tr>
   </tbody>
