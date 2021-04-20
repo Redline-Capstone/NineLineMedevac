@@ -71,6 +71,8 @@ class NineLineCreator extends Component {
 
     render() {
         return (
+            <div class="title-main">
+                <h1><strong>Nine Line Request</strong></h1>
             <div class="d-flex justify-content-center" >
                 <fieldset onChange={this.onChangeValue}>
                     <table class="table table-bordered table-hover table-color w-50 p-4">
@@ -142,7 +144,7 @@ class NineLineCreator extends Component {
                                     <span> B – Ambulatory </span>
                                 </td>
                             </tr>
-                            <tr class="table-not-required text-white">
+                            <tr class="table-not-required">
                                 <th scope="row ">6</th>
                                 <td>
                                     Security
@@ -157,7 +159,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="table-not-required text-white">
+                            <tr class="table-not-required">
                                 <th scope="row">7</th>
                                 <td>
                                     hlzMarking
@@ -173,7 +175,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="table-not-required text-white">
+                            <tr class="table-not-required">
                                 <th scope="row">8</th>
                                 <td>
                                     Nationality
@@ -189,7 +191,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="table-not-required text-white">
+                            <tr class="table-not-required">
                                 <th scope="row">9</th>
                                 <td>
                                     NBC
@@ -211,28 +213,29 @@ class NineLineCreator extends Component {
                         if (this.state.litterNumber > 0){ pType += this.state.litterNumber + " A - Litter "}
                         if (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0){ pType += ", "}
                         if (this.state.ambulatoryNumber > 0){ pType += this.state.ambulatoryNumber + " B - Ambulatory"}
-                            (this.state.location &&
-                                this.state.callSign &&
-                                this.state.patientUrgency &&
-                                this.state.specialEquipment && (
-                                    this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
-                            this.props.handleNewRequest(
-                                {
-                        location: this.state.location,
-                                    callSign: this.state.callSign,
-                                    patientUrgency: "" + this.state.urgencyNumber + " " + this.state.patientUrgency,
-                                    specialEquipment: this.state.specialEquipment,
-                                    patientType: pType ,
-                                    security: " " + this.state.security,
-                                    hlzMarking: " " + this.state.hlzMarking,
-                                    nationality: " " + this.state.nationality,
-                                    nbc: " " + this.state.nbc,
+                        (this.state.location &&
+                            this.state.callSign &&
+                            this.state.patientUrgency &&
+                            this.state.specialEquipment && (
+                                this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
+                                this.props.handleNewRequest(
+                                    {
+                                        location: this.state.location,
+                                        callSign: this.state.callSign,
+                                        patientUrgency: "" + this.state.urgencyNumber + " " + this.state.patientUrgency,
+                                        specialEquipment: this.state.specialEquipment,
+                                        patientType: pType ,
+                                        security: " " + this.state.security,
+                                        hlzMarking: " " + this.state.hlzMarking,
+                                        nationality: " " + this.state.nationality,
+                                        nbc: " " + this.state.nbc,
+                                    }
+                                    ) : alert("Please Provide Data for Lines 1 through 5")
                                 }
-                            ) : alert("Please Provide Data for Lines 1 through 5")
-                    }
-                    }
-                    >Submit</button>
+                            }
+                            >Submit</button>
                 </fieldset>
+                            </div>
             </div >
         );
 
