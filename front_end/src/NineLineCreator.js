@@ -115,21 +115,33 @@ class NineLineCreator extends Component {
         return (
             <div class="title-main">
                 <h1><strong>Nine Line Request</strong></h1>
-                <div class="d-flex justify-content-center" >
-                    <fieldset onChange={this.onChangeValue}>
-                        <table class="table table-bordered table-hover table-color w-50 p-4">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Line</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Section</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="table-required">
-                                    <th scope="row">1</th>
-                                    <td>
-                                        Location
+
+            <div class="d-flex justify-content-center" >
+                <fieldset  onChange={this.onChangeValue}>
+                    <table class= "table table-bordered tableMod table-hover table-color w-50 p-4"  >
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Line</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Section</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="table-required">
+                                <th scope="row">1</th>
+                                <td>
+                                    Location
+                                </td>
+                                <td>
+                                    <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location"></input>
+                                </td>
+                            </tr>
+                            <tr class="table-required">
+                                <th scope="row">2</th>
+                                <td>Call Sign</td>
+                                <td>
+                                    <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br />
+
                                 </td>
                                     <td>
                                         <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location"></input>
