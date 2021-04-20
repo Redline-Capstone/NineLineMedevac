@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Dropdown, Container, Img } from 'react-bootstrap'
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import './index.css';
-
+import {Toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast= configure() 
 class NineLineCreator extends Component {
     constructor(props) {
         super(props);
@@ -26,7 +28,13 @@ class NineLineCreator extends Component {
         this.handleMarking = this.handleMarking.bind(this);
         this.handleNationality = this.handleNationality.bind(this);
         this.handleNBC = this.handleNBC.bind(this);
+
+        
     }
+
+   
+     
+    
 
 
     onChangeValue(event) {
@@ -67,6 +75,10 @@ class NineLineCreator extends Component {
         let nbc = e.target.value;
         this.setState({ nbc: e.target.value });
         console.log(nbc);
+    }
+
+     notify =() =>{
+        Toast('Your NineLine has been submitted!')
     }
 
     render() {
@@ -206,7 +218,9 @@ class NineLineCreator extends Component {
                             </tr>
                         </tbody>
                     </table>
-                    <button onClick={() => {
+                    
+                    <button onClick=   {() => {
+                    // this.notify()
                         var pType = ""
                         if (this.state.litterNumber > 0){ pType += this.state.litterNumber + " A - Litter "}
                         if (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0){ pType += ", "}
@@ -231,8 +245,10 @@ class NineLineCreator extends Component {
                             ) : alert("Please Provide Data for Lines 1 through 5")
                     }
                     }
-                    >Submit</button>
+                     >it</button>
+                    
                 </fieldset>
+                <button onclick= {notify}> 'help'</button>
             </div >
         );
 

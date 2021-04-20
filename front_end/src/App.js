@@ -11,6 +11,9 @@ import SWFlogo from "./ThemedStyles/SF_logo_grayscale_dark_bg.png"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./routeComponents/Navigation";
 import Footer from "./routeComponents/Footer";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 //with local repo
@@ -30,7 +33,7 @@ var sectionStyle = {
   
 }
 //sectionStyle.background-size = 100%
-
+ 
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -280,7 +283,7 @@ export default class App extends Component {
         <hr /> */}
 
         {/* <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleDispatchButton()}> <i class="fas fa-notes-medical"></i> View Dispatch Controller <i class="fas fa-notes-medical"></i></button>{' '}
-        {this.state.toggleDispatch?
+           {this.state.toggleDispatch?
             <DispatchView requests={this.state.requestList}
             setCurrentResponderAssignment={this.setCurrentResponderAssignment.bind(this)}
             responderList={this.state.responderList}
