@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import { Dropdown, Container, Img } from 'react-bootstrap'
 import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import './index.css';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 class NineLineCreator extends Component {
     constructor(props) {
         super(props);
@@ -68,6 +71,13 @@ class NineLineCreator extends Component {
         this.setState({ nbc: e.target.value });
         console.log(nbc);
     }
+notify =() =>{
+    toast('Your Nine Line has been submitted!')
+}
+notifyError =() => {
+    toast('submit fist five lines')
+}
+
 
     render() {
         return (
@@ -214,11 +224,12 @@ class NineLineCreator extends Component {
                         if (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0){ pType += ", "}
                         if (this.state.ambulatoryNumber > 0){ pType += this.state.ambulatoryNumber + " B - Ambulatory"}
                         (this.state.location &&
-                            this.state.callSign &&
-                            this.state.patientUrgency &&
-                            this.state.specialEquipment && (
-                                this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
-                                this.props.handleNewRequest(
+                        this.state.callSign &&
+                        this.state.patientUrgency &&
+                        this.state.specialEquipment && 
+                        (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
+                        this.notify() &&        
+                        this.props.handleNewRequest(
                                     {
                                         location: this.state.location,
                                         callSign: this.state.callSign,
@@ -230,7 +241,7 @@ class NineLineCreator extends Component {
                                         nationality: " " + this.state.nationality,
                                         nbc: " " + this.state.nbc,
                                     }
-                                    ) : alert("Please Provide Data for Lines 1 through 5")
+                                    ) : alert = this.notifyError()
                                 }
                             }
                             >Submit</button>
