@@ -200,7 +200,10 @@ export default class App extends Component {
         <Router>
           <Navigation />
           <Switch>
-            <Route path="/" exact component={() => <NineLineCreator />} />
+            <Route path="/" exact component={() => 
+            <NineLineCreator
+            handleNewRequest={this.handleNewRequest.bind(this)}
+             />} />
             <Route path="/DispatchView" exact component={() =>
              <DispatchView  requests={this.state.requestList}
              setCurrentResponderAssignment={this.setCurrentResponderAssignment.bind(this)}
@@ -245,7 +248,7 @@ export default class App extends Component {
             
             <h1>
             <strong className="title-main"> <img className= "AFC-Logo" src="https://1000logos.net/wp-content/uploads/2017/06/U.S.-Army-Logo.png" align="left"/>
-                RENE MEDEVAC
+                REDLINE MEDEVAC
               </strong>
               <img  className= "AFC-Logo"src='https://coders.army/assets/img/tech/AFC.png?h=c914384b26a11b63d203ccd8247ac508' align="right"/>
             </h1>
