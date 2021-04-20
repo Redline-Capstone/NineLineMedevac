@@ -228,7 +228,7 @@ notifyError =() => {
                         this.state.patientUrgency &&
                         this.state.specialEquipment && 
                         (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
-                        this.notify() &&        
+                        this.notify() &&       
                         this.props.handleNewRequest(
                                     {
                                         location: this.state.location,
