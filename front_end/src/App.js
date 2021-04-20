@@ -37,13 +37,13 @@ export default class App extends Component {
 
     this.state = {
       requestList: [
-        { id: 1, location: "RC East", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 2, location: "RC West", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 3, location: "MSAB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 4, location: "Al Asad AB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 1" },
-        { id: 5, location: "Mission 7", callSign: "SmokeHound", patientUrgency: "Urgent Surgical",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 6, location: "Mission Zero", callSign: "SaveMe", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 2" },
-        { id: 7, location: "MC", callSign: "done", patientUrgency: "none", responder: "DustOff 2", completed: true },
+        // { id: 1, location: "RC East", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 2, location: "RC West", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 3, location: "MSAB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 4, location: "Al Asad AB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 1" },
+        // { id: 5, location: "Mission 7", callSign: "SmokeHound", patientUrgency: "Urgent Surgical",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 6, location: "Mission Zero", callSign: "SaveMe", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 2" },
+        // { id: 7, location: "MC", callSign: "done", patientUrgency: "none", responder: "DustOff 2", completed: true },
       ],
       responderList: [
         { value: "DustOff 1", label: "DustOff 1" },
@@ -171,6 +171,8 @@ export default class App extends Component {
 
   setCurrentMissionAssignment(choice) {
     this.setState({ currentMissionAssignment: choice })
+    // console.log(choice);
+    console.log(this.state.currentMissionAssignment)
   }
 
   toggleNineLineButton(){
@@ -225,7 +227,7 @@ export default class App extends Component {
             onChange={(choice) => this.setCurrentSelection(choice)}
             />} />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       
       </div>
@@ -293,7 +295,7 @@ export default class App extends Component {
 
         
 
-        {/* <hr />
+        <hr />
         <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleResponderButton()}><i class="fas fa-helicopter fa-flip-horizontal"></i> Responder Controller <i class="fas fa-helicopter"></i></button>{' '}
         {
           this.state.toggleResponder ?
@@ -310,7 +312,7 @@ export default class App extends Component {
 
         <hr />
 
-        <hr /> */}
+        <hr />
 
         <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
       </div>
