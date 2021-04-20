@@ -141,18 +141,7 @@ class NineLineCreator extends Component {
                                 <td>Call Sign</td>
                                 <td>
                                     <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br />
-
                                 </td>
-                                    <td>
-                                        <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location"></input>
-                                    </td>
-                                </tr>
-                                <tr class="table-required">
-                                    <th scope="row">2</th>
-                                    <td>Call Sign</td>
-                                    <td>
-                                        <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br />
-                                    </td>
                                 </tr>
                                 <tr class="table-required">
                                     <th scope="row">3</th>
