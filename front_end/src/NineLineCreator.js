@@ -118,7 +118,7 @@ class NineLineCreator extends Component {
 
             <div class="d-flex justify-content-center" >
                 <fieldset  onChange={this.onChangeValue}>
-                    <table class= "table table-bordered tableMod table-hover table-color w-50 p-4"  >
+                    <table class= "table table-bordered tableMod table-hover table-color w-50 p-4">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Line</th>
