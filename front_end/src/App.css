@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(168, 167, 166);
+  background-color: #cfcfcf;
   
   
 }
@@ -9,16 +9,15 @@
   text-align: left;
 }
 
-.required{
-  background-color: rgb(249, 137, 0);
+.table-required{
+  background-color: #4da167;
+}
+.table-not-required{
+  background-color: #4e6e5d;
 }
 
 .form-control:valid {
-  background-color:  #02fb38!important;
-}
-
-.form-control:invalid {
-  background-color:  #fb0202!important;
+  background-color:  #3bc14a!important;
 }
 
 .white-text{
@@ -39,7 +38,7 @@ color: black;
 }
 
 .App-header {
-  background-color: #343a47;
+  background-color: #b47978;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

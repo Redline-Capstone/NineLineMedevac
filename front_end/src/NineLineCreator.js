@@ -73,8 +73,8 @@ class NineLineCreator extends Component {
         return (
             <div class="d-flex justify-content-center" >
                 <fieldset onChange={this.onChangeValue}>
-                    <table class="table w-50 p-4">
-                        <thead>
+                    <table class="table table-bordered table-hover table-color w-50 p-4">
+                        <thead class="thead-dark">
                             <tr>
                                 <th scope="col">Line</th>
                                 <th scope="col">Description</th>
@@ -82,7 +82,7 @@ class NineLineCreator extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="required">
+                        <tr class="table-required">
                                 <th scope="row">1</th>
                                 <td>
                                     Location
@@ -91,14 +91,14 @@ class NineLineCreator extends Component {
                                     <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location"></input>
                                 </td>
                             </tr>
-                            <tr class="required">
+                            <tr class="table-required">
                                 <th scope="row">2</th>
                                 <td>Call Sign</td>
                                 <td>
                                     <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br />
                                 </td>
                             </tr>
-                            <tr class="required">
+                            <tr class="table-required">
                                 <th scope="row">3</th>
                                 <td>
                                     Patient Urgency
@@ -115,7 +115,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="required">
+                            <tr class="table-required">
                                 <th scope="row">4</th>
                                 <td>
                                     Special Equipment
@@ -130,7 +130,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr class="required">
+                            <tr class="table-required">
                                 <th scope="row">5</th>
                                 <td>
                                     Patient Type
@@ -142,8 +142,8 @@ class NineLineCreator extends Component {
                                     <span> B – Ambulatory </span>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">6</th>
+                            <tr class="table-not-required text-white">
+                                <th scope="row ">6</th>
                                 <td>
                                     Security
                                 </td>
@@ -157,7 +157,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="table-not-required text-white">
                                 <th scope="row">7</th>
                                 <td>
                                     hlzMarking
@@ -173,7 +173,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="table-not-required text-white">
                                 <th scope="row">8</th>
                                 <td>
                                     Nationality
@@ -189,7 +189,7 @@ class NineLineCreator extends Component {
                                     </select>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="table-not-required text-white">
                                 <th scope="row">9</th>
                                 <td>
                                     NBC
