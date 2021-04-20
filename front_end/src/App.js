@@ -8,13 +8,15 @@ import { Dropdown,Container,Jumbotron } from 'react-bootstrap';
 import { Select } from 'react-dropdown-select';
 import Navigator from './Navigator';
 import SWFlogo from "./ThemedStyles/SF_logo_grayscale_dark_bg.png"
-
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navigation from "./routeComponents/Navigation";
+import Footer from "./routeComponents/Footer";
 
 
 //with local repo
-const baseURL = "http://localhost:9090";
+//const baseURL = "http://localhost:9090";
 //with heroku
-// const baseURL = "https://frozen-retreat-75749.herokuapp.com";
+const baseURL = "https://frozen-retreat-75749.herokuapp.com";
 var sectionStyle = {
   backgroundImage: `url(https://1.bp.blogspot.com/-McdZweoTlAQ/WxQdvQAIy_I/AAAAAAAA9Tg/-jJjF50Ig3Eug4i8fpqrj38oISudKDzlwCLcBGAs/s1600/medical-evacuation-medevac-documentary-mp4.jpg)` , 
   backgroundRepeat: 'no-repeat' , //your welcome #w3schools ftw
@@ -194,6 +196,39 @@ export default class App extends Component {
 
       <div className="App"  >
         <title>9 Line</title>
+        <div>
+        <Router>
+          <Navigation />
+          <Switch>
+            <Route path="/" exact component={() => 
+            <NineLineCreator
+            handleNewRequest={this.handleNewRequest.bind(this)}
+             />} />
+            <Route path="/DispatchView" exact component={() =>
+             <DispatchView  requests={this.state.requestList}
+             setCurrentResponderAssignment={this.setCurrentResponderAssignment.bind(this)}
+             responderList={this.state.responderList}
+             assignResponder={this.assignResponder.bind(this)}
+             currentResponderAssignment={this.state.currentResponderAssignment}
+             currentMissionAssignment={this.state.currentMissionAssignment}
+             setCurrentMissionAssignment={this.setCurrentMissionAssignment.bind(this)}
+             addResponder={this.addResponder.bind(this)}
+             toggleAddResponderButton={this.toggleAddResponderButton.bind(this)}
+             toggleAddResponder={this.state.toggleAddResponder}
+             onChange={(choice) => this.setCurrentSelection(choice)}                                             
+            />} />
+            <Route path="/Responder" exact component={() => 
+            <Responder
+            requests={this.state.requestList}
+            completeClick={this.completeButton.bind(this)}
+            current={this.state.currentSelection}
+            onChange={(choice) => this.setCurrentSelection(choice)}
+            />} />
+          </Switch>
+          <Footer />
+        </Router>
+      
+      </div>
         <Jumbotron fluid>
         <div class="Container"> 
             <div class="row">
@@ -217,7 +252,7 @@ export default class App extends Component {
                
 >>>>>>> Stashed changes
             <strong className="title-main"> <img className= "AFC-Logo" src="https://1000logos.net/wp-content/uploads/2017/06/U.S.-Army-Logo.png" align="left"/>
-                RENE MEDEVAC
+                REDLINE MEDEVAC
               </strong>
               <img  className= "AFC-Logo"src='https://coders.army/assets/img/tech/AFC.png?h=c914384b26a11b63d203ccd8247ac508' align="right"/>
             </h1>
@@ -238,13 +273,13 @@ export default class App extends Component {
         <link rel="stylesheet" href="./styles/styles.scss"></link>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleNineLineButton()}><i class="fas fa-first-aid"></i>  Create New 9 Line <i class="fas fa-first-aid"></i>
+        {/* <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleNineLineButton()}><i class="fas fa-first-aid"></i>  Create New 9 Line <i class="fas fa-first-aid"></i>
         </button>{' '}
         {this.state.toggleNineLine?<NineLineCreator handleNewRequest={this.handleNewRequest.bind(this)} />:""}
 
-        <hr />
+        <hr /> */}
 
-        <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleDispatchButton()}> <i class="fas fa-notes-medical"></i> View Dispatch Controller <i class="fas fa-notes-medical"></i></button>{' '}
+        {/* <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleDispatchButton()}> <i class="fas fa-notes-medical"></i> View Dispatch Controller <i class="fas fa-notes-medical"></i></button>{' '}
         {this.state.toggleDispatch?
             <DispatchView requests={this.state.requestList}
             setCurrentResponderAssignment={this.setCurrentResponderAssignment.bind(this)}
@@ -257,12 +292,12 @@ export default class App extends Component {
             toggleAddResponderButton={this.toggleAddResponderButton.bind(this)}
             toggleAddResponder={this.state.toggleAddResponder}
             onChange={(choice) => this.setCurrentSelection(choice)}
-            />:""}
+            />:""} */}
 
 
         
 
-        <hr />
+        {/* <hr />
         <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleResponderButton()}><i class="fas fa-helicopter fa-flip-horizontal"></i> Responder Controller <i class="fas fa-helicopter"></i></button>{' '}
         {
           this.state.toggleResponder ?
@@ -279,10 +314,11 @@ export default class App extends Component {
 
         <hr />
 
-        <hr />
+        <hr /> */}
 
         <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
       </div>
+         
     );
   }
 
