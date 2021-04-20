@@ -7,7 +7,8 @@ function Navigation(props) {
       <nav class="navbar navbar-expand navbar-dark bg-dark">
         <div class="container">
           <Link class="navbar-brand" to="/home">
-            REDLINE MEDEVAC
+            {/* <img src="https://media.gq-magazine.co.uk/photos/5d1398faeef921e6e09ff155/16:9/w_1920,c_limit/airbus-helicopters-4-gq-3jun15-pr_b.jpg"/> */}
+            {<img/>}
           </Link>
 
           <div>

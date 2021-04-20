@@ -1,5 +1,6 @@
 import './App.css';
 import NineLineCreator from './NineLineCreator';
+import Home from './routeComponents/Home'
 import Responder from "./Responder";
 import { Component } from 'react';
 import ResponderCreator from "./ResponderCreator";
@@ -17,18 +18,18 @@ import Footer from "./routeComponents/Footer";
 //const baseURL = "http://localhost:9090";
 //with heroku
 const baseURL = "https://frozen-retreat-75749.herokuapp.com";
-var sectionStyle = {
-  backgroundImage: `url(https://1.bp.blogspot.com/-McdZweoTlAQ/WxQdvQAIy_I/AAAAAAAA9Tg/-jJjF50Ig3Eug4i8fpqrj38oISudKDzlwCLcBGAs/s1600/medical-evacuation-medevac-documentary-mp4.jpg)` , 
-  backgroundRepeat: 'no-repeat' , //your welcome #w3schools ftw
-  backgroundSize: '100%' ,
-  backgroundPosition: "center top",
-  height: "400px" ,
-  width: '95%' ,
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  align: "center", 
+// var sectionStyle = {
+//   backgroundImage: `url(https://1.bp.blogspot.com/-McdZweoTlAQ/WxQdvQAIy_I/AAAAAAAA9Tg/-jJjF50Ig3Eug4i8fpqrj38oISudKDzlwCLcBGAs/s1600/medical-evacuation-medevac-documentary-mp4.jpg)` , 
+//   backgroundRepeat: 'no-repeat' , //your welcome #w3schools ftw
+//   backgroundSize: '100%' ,
+//   backgroundPosition: "center top",
+//   height: "400px" ,
+//   width: '95%' ,
+//   marginLeft: 'auto',
+//   marginRight: 'auto',
+//   align: "center", 
   
-}
+// }
 //sectionStyle.background-size = 100%
 
 export default class App extends Component {
@@ -200,6 +201,7 @@ export default class App extends Component {
         <Router>
           <Navigation />
           <Switch>
+            <Route path="/home" exact component={() => <Home/>}></Route>
             <Route path="/" exact component={() => 
             <NineLineCreator
             handleNewRequest={this.handleNewRequest.bind(this)}
@@ -229,7 +231,7 @@ export default class App extends Component {
         </Router>
       
       </div>
-        <Jumbotron fluid>
+        {/* <Jumbotron fluid>
         <div class="Container"> 
             <div class="row">
               <div class="col-md-8 col-xs-8">
@@ -238,7 +240,7 @@ export default class App extends Component {
               
 
 
-              </div>
+              {/* </div>
             </div>
 
           </div>
@@ -262,7 +264,7 @@ export default class App extends Component {
             </p>
           <div style={sectionStyle}></div>
           </Container>
-        </Jumbotron>
+        </Jumbotron> */} 
 
         {/* <Navigator /> */}
         <hr />
