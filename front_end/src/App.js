@@ -247,11 +247,10 @@ export default class App extends Component {
             <div> 
             
             <h1>
-              {/* <img src={SWFlogo} align="left" style={{}}/> */}
-              <strong className="title-main">
+            <strong className="title-main"> <img className= "AFC-Logo" src="https://1000logos.net/wp-content/uploads/2017/06/U.S.-Army-Logo.png" align="left"/>
                 REDLINE MEDEVAC
               </strong>
-              <img src="." align="right"/>
+              <img  className= "AFC-Logo"src='https://coders.army/assets/img/tech/AFC.png?h=c914384b26a11b63d203ccd8247ac508' align="right"/>
             </h1>
 
             </div>
@@ -313,7 +312,7 @@ export default class App extends Component {
 
         <hr /> */}
 
-        <footer class= "white-text">AFC Software Factory Capstone APR 2021</footer>
+        <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
       </div>
          
     );

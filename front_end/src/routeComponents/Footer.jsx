@@ -6,7 +6,7 @@ function Footer() {
       <footer class="py-5 bg-dark fixed-bottom">
         <div class="container">
           <p class="m-0 text-center text-white">
-            AFC Software Factory Capstone April 2021
+            AFC Software Factory &copy; Capstone April 2021
           </p>
         </div>
       </footer>
