@@ -212,6 +212,10 @@ export default class App extends Component {
             <div> 
             
             <h1>
+<<<<<<< Updated upstream
+=======
+               
+>>>>>>> Stashed changes
             <strong className="title-main"> <img className= "AFC-Logo" src="https://1000logos.net/wp-content/uploads/2017/06/U.S.-Army-Logo.png" align="left"/>
                 RENE MEDEVAC
               </strong>
