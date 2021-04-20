@@ -22,7 +22,7 @@ const Request = (props) => {
         <tr key={"" + props.requestObject.id + props.requestObject.responder + props.requestObject.completed}>
             {/* ternary to hide radio when on a responder */}
             {!props.requestObject.responder ? (<td>
-                <input type="radio" name="selectMission" onChange={() => { props.setCurrentMissionAssignment(props.requestObject) }}></input>
+                <input type="radio" name="selectMission" key={props.index} onChange={() => { props.setCurrentMissionAssignment(props.requestObject) }}></input>
             </td>) : ""}
 
             <td> {props.requestObject.location} </td>
