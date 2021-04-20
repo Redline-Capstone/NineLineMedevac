@@ -72,10 +72,22 @@ class NineLineCreator extends Component {
         console.log(nbc);
     }
 notify =() =>{
-    toast('Your Nine Line has been submitted!')
+    toast.success('Your Nine Line has been submitted!',{
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000
+    })
 }
 notifyError =() => {
-    toast('submit fist five lines')
+    toast.warn('submit first five lines',{
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+       
+    })
+ toast.warn('submit first five lines',{
+            position: toast.POSITION.BOTTOM_CENTER,
+            autoClose: 3000,
+            
+    })
 }
 
 
@@ -218,7 +230,7 @@ notifyError =() => {
                             </tr>
                         </tbody>
                     </table>
-                    <button onClick={() => {
+                    <button className= "btn-light" onClick={() => {
                         var pType = ""
                         if (this.state.litterNumber > 0){ pType += this.state.litterNumber + " A - Litter "}
                         if (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0){ pType += ", "}
