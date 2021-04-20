@@ -10,30 +10,28 @@ const DispatchView = (props) => {
 
 
     return (
-        <div>
-            _____________________________________
+        <div class="bg-light">
             <br />
-            Dispatch Table
+            <h1>Dispatcher View Table</h1>
             <br />
-        
-            <table class="dispatch-table">
-            
-                <tr class="dispatch-table">
-                
-                    <th class="dispatch-table">Select</th>
-                    <th class="dispatch-table">Location</th>
-                    <th class="dispatch-table">Callsign</th>
-                    <th class="dispatch-table">Priority</th>
-                    <th class="dispatch-table">Special Equipment</th>
-                    <th class="dispatch-table">Patient Type</th>
-                    <th class="dispatch-table">Security</th>
-                    <th class="dispatch-table">hlzMarking</th>
-                    <th class="dispatch-table">Nationality</th>
-                    <th class="dispatch-table">NBC</th>
-                   
-                </tr>
-               
-        
+            <table class="dispatch-table bg-white">
+                <thead>
+                    <tr class="dispatch-table">
+                    
+                        <th class="dispatch-table" scope="col">Select</th>
+                        <th class="dispatch-table" scope="col">Location</th>
+                        <th class="dispatch-table" scope="col">Callsign</th>
+                        <th class="dispatch-table" scope="col">Priority</th>
+                        <th class="dispatch-table" scope="col">Special Equipment</th>
+                        <th class="dispatch-table" scope="col">Patient Type</th>
+                        <th class="dispatch-table" scope="col">Security</th>
+                        <th class="dispatch-table" scope="col">hlzMarking</th>
+                        <th class="dispatch-table" scope="col">Nationality</th>
+                        <th class="dispatch-table" scope="col">NBC</th>
+                    
+                    </tr>
+                </thead>
+                <tbody>
                 
                 {props.requests.map(
                     (request, index) => {
@@ -50,6 +48,7 @@ const DispatchView = (props) => {
                         }
                     }
                 )}
+                </tbody>
             </table>
             <br />
             <h5>RESPONDERS</h5>
