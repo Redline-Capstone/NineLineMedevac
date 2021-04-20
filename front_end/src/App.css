@@ -106,7 +106,7 @@ color: black;
   border: 3px solid rgb(73, 69, 69);
   color:white;
   font-weight: bold;
-  background-color: red;
+  background-color: green;
   border-radius: 20px;
 }
 .SWF-Logo{
@@ -118,6 +118,11 @@ color: black;
   .AFC-Logo{
     width: auto;
       height: 130px;
+    }
+
+    .tableMod {
+      border: 10px double black;
+      border-radius: 40px;  
     }
 
 
