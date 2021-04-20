@@ -10,10 +10,10 @@
 }
 
 .table-required{
-  background-color: #4da167;
+  background-color:#dcdcdc;
 }
 .table-not-required{
-  background-color: #4e6e5d;
+  background-color: whitesmoke;
 }
 
 .form-control:valid {
