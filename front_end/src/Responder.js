@@ -1,11 +1,11 @@
 import Request from './Request';
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Select } from 'react-dropdown-select';
 
 const Responder = (props) => {
     return (<div key={"responderdiv" + props.current}> 
-    
+    <Select options={ props.responderList } onChange={(choice) => props.setCurrentSelection(choice) }/>
         <h5>  Responder Table</h5>  
         <table class="responder-table">
             <tr class="responder-table">
@@ -21,7 +21,7 @@ const Responder = (props) => {
                     <th class="responder-table">NBC</th>
                     <th class="responder-table">Complete</th>
             </tr>
-
+        
             {props.requests.map(
                 (request, i) => {
                     if (request.responder === props.current && !request.completed) {

@@ -225,7 +225,10 @@ export default class App extends Component {
             completeClick={this.completeButton.bind(this)}
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
+            responderList = { this.state.responderList } 
+            setCurrentSelection = {this.setCurrentSelection.bind(this)}
             />} />
+            
           </Switch>
           {/* <Footer /> */}
         </Router>
@@ -295,20 +298,20 @@ export default class App extends Component {
 
         
 
-        <hr />
+        {/* <hr />
         <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleResponderButton()}><i class="fas fa-helicopter fa-flip-horizontal"></i> Responder Controller <i class="fas fa-helicopter"></i></button>{' '}
         {
-          this.state.toggleResponder ?
-          <Select options={ this.state.responderList } onChange={(choice) => this.setCurrentSelection(choice) }/>
-          :
-          ""
-        }
-        { this.state.toggleResponder ? <Responder
+          this.state.toggleResponder ? */}
+          
+          {/* :
+          "" */}
+        {/* } */}
+        {/* { this.state.toggleResponder ? <Responder
             requests={this.state.requestList}
             completeClick={this.completeButton.bind(this)}
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
-          /> : ""}
+          /> : ""} */}
 
         <hr />
 
