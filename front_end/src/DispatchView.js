@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Request from './Request';
 import ResponderCreator from './ResponderCreator'
 import './App.css';
+import './index.css';
 import { Select } from 'react-dropdown-select'
 import { Jumbotron, Table } from 'react-bootstrap'
 
@@ -16,9 +17,9 @@ const DispatchView = (props) => {
             <h1>Dispatcher View Table</h1>
             <br />
         <div class="container">
-            <table class="table table-striped table-hover tableMod table-bordered table-sm">
+            <table class="table table-bordered tableMod table-hover table-color w-50 p-4" >
                 <thead class='thead-dark'>
-                    <tr class='centered'>
+                    <tr>
                         <th>Select</th>
                         <th>Location</th>
                         <th>Callsign</th>
@@ -33,7 +34,7 @@ const DispatchView = (props) => {
                     
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class='table-not-required'>
                 
                 {props.requests.map(
                     (request, index) => {
