@@ -12,8 +12,13 @@ Team Members:   Joseph Gerstenberger
                 Sidney Hall
                 Joshua Schoonover
 
-npm install packages:
+npm install
                     react-router-dom
                     react-toastify
                     react-bootstrap
                     bootstrap
+                    geodesy
+                    react react-dom leaflet
+                    react-leaflet
+                    -D @types/leaflet
+                    

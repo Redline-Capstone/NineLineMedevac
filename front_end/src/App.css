@@ -2,6 +2,7 @@
   text-align: center;
   background-color: #cfcfcf;
   
+  min-height: max-content;
   
 }
 
@@ -69,9 +70,6 @@ color: black;
   margin-left: auto;
   border: 3px solid black;
   
- 
-
-  
 }
 
 .responder-table{
@@ -119,6 +117,22 @@ color: black;
     width: auto;
       height: 130px;
     }
+    /* for the divsion to hold the map and all items */
+    .map {
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    
+      width: 500px ;
+      height: 500px; 
+      
+      border-width: 2px;
+      border-style: solid;
+      border-color: black;
+    
+    }
 
     .tableMod {
       border: 10px solid black;
@@ -131,7 +145,6 @@ color: black;
     }
 
     
-
     .preload{
 position:fixed;
 top: 0;
@@ -142,11 +155,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 transition: opacity 0.5s ease;
-
-
-
-
-
     }
 
     .chopper{
@@ -177,9 +185,21 @@ transition: opacity 0.5s ease;
       height: 50px;
       width: auto;
     }
-  
+    #mapcontainer {
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      
+      height: 350px;
+      width: 350px;
+    
+    }
 
-
-
-
+    
+    .flex-left {
+float:left;
+    }
+    .flex-right{
+float:right;
+    }
 

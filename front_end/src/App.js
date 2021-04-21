@@ -204,7 +204,7 @@ export default class App extends Component {
 
       <div className="App"  >
         <title>9 Line</title>
-        <div>
+        <div style={{minHeight: 'max-content'}}>
         <Router>
           <Navigation />
           <Switch>
