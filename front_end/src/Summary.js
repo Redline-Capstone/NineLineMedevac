@@ -30,7 +30,9 @@ export default class Summary extends Component {
         return (
             <div class="justify-content-center">
                 <h1>SUMMARY</h1>
-                <Select options={this.props.responderList.concat({ label: "All", value: "All" })} onChange={(choice) => { this.updateCurrentSummary(choice) }}></Select>
+
+                <Select className= 'dropDown' options={this.props.responderList.concat({label:"All", value:"All"})} onChange={(choice) => { this.updateCurrentSummary(choice) }}></Select>
+
                 <div class="d-flex justify-content-center">
                     <div class="flex-left">
                         <table class="table table-bordered table-hover table-color w-100 p-4">
