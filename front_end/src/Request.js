@@ -35,7 +35,7 @@ const Request = (props) => {
             <td> {props.requestObject.hlzMarking} </td>
             <td> {props.requestObject.nationality} </td>
             <td> {props.requestObject.nbc} </td>
-            <td> {props.requestObject.responder} </td>
+            
 
             {/* ternary to hide button when on dispatch */}
             {props.requestObject.responder ? (<td><button onClick={() => props.completeClick(props.requestObject.id)}>complete</button></td>) : ""}
