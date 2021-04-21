@@ -59,6 +59,7 @@ export default class App extends Component {
       toggleDispatch: false,
       toggleResponder: false,
       toggleAddResponder: false,
+      toggleSummary: false,
     }
   }
 
@@ -190,6 +191,9 @@ export default class App extends Component {
   toggleAddResponderButton(){
     this.setState({toggleAddResponder:!this.state.toggleAddResponder})
   }
+  toggleSummaryButton(){
+    this.setState({toggleSummary:!this.state.toggleSummary})
+  }
 
 
   render() {
@@ -217,13 +221,15 @@ export default class App extends Component {
              addResponder={this.addResponder.bind(this)}
              toggleAddResponderButton={this.toggleAddResponderButton.bind(this)}
              toggleAddResponder={this.state.toggleAddResponder}
+             toggleSummary = {this.state.toggleSummary}
+             toggleSummaryButton = {this.toggleSummaryButton.bind(this)}
              onChange={(choice) => this.setCurrentSelection(choice)}                                             
             />} />
             <Route path="/Responder" exact component={() => 
             <Responder
             requests={this.state.requestList}
             completeClick={this.completeButton.bind(this)}
-            current={this.state.currentSelection}
+            current={"DustOff 1"} //for testing
             onChange={(choice) => this.setCurrentSelection(choice)}
             />} />
           </Switch>

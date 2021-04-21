@@ -74,8 +74,8 @@ class NineLineCreator extends Component {
         this.setState({ nbc: e.target.value });
         console.log(nbc);
     }
-    mapPosition(loc){
-        this.setState({location:loc})
+    mapPosition(loc) {
+        this.setState({ location: loc })
     }
     CompleteNineline = () => {
         toast.success('Your Nine Line has been submitted!', {
@@ -122,9 +122,10 @@ class NineLineCreator extends Component {
             <div class="title-main">
                 <h1><strong>Nine Line Request</strong></h1>
 
-                <div class={this.state.showMap?"d-flex justify-content-center":"flex-left"} >
+                <div class="d-flex justify-content-center" >
                     <fieldset onChange={this.onChangeValue}>
-                        <table class="table table-bordered table-hover table-color w-50 p-4">
+                        <div class={this.state.showMap ? "" : "flex-left"} >
+                        <table class="table table-bordered table-hover table-color w-50 p-4 " >
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Line</th>
@@ -259,8 +260,7 @@ class NineLineCreator extends Component {
                                 </tr>
                             </tbody>
                         </table>
-                        <button className="btn-light" onClick={() => {
-
+                        <button className="btn-light"  onClick={() => {
                             (this.state.location &&
                                 this.state.callSign &&
                                 this.state.patientUrgency &&
@@ -271,10 +271,11 @@ class NineLineCreator extends Component {
                         }
                         }
                         >Submit</button>
+                        </div>
+                        <div hidden={this.state.showMap} class="flex-right white-text">
+                            <BaseMap setLocation={this.mapPosition.bind(this)} summary={false} />
+                        </div>
                     </fieldset>
-                </div>
-                <div hidden={this.state.showMap} class="flex-right">
-                    <BaseMap setLocation = {this.mapPosition.bind(this) }/>
                 </div>
             </div >
         );

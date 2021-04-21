@@ -149,9 +149,9 @@ color: black;
       border-radius: 40px;  
     }
     
-    .flex-left {
-float:left;
-    }
-    .flex-right{
-float:right;
-    }
+.flex-left {
+  float:left;
+}
+.flex-right{
+  float:right;
+}
