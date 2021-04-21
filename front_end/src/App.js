@@ -8,10 +8,11 @@ import DispatchView from "./DispatchView";
 import { Dropdown,Container,Jumbotron } from 'react-bootstrap';
 import { Select } from 'react-dropdown-select';
 import Navigator from './Navigator';
-import SWFlogo from "./ThemedStyles/SF_logo_grayscale_dark_bg.png"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import SWFlogo from './ThemedStyles/SF_logo_grayscale_dark_bg.png'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navigation from "./routeComponents/Navigation";
-import Footer from "./routeComponents/Footer";
+import Footer from './routeComponents/Footer';
+
 
 
 //with local repo
@@ -30,7 +31,13 @@ const baseURL = "https://frozen-retreat-75749.herokuapp.com";
 //   align: "center", 
   
 // }
-//sectionStyle.background-size = 100%
+// sectionStyle.background-size = 100%
+
+ 
+
+
+  
+
 
 export default class App extends Component {
   constructor(props) {
@@ -190,7 +197,7 @@ export default class App extends Component {
   toggleAddResponderButton(){
     this.setState({toggleAddResponder:!this.state.toggleAddResponder})
   }
-
+  
 
   render() {
     return (
@@ -362,3 +369,4 @@ Request extends NineLine:
 
 
 */
+ 
