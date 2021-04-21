@@ -216,7 +216,7 @@ class NineLineCreator extends Component {
                                 <tr class="table-not-required">
                                     <th scope="row">7</th>
                                     <td>
-                                        hlzMarking
+                                        Marking
                                 </td>
                                     <td>
                                         <select value={this.state.hlzMarking} onChange={this.handleMarking}>

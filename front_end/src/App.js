@@ -311,7 +311,7 @@ export default class App extends Component {
         </Jumbotron> */} 
 
         {/* <Navigator /> */}
-        <hr />
+
         <link rel="stylesheet" href="./styles/styles.scss"></link>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
@@ -353,10 +353,6 @@ export default class App extends Component {
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
           /> : ""} */}
-
-        <hr />
-
-        <hr />
 
         <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
       </div>
