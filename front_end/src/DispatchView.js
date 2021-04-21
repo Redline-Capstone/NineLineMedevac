@@ -61,7 +61,7 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
             </table>
             <br />
             <h5>RESPONDERS</h5>
-            <Select options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
+            <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
             changeResponderValue(choice[0].value)  
             console.log(choice, "inside select")  
             props.setCurrentResponderAssignment(choice)}} />
