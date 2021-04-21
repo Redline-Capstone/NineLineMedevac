@@ -21,7 +21,9 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
             <h1>Dispatcher View Table</h1>
             <br />
         <div class="container">
+
             <table class="table table-bordered table-hover table-color w-100 p-4" align= 'center' >
+
                 <thead class='thead-dark'>
                     <tr>
                         <th>Select</th>

@@ -15,6 +15,7 @@ const Responder = (props) => {
 
 
             <div class="container">
+
             <table class="table table-bordered table-hover table-color w-100 p-4"align= 'center' >
                 <thead class='thead-dark'>
                     <tr>
