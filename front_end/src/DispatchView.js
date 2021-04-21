@@ -33,7 +33,7 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
                         <th>Special Equipment</th>
                         <th>Patient Type</th>
                         <th>Security</th>
-                        <th>hlzMarking</th>
+                        <th>Marking</th>
                         <th>Nationality</th>
                         <th>NBC</th>
                         

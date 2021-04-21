@@ -27,7 +27,7 @@ const Responder = (props) => {
                     <th>Special Equipment</th>
                     <th>Patient Type</th>
                     <th>Security</th>
-                    <th>hlzMarking</th>
+                    <th>Marking</th>
                     <th>Nationality</th>
                     <th>NBC</th>
                     <th>Complete</th>
