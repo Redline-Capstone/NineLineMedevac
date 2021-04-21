@@ -70,6 +70,7 @@ export default class App extends Component {
       toggleDispatch: false,
       toggleResponder: false,
       toggleAddResponder: false,
+      toggleSummary: false,
     }
   }
 
@@ -217,6 +218,11 @@ export default class App extends Component {
   toggleAddResponderButton(){
     this.setState({toggleAddResponder:!this.state.toggleAddResponder})
   }
+
+  toggleSummaryButton(){
+    this.setState({toggleSummary:!this.state.toggleSummary})
+  }
+
   addedResponderAlert = () => {
     toast.success('Responder has been added!', {
         position: toast.POSITION.TOP_CENTER,
@@ -250,6 +256,8 @@ export default class App extends Component {
              addResponder={this.addResponder.bind(this)}
              toggleAddResponderButton={this.toggleAddResponderButton.bind(this)}
              toggleAddResponder={this.state.toggleAddResponder}
+             toggleSummary = {this.state.toggleSummary}
+             toggleSummaryButton = {this.toggleSummaryButton.bind(this)}
              onChange={(choice) => this.setCurrentSelection(choice)}                                             
             />} />
             <Route path="/Responder" exact component={() => 
@@ -303,7 +311,7 @@ export default class App extends Component {
         </Jumbotron> */} 
 
         {/* <Navigator /> */}
-        <hr />
+
         <link rel="stylesheet" href="./styles/styles.scss"></link>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
@@ -345,10 +353,6 @@ export default class App extends Component {
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
           /> : ""} */}
-
-        <hr />
-
-        <hr />
 
         <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
       </div>

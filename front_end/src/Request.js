@@ -21,9 +21,9 @@ const Request = (props) => {
     return (
         <tr key={"" + props.requestObject.id + props.requestObject.responder + props.requestObject.completed}>
             {/* ternary to hide radio when on a responder */}
-            {!props.requestObject.responder ? (<td>
+            {!props.requestObject.responder && !props.requestObject.completed ? (<td>
                 {/* { (currentObjectId == currentObject.id) ? "checked" : "" } possible fix for the radio buttons  */}
-                <input type="radio" name="selectMission" checked={ props.currentMissionAssignment === props.requestObject ? "checked" : "" } onChange={() => { props.setCurrentMissionAssignment(props.requestObject) }}/>
+                <input type="radio" name="selectMission" checked={props.currentMissionAssignment === props.requestObject ? "checked" : ""} onChange={() => { props.setCurrentMissionAssignment(props.requestObject) }} />
             </td>) : ""}
 
             <td> {props.requestObject.location} </td>
@@ -35,10 +35,12 @@ const Request = (props) => {
             <td> {props.requestObject.hlzMarking} </td>
             <td> {props.requestObject.nationality} </td>
             <td> {props.requestObject.nbc} </td>
-            
+
+            {props.requestObject.responder && props.requestObject.completed ? <td> {props.requestObject.responder} </td> : ""}
+
 
             {/* ternary to hide button when on dispatch */}
-            {props.requestObject.responder ? (<td><button onClick={() => props.completeClick(props.requestObject.id)}>complete</button></td>) : ""}
+            {props.requestObject.responder && !props.requestObject.completed ? (<td><button onClick={() => props.completeClick(props.requestObject.id)}>complete</button></td>) : ""}
         </tr>
     )
 
