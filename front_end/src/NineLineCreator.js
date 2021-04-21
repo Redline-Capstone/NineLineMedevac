@@ -5,6 +5,7 @@ import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import './index.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BaseMap from "./BaseMap"
 
 toast.configure()
 class NineLineCreator extends Component {
@@ -20,6 +21,8 @@ class NineLineCreator extends Component {
             hlzMarking: '',
             nationality: '',
             nbc: '',
+            showMap: true,
+
         }
         this.onChangeValue = this.onChangeValue.bind(this);
         this.handleUrgency = this.handleUrgency.bind(this);
@@ -71,6 +74,9 @@ class NineLineCreator extends Component {
         this.setState({ nbc: e.target.value });
         console.log(nbc);
     }
+    mapPosition(loc){
+        this.setState({location:loc})
+    }
     CompleteNineline = () => {
         toast.success('Your Nine Line has been submitted!', {
             position: toast.POSITION.TOP_CENTER,
@@ -115,7 +121,7 @@ class NineLineCreator extends Component {
         return (
             <div class="title-main">
                 <h1><strong>Nine Line Request</strong></h1>
-                <div class="d-flex justify-content-center" >
+                <div class={this.state.showMap?"d-flex justify-content-center":"flex-left"} >
                     <fieldset onChange={this.onChangeValue}>
                         <table class="table table-bordered table-hover table-color w-50 p-4">
                             <thead class="thead-dark">
@@ -132,7 +138,9 @@ class NineLineCreator extends Component {
                                         Location
                                 </td>
                                     <td>
-                                        <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location"></input>
+                                        <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location">
+                                        </input><button
+                                            onClick={() => this.setState({ showMap: !this.state.showMap })}>map</button>
                                     </td>
                                 </tr>
                                 <tr class="table-required">
@@ -263,6 +271,9 @@ class NineLineCreator extends Component {
                         }
                         >Submit</button>
                     </fieldset>
+                </div>
+                <div hidden={this.state.showMap} class="flex-right">
+                    <BaseMap setLocation = {this.mapPosition.bind(this) }/>
                 </div>
             </div >
         );
