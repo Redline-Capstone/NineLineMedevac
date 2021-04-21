@@ -104,7 +104,7 @@ color: black;
   border: 3px solid rgb(73, 69, 69);
   color:white;
   font-weight: bold;
-  background-color: red;
+  background-color: green;
   border-radius: 20px;
 }
 .SWF-Logo{
@@ -117,7 +117,6 @@ color: black;
     width: auto;
       height: 130px;
     }
-
     /* for the divsion to hold the map and all items */
     .map {
       align-content: center;
@@ -134,7 +133,7 @@ color: black;
       border-color: black;
     
     }
-    /* the map frame itself */
+
     #mapcontainer {
       align-content: center;
       align-items: center;
@@ -144,10 +143,14 @@ color: black;
       width: 350px;
     
     }
+
+.tableMod {
+      border: 10px double black;
+      border-radius: 40px;  
+    }
     
     .flex-left {
 float:left;
-
     }
     .flex-right{
 float:right;
