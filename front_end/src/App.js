@@ -49,13 +49,13 @@ export default class App extends Component {
 
     this.state = {
       requestList: [
-        { id: 1, location: "RC East", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 2, location: "RC West", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 3, location: "MSAB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 4, location: "Al Asad AB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 1" },
-        { id: 5, location: "Mission 7", callSign: "SmokeHound", patientUrgency: "Urgent Surgical",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
-        { id: 6, location: "Mission Zero", callSign: "SaveMe", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 2" },
-        { id: 7, location: "MC", callSign: "done", patientUrgency: "none", responder: "DustOff 2", completed: true },
+        // { id: 1, location: "RC East", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 2, location: "RC West", callSign: "SomeDude", patientUrgency: "Urgent", specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 3, location: "MSAB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 4, location: "Al Asad AB", callSign: "SomeDude", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 1" },
+        // { id: 5, location: "Mission 7", callSign: "SmokeHound", patientUrgency: "Urgent Surgical",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "" },
+        // { id: 6, location: "Mission Zero", callSign: "SaveMe", patientUrgency: "Urgent",  specialEquipment: "Jungle Penetrator", patientType: "litter", security: "N-none", hlzMarking:"smoke",nationality: "uniformed", nbc:"N-none",responder: "DustOff 2" },
+        // { id: 7, location: "MC", callSign: "done", patientUrgency: "none", responder: "DustOff 2", completed: true },
       ],
       responderList: [
         { value: "DustOff 1", label: "DustOff 1" },
@@ -172,8 +172,7 @@ export default class App extends Component {
     
 
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
-    this.getRequests()
-    
+    .then(() => this.getRequests()) // gets rid of race condition
 
   }
 
@@ -191,11 +190,15 @@ export default class App extends Component {
   }
 
   setCurrentResponderAssignment(choice) {
+    console.log(choice, "hiya")
     this.setState({ currentResponderAssignment: choice[0].value })
   }
+    
 
   setCurrentMissionAssignment(choice) {
     this.setState({ currentMissionAssignment: choice })
+    // console.log(choice);
+    console.log(this.state.currentMissionAssignment)
   }
 
   toggleNineLineButton(){
@@ -255,9 +258,12 @@ export default class App extends Component {
             completeClick={this.completeButton.bind(this)}
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
+            responderList = { this.state.responderList } 
+            setCurrentSelection = {this.setCurrentSelection.bind(this)}
             />} />
+            
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </Router>
       
       </div>
@@ -328,21 +334,21 @@ export default class App extends Component {
         {/* <hr />
         <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleResponderButton()}><i class="fas fa-helicopter fa-flip-horizontal"></i> Responder Controller <i class="fas fa-helicopter"></i></button>{' '}
         {
-          this.state.toggleResponder ?
-          <Select options={ this.state.responderList } onChange={(choice) => this.setCurrentSelection(choice) }/>
-          :
-          ""
-        }
-        { this.state.toggleResponder ? <Responder
+          this.state.toggleResponder ? */}
+          
+          {/* :
+          "" */}
+        {/* } */}
+        {/* { this.state.toggleResponder ? <Responder
             requests={this.state.requestList}
             completeClick={this.completeButton.bind(this)}
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
-          /> : ""}
+          /> : ""} */}
 
         <hr />
 
-        <hr /> */}
+        <hr />
 
         <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
       </div>

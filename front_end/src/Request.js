@@ -22,7 +22,8 @@ const Request = (props) => {
         <tr key={"" + props.requestObject.id + props.requestObject.responder + props.requestObject.completed}>
             {/* ternary to hide radio when on a responder */}
             {!props.requestObject.responder ? (<td>
-                <input type="radio" name="radioButton" onChange={() => { props.setCurrentMissionAssignment(props.requestObject) }}></input>
+                {/* { (currentObjectId == currentObject.id) ? "checked" : "" } possible fix for the radio buttons  */}
+                <input type="radio" name="selectMission" checked={ props.currentMissionAssignment === props.requestObject ? "checked" : "" } onChange={() => { props.setCurrentMissionAssignment(props.requestObject) }}/>
             </td>) : ""}
 
             <td> {props.requestObject.location} </td>

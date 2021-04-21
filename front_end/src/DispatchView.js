@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Request from './Request';
 import ResponderCreator from './ResponderCreator'
 import './App.css';
+import './index.css';
 import { Select } from 'react-dropdown-select'
 import { Jumbotron, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify';
@@ -10,18 +11,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
 const DispatchView = (props) => {
+console.log(props.currentResponderAssignment, "hidie ho")
 
-
-   
-
-   
-
-
-
-   
-
-
-   
+const [responderValue,  changeResponderValue] = useState(props.currentResponderAssignment)
 
     return (
         <div>
@@ -29,9 +21,9 @@ const DispatchView = (props) => {
             <h1>Dispatcher View Table</h1>
             <br />
         <div class="container">
-            <table class="table table-striped table-hover tableMod table-bordered table-sm">
+            <table class="table table-bordered tableMod table-hover table-color w-50 p-4" >
                 <thead class='thead-dark'>
-                    <tr class='centered'>
+                    <tr>
                         <th>Select</th>
                         <th>Location</th>
                         <th>Callsign</th>
@@ -46,7 +38,7 @@ const DispatchView = (props) => {
                     
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class='table-not-required'>
                 
                 {props.requests.map(
                     (request, index) => {
@@ -67,7 +59,12 @@ const DispatchView = (props) => {
             </table>
             <br />
             <h5>RESPONDERS</h5>
-            <Select options={props.responderList} onChange={(choice) => props.setCurrentResponderAssignment(choice)} />
+            <Select options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
+            changeResponderValue(choice[0].value)  
+            console.log(choice, "inside select")  
+            props.setCurrentResponderAssignment(choice)}} />
+
+            
             <br/>
            
             <button className= 'btn-light' onClick={() =>  props.assignResponder(props.currentResponderAssignment)}
