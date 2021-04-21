@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 class ResponderCreator extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +14,8 @@ class ResponderCreator extends React.Component {
     handleCallSign(event) {
         this.setState({ callSignInput: event.target.value });
     }
+   
+
 
 
     //
@@ -38,11 +39,13 @@ class ResponderCreator extends React.Component {
                     onChange={this.handleCallSign}
                     placeholder="Call Sign"
                 />
-                <button onClick={() => this.props.addResponder(
+                <button className= 'btn-light' onClick={() => this.props.addResponder(
                     {
                         value: this.state.callSignInput,
                         label: this.state.callSignInput
-                    })}
+                        
+                    })
+                }
                 >
                     Add Responder
                 </button>

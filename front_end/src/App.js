@@ -12,6 +12,10 @@ import SWFlogo from './ThemedStyles/SF_logo_grayscale_dark_bg.png'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navigation from "./routeComponents/Navigation";
 import Footer from './routeComponents/Footer';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure()
 
 
 
@@ -134,6 +138,7 @@ export default class App extends Component {
     var tempResponderList = this.state.responderList
     tempResponderList.push(event)
     this.setState({ responderList: tempResponderList })
+    this.addedResponderAlert ()
   }
 
 
@@ -159,15 +164,26 @@ export default class App extends Component {
   }
 
   assignResponder(assignedResponder) {
+    this.assignedMissionAlert()
     //Placeholder for our patch
     //Patches responder : assignedResponder
     console.log(this.state.currentMissionAssignment)
     console.log(assignedResponder)
+    
 
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
 
   }
+
+
+   assignedMissionAlert = () => {
+    toast.success('Mission has been assigned!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000
+    })
+}
+
 
   setCurrentSelection(choice) {
     this.setState({ currentSelection: choice[0].value })
@@ -201,6 +217,12 @@ export default class App extends Component {
   toggleAddResponderButton(){
     this.setState({toggleAddResponder:!this.state.toggleAddResponder})
   }
+  addedResponderAlert = () => {
+    toast.success('Responder has been added!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000
+    })
+}
   
 
   render() {

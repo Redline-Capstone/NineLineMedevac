@@ -6,12 +6,15 @@ import './App.css';
 import './index.css';
 import { Select } from 'react-dropdown-select'
 import { Jumbotron, Table } from 'react-bootstrap'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-
+toast.configure()
 const DispatchView = (props) => {
 console.log(props.currentResponderAssignment, "hidie ho")
 
 const [responderValue,  changeResponderValue] = useState(props.currentResponderAssignment)
+
     return (
         <div>
             <br />
@@ -64,11 +67,17 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
             
             <br/>
            
-            <button onClick={() => { props.assignResponder(props.currentResponderAssignment) }}>Assign to Mission</button>
+            <button className= 'btn-light' onClick={() =>  props.assignResponder(props.currentResponderAssignment)}
+           
+            >Assign to Mission</button>
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
 ___________________________________<br />
-<button onClick={ ()=>props.toggleAddResponderButton()}>New Responder</button>   
+<button className= 'btn-light' onClick={ ()=>props.toggleAddResponderButton()
+   
+    
+}
+    >New Responder</button>   
             <br/>
             <div hidden={!props.toggleAddResponder}>
 <ResponderCreator 
