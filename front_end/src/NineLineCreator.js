@@ -120,11 +120,12 @@ class NineLineCreator extends Component {
     render() {
         return (
             <div class="title-main">
-                <h1><strong>Nine Line Request</strong></h1>
+                
+                <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 
                 <div class={this.state.showMap?"d-flex justify-content-center":"flex-left"} >
                     <fieldset onChange={this.onChangeValue}>
-                        <table class="table table-bordered table-hover table-color w-50 p-4">
+                        <table class="table table-bordered tableMod table-hover table-color w-50 p-4">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Line</th>
@@ -144,11 +145,12 @@ class NineLineCreator extends Component {
                                             onClick={() => this.setState({ showMap: !this.state.showMap })}>map</button>
                                     </td>
                                 </tr>
+
                                 <tr class="table-required">
                                     <th scope="row">2</th>
                                     <td>Call Sign</td>
                                     <td>
-                                        <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input><br />
+                                        <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input>
                                     </td>
                                 </tr>
                                 <tr class="table-required">
@@ -259,7 +261,7 @@ class NineLineCreator extends Component {
                                 </tr>
                             </tbody>
                         </table>
-                        <button className="btn-light" onClick={() => {
+                        <button className="btn-light" align= "center" onClick={() => {
 
                             (this.state.location &&
                                 this.state.callSign &&

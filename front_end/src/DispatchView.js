@@ -6,6 +6,7 @@ import './App.css';
 import { Select } from 'react-dropdown-select'
 import { Jumbotron, Table } from 'react-bootstrap'
 
+
 const DispatchView = (props) => {
 
 
@@ -15,7 +16,7 @@ const DispatchView = (props) => {
             <h1>Dispatcher View Table</h1>
             <br />
         <div class="container">
-            <table class="table table-striped table-hover table-bordered table-sm">
+            <table class="table table-striped table-hover tableMod table-bordered table-sm">
                 <thead class='thead-dark'>
                     <tr class='centered'>
                         <th>Select</th>
