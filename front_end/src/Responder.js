@@ -10,8 +10,9 @@ const Responder = (props) => {
         <div>
             <br />
             <h1>  Responder Table</h1>  
-        
+            <br></br>
             <Select className='dropDown' options={ props.responderList } values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
+            <br></br>
 
 
             <div class="container">
