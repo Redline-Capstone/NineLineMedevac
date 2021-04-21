@@ -86,36 +86,38 @@ const BaseMap = props => {
 
                 {/* here is where we can add list.map to create icons dynamically */}
                 {props.summary ? props.requests.map((request, index) => {
+                    if (props.currentSummary === 'All' || props.currentSummary === request.responder) {
+                        //how to regex: https://stackoverflow.com/questions/16617053/javascript-to-check-string-in-this-format
+                        var regex = /[0-9]{2}[A-Z]{1} [A-Z]{2} [0-9]{5} [0-9]{5}/;
+                        // console.log("regex comp", regex, request.location, regex.test(request.location))
+                        if (request.location.length && regex.test(request.location)) {
 
-                    //how to regex: https://stackoverflow.com/questions/16617053/javascript-to-check-string-in-this-format
-                    var regex = /[0-9]{2}[A-Z]{1} [A-Z]{2} [0-9]{5} [0-9]{5}/;
-                    // console.log("regex comp", regex, request.location, regex.test(request.location))
-                    if (request.location.length && regex.test(request.location)) {
-
-                        // const mgrsGrid = Mgrs.parse(request.location);
-                        // const utmCoord = mgrsGrid.toUtm();
-                        // const latLongP = utmCoord.toLatLon();
-                        // console.log(latLongP.toString('d', 2)); // '52.20°N, 000.12°E'
-                        // if(latLongP.lat&&latLongP.lng){
-                        //this creates a lat long object
-                        var coord = Mgrs.parse(request.location).toUtm().toLatLon()
-                        //this will check that it is a valid object?
-                        if (coord.lat && coord.lng) {
-                            return (<Marker position={[coord.lat, coord.lng]}>
-                                <Tooltip 
-                                    offset={[0, 0]}
-                                    opacity={1}
-                                    permanent>
-                                    {request.callSign}
-                                </Tooltip>
-                                <Popup>
-                                    {request.location}<br />
-                                    {request.Responder}
-                                </Popup>
-                            </Marker>)
+                            // const mgrsGrid = Mgrs.parse(request.location);
+                            // const utmCoord = mgrsGrid.toUtm();
+                            // const latLongP = utmCoord.toLatLon();
+                            // console.log(latLongP.toString('d', 2)); // '52.20°N, 000.12°E'
+                            // if(latLongP.lat&&latLongP.lng){
+                            //this creates a lat long object
+                            var coord = Mgrs.parse(request.location).toUtm().toLatLon()
+                            //this will check that it is a valid object?
+                            if (coord.lat && coord.lng) {
+                                return (<Marker position={[coord.lat, coord.lng]}>
+                                    <Tooltip
+                                        offset={[0, 0]}
+                                        opacity={1}
+                                        permanent>
+                                        {request.callSign}
+                                    </Tooltip>
+                                    <Popup>
+                                        {request.location}<br />
+                                        {request.Responder}
+                                    </Popup>
+                                </Marker>)
+                            }
                         }
                     }
-                }) : ""}
+                }
+                ) : ""}
 
             </MapContainer>
         ),
