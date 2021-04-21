@@ -234,12 +234,12 @@ class NineLineCreator extends Component {
                                     <td>
                                         <select value={this.state.nationality} onChange={this.handleNationality}>
                                             <option value='Select one'>Select One</option>,
-                                        <option value='A – US Military'>A – US Military</option>,
-                                        <option value='B – US Civilian'>B – US Civilian</option>,
-                                        <option value='C – Non-US Military'>C – Non-US Military</option>,
-                                        <option value='D – Non-US Civilian'>D – Non-US Civilian</option>,
-                                        <option value='E – EPW'>E – EPW</option>,
-                                    </select>
+                                            <option value='A – US Military'>A – US Military</option>,
+                                            <option value='B – US Civilian'>B – US Civilian</option>,
+                                            <option value='C – Non-US Military'>C – Non-US Military</option>,
+                                            <option value='D – Non-US Civilian'>D – Non-US Civilian</option>,
+                                            <option value='E – EPW'>E – EPW</option>,
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr class="table-not-required">
@@ -250,10 +250,10 @@ class NineLineCreator extends Component {
                                     <td>
                                         <select value={this.state.nbc} onChange={this.handleNBC}>
                                             <option value='Select one'>Select One</option>,
-                                        <option value='None'>None</option>,
-                                        <option value='N – Nuclear'>N – Nuclear</option>,
-                                        <option value='B – Biological'>B – Biological</option>,
-                                        <option value='C – Chemical'>C – Chemical</option>,
+                                            <option value='None'>None</option>,
+                                            <option value='N – Nuclear'>N – Nuclear</option>,
+                                            <option value='B – Biological'>B – Biological</option>,
+                                            <option value='C – Chemical'>C – Chemical</option>,
                                     </select>
                                     </td>
                                 </tr>

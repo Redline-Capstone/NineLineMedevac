@@ -10,24 +10,25 @@ const DispatchView = (props) => {
 
 
     return (
-        <div class="bg-light">
+        <div>
             <br />
             <h1>Dispatcher View Table</h1>
             <br />
-            <table class="dispatch-table bg-white">
-                <thead>
-                    <tr class="dispatch-table">
-                    
-                        <th class="dispatch-table" scope="col">Select</th>
-                        <th class="dispatch-table" scope="col">Location</th>
-                        <th class="dispatch-table" scope="col">Callsign</th>
-                        <th class="dispatch-table" scope="col">Priority</th>
-                        <th class="dispatch-table" scope="col">Special Equipment</th>
-                        <th class="dispatch-table" scope="col">Patient Type</th>
-                        <th class="dispatch-table" scope="col">Security</th>
-                        <th class="dispatch-table" scope="col">hlzMarking</th>
-                        <th class="dispatch-table" scope="col">Nationality</th>
-                        <th class="dispatch-table" scope="col">NBC</th>
+        <div class="container">
+            <table class="table table-striped table-hover table-bordered table-sm">
+                <thead class='thead-dark'>
+                    <tr class='centered'>
+                        <th>Select</th>
+                        <th>Location</th>
+                        <th>Callsign</th>
+                        <th>Priority</th>
+                        <th>Special Equipment</th>
+                        <th>Patient Type</th>
+                        <th>Security</th>
+                        <th>hlzMarking</th>
+                        <th>Nationality</th>
+                        <th>NBC</th>
+                        <th>Complete</th>
                     
                     </tr>
                 </thead>
@@ -38,16 +39,16 @@ const DispatchView = (props) => {
                         if (request.responder === "") {
                             return (
                                 <Request
-                                    key={index}
-                                    requestObject={request}
-                                    currentMissionAssignment={props.currentMissionAssignment}
-                                    setCurrentMissionAssignment={props.setCurrentMissionAssignment}
-                                    completeClick={props.completeClick}
+                                key={index}
+                                requestObject={request}
+                                currentMissionAssignment={props.currentMissionAssignment}
+                                setCurrentMissionAssignment={props.setCurrentMissionAssignment}
+                                completeClick={props.completeClick}
                                 />
-                            )
+                                )
+                            }
                         }
-                    }
-                )}
+                        )}
                 </tbody>
             </table>
             <br />
@@ -64,9 +65,10 @@ ___________________________________<br />
             <div hidden={!props.toggleAddResponder}>
 <ResponderCreator 
           addResponder={props.addResponder}
-
-        />
+          
+          />
         </div>
+</div>
 
         </div>);
 
