@@ -21,39 +21,40 @@ const DispatchView = (props) => {
             <br />
             <h1>Dispatcher View Table</h1>
             <br />
-            <div class="container">
-                <table class="table table-bordered tableMod table-hover table-color w-50 p-4" >
-                    <thead class='thead-dark'>
-                        <tr>
-                            <th>Select</th>
-                            <th>Location</th>
-                            <th>Callsign</th>
-                            <th>Priority</th>
-                            <th>Special Equipment</th>
-                            <th>Patient Type</th>
-                            <th>Security</th>
-                            <th>hlzMarking</th>
-                            <th>Nationality</th>
-                            <th>NBC</th>
+        <div class="container">
 
+            <table class="table table-bordered table-hover table-color w-100 p-4" align= 'center' >
 
-                        </tr>
-                    </thead>
-                    <tbody class='table-not-required'>
-
-                        {props.requests.map(
-                            (request, index) => {
-                                if (request.responder === "") {
-                                    return (
-                                        <Request
-                                            key={index}
-                                            requestObject={request}
-                                            currentMissionAssignment={props.currentMissionAssignment}
-                                            setCurrentMissionAssignment={props.setCurrentMissionAssignment}
-                                            completeClick={props.completeClick}
-                                        />
-                                    )
-                                }
+                <thead class='thead-dark'>
+                    <tr>
+                        <th>Select</th>
+                        <th>Location</th>
+                        <th>Callsign</th>
+                        <th>Priority</th>
+                        <th>Special Equipment</th>
+                        <th>Patient Type</th>
+                        <th>Security</th>
+                        <th>hlzMarking</th>
+                        <th>Nationality</th>
+                        <th>NBC</th>
+                        
+                    
+                    </tr>
+                </thead>
+                <tbody class='table-not-required'>
+                
+                {props.requests.map(
+                    (request, index) => {
+                        if (request.responder === "") {
+                            return (
+                                <Request
+                                key={index}
+                                requestObject={request}
+                                currentMissionAssignment={props.currentMissionAssignment}
+                                setCurrentMissionAssignment={props.setCurrentMissionAssignment}
+                                completeClick={props.completeClick}
+                                />
+                                )
                             }
                         )}
                     </tbody>

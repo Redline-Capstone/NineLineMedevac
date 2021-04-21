@@ -63,7 +63,7 @@ export default class App extends Component {
         // { value: "Dispatch", label: "Dispatch" }
       ],
       // viewSelector: this.state.responderList.concat({ value: "Dispatch", label: "Dispatch" }),
-      currentSelection: "Dispatch",
+      currentSelection: "",
       currentResponderAssignment: "",
       currentMissionAssignment: undefined,
       toggleNineLine: false,

@@ -101,7 +101,7 @@ color: black;
 }
 /* all front  */
 .btn-light {
-  border: 3px solid rgb(73, 69, 69);
+  border: 3px solid green;
   color:white;
   font-weight: bold;
   background-color: green;
@@ -135,7 +135,7 @@ color: black;
     }
 
       .tableMod {
-        border: 10px solid black;
+        border: 1px solid black;
         border-radius: 40px;  
       }
 
@@ -204,12 +204,21 @@ color: black;
           }
 
         .btn-light-2{
-          border: 3px solid black;
+         
       color:white;
       font-weight: bold;
       background-color: rgb(122, 124, 122);
       border-radius: 1px;
 
+
+
+        }
+
+        .dropDown {
+          background-color: whitesmoke;
+          max-width: 400px;
+          text-align: center;
+          
 
 
         }
