@@ -56,7 +56,7 @@ const DispatchView = (props) => {
                                 />
                                 )
                             }
-                        )}
+                        })}
                     </tbody>
                 </table>
                 <br />
