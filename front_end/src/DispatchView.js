@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Request from './Request';
 import ResponderCreator from './ResponderCreator'
@@ -8,8 +8,9 @@ import { Jumbotron, Table } from 'react-bootstrap'
 
 
 const DispatchView = (props) => {
+console.log(props.currentResponderAssignment, "hidie ho")
 
-
+const [responderValue,  changeResponderValue] = useState(props.currentResponderAssignment)
     return (
        
         <div class="bg-light">
@@ -54,7 +55,11 @@ const DispatchView = (props) => {
             </table>
             <br />
             <h5>RESPONDERS</h5>
-            <Select options={props.responderList} defaultValue={props.currentResponderAssignment} onSelect={(choice) => props.setCurrentResponderAssignment(choice)} />
+            <Select options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
+            changeResponderValue(choice[0].value)  
+            console.log(choice, "inside select")  
+            props.setCurrentResponderAssignment(choice)}} />
+
             
             <br/>
            

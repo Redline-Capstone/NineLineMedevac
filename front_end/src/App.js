@@ -165,7 +165,7 @@ export default class App extends Component {
     console.log(assignedResponder)
 
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
-    this.getRequests()
+    .then(() => this.getRequests()) // gets rid of race condition
 
   }
 
@@ -174,8 +174,10 @@ export default class App extends Component {
   }
 
   setCurrentResponderAssignment(choice) {
+    console.log(choice, "hiya")
     this.setState({ currentResponderAssignment: choice[0].value })
   }
+    
 
   setCurrentMissionAssignment(choice) {
     this.setState({ currentMissionAssignment: choice })
