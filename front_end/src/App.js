@@ -17,8 +17,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
 
-
-
 //with local repo
 //const baseURL = "http://localhost:9090";
 //with heroku
@@ -36,12 +34,6 @@ const baseURL = "https://frozen-retreat-75749.herokuapp.com";
   
 // }
 // sectionStyle.background-size = 100%
-
- 
-
-
-  
-
 
 export default class App extends Component {
   constructor(props) {
@@ -70,6 +62,7 @@ export default class App extends Component {
       toggleDispatch: false,
       toggleResponder: false,
       toggleAddResponder: false,
+      selectedResponderView: "Responder Table",
     }
   }
 
@@ -92,8 +85,6 @@ export default class App extends Component {
 
     this.goFetch(url, "GET", null, "requestList")
   }
-
-
 
   handleNewRequest(request) {
     //Sends POST Request to backend
@@ -118,7 +109,6 @@ export default class App extends Component {
 
   }
 
-
   async completeButton(id) {
     //update db
     await this.goFetch(baseURL+"/requests/" + id, "PATCH", { completed: true }, "")
@@ -140,7 +130,6 @@ export default class App extends Component {
     this.setState({ responderList: tempResponderList })
     this.addedResponderAlert ()
   }
-
 
   //goFetch toUse:
   //give URL and Method of 'GET','PATCH','PUT'
@@ -170,23 +159,21 @@ export default class App extends Component {
     console.log(this.state.currentMissionAssignment)
     console.log(assignedResponder)
     
-
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
 
   }
-
 
    assignedMissionAlert = () => {
     toast.success('Mission has been assigned!', {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 2000
     })
-}
-
+  }
 
   setCurrentSelection(choice) {
     this.setState({ currentSelection: choice[0].value })
+    this.setState({ selectedResponderView: choice[0].value })
   }
 
   setCurrentResponderAssignment(choice) {
@@ -223,7 +210,6 @@ export default class App extends Component {
         autoClose: 2000
     })
 }
-  
 
   render() {
     return (
@@ -260,6 +246,7 @@ export default class App extends Component {
             onChange={(choice) => this.setCurrentSelection(choice)}
             responderList = { this.state.responderList } 
             setCurrentSelection = {this.setCurrentSelection.bind(this)}
+            selectedResponderView =  {this.state.selectedResponderView}
             />} />
             
           </Switch>
