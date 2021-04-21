@@ -123,10 +123,10 @@ class NineLineCreator extends Component {
                 
                 <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 
-                <div class={this.state.showMap?"d-flex justify-content-center":"flex-left"} >
+                <div class="d-flex justify-content-center" >
                     <fieldset onChange={this.onChangeValue}>
+                        <div class={this.state.showMap ? "" : "flex-left"} >
                         <table class="table table-bordered table-hover table-color w-100 p-4"align= 'center'>
-
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Line</th>
@@ -216,7 +216,7 @@ class NineLineCreator extends Component {
                                 <tr class="table-not-required">
                                     <th scope="row">7</th>
                                     <td>
-                                        hlzMarking
+                                        Marking
                                 </td>
                                     <td>
                                         <select value={this.state.hlzMarking} onChange={this.handleMarking}>
@@ -262,8 +262,7 @@ class NineLineCreator extends Component {
                                 </tr>
                             </tbody>
                         </table>
-                        <button className="btn-light" align= "center" onClick={() => {
-
+                        <button className="btn-light"  onClick={() => {
                             (this.state.location &&
                                 this.state.callSign &&
                                 this.state.patientUrgency &&
@@ -274,10 +273,11 @@ class NineLineCreator extends Component {
                         }
                         }
                         >Submit</button>
+                        </div>
+                        <div hidden={this.state.showMap} class="flex-right white-text">
+                            <BaseMap setLocation={this.mapPosition.bind(this)} summary={false} />
+                        </div>
                     </fieldset>
-                </div>
-                <div hidden={this.state.showMap} class="flex-right">
-                    <BaseMap setLocation = {this.mapPosition.bind(this) }/>
                 </div>
             </div >
         );

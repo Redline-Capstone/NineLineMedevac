@@ -11,8 +11,8 @@ const Responder = (props) => {
             <br />
             <h1>  {props.selectedResponderView} { (props.selectedResponderView == "Responder Table") ? "" : " Missions"} </h1>  
         
-            <Select className='dropDown' options={ props.responderList } values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
-
+            <Select className='dropDown' options={ props.responderList }  values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
+           
 
             <div class="container">
 
@@ -27,7 +27,7 @@ const Responder = (props) => {
                     <th>Special Equipment</th>
                     <th>Patient Type</th>
                     <th>Security</th>
-                    <th>hlzMarking</th>
+                    <th>Marking</th>
                     <th>Nationality</th>
                     <th>NBC</th>
                     <th>Complete</th>

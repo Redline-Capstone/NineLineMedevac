@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Request from './Request';
 import ResponderCreator from './ResponderCreator'
@@ -8,12 +8,13 @@ import { Select } from 'react-dropdown-select'
 import { Jumbotron, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Summary from './Summary'
 
 toast.configure()
 const DispatchView = (props) => {
-console.log(props.currentResponderAssignment, "hidie ho")
+    console.log(props.currentResponderAssignment, "hidie ho")
 
-const [responderValue,  changeResponderValue] = useState(props.currentResponderAssignment)
+    const [responderValue, changeResponderValue] = useState(props.currentResponderAssignment)
 
     return (
         <div>
@@ -33,7 +34,7 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
                         <th>Special Equipment</th>
                         <th>Patient Type</th>
                         <th>Security</th>
-                        <th>hlzMarking</th>
+                        <th>Marking</th>
                         <th>Nationality</th>
                         <th>NBC</th>
                         
@@ -55,13 +56,12 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
                                 />
                                 )
                             }
-                        }
                         )}
                 </tbody>
             </table>
             <br />
             <h5>RESPONDERS</h5>
-            <Select options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
+            <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
             changeResponderValue(choice[0].value)  
             console.log(choice, "inside select")  
             props.setCurrentResponderAssignment(choice)}} />
@@ -74,20 +74,29 @@ const [responderValue,  changeResponderValue] = useState(props.currentResponderA
             >Assign to Mission</button>
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
+
 ___________________________________<br />
-<button className= 'btn-light' onClick={ ()=>props.toggleAddResponderButton()
-   
-    
-}
-    >New Responder</button>   
-            <br/>
-            <div hidden={!props.toggleAddResponder}>
-<ResponderCreator 
-          addResponder={props.addResponder}
-          
-          />
-        </div>
-</div>
+                <button className='btn-light' onClick={() => props.toggleAddResponderButton()
+
+
+                }
+                >New Responder</button>
+                <br />
+                <div hidden={!props.toggleAddResponder}>
+                    <ResponderCreator
+                        addResponder={props.addResponder}
+
+                    />
+                </div>
+                ___________________________________<br />
+                <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
+                <div hidden={!props.toggleSummary} >
+                    <Summary
+                        requests={props.requests}
+                        responderList={props.responderList}
+                        toggleSummary={props.toggleSummary}
+                    /></div>
+            </div>
 
         </div>);
 
