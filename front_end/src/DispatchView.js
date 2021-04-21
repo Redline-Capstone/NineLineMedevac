@@ -56,25 +56,25 @@ const DispatchView = (props) => {
                                 />
                                 )
                             }
-                        })}
-                    </tbody>
-                </table>
-                <br />
-                <h5>RESPONDERS</h5>
-                <Select options={props.responderList} values={[{ value: responderValue, label: responderValue }]} onChange={(choice) => {
-                    changeResponderValue(choice[0].value)
-                    console.log(choice, "inside select")
-                    props.setCurrentResponderAssignment(choice)
-                }} />
+                        )}
+                </tbody>
+            </table>
+            <br />
+            <h5>RESPONDERS</h5>
+            <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
+            changeResponderValue(choice[0].value)  
+            console.log(choice, "inside select")  
+            props.setCurrentResponderAssignment(choice)}} />
 
+            
+            <br/>
+           
+            <button className= 'btn-light' onClick={() =>  props.assignResponder(props.currentResponderAssignment)}
+           
+            >Assign to Mission</button>
+            {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
+            <br />
 
-                <br />
-
-                <button className='btn-light' onClick={() => props.assignResponder(props.currentResponderAssignment)}
-
-                >Assign to Mission</button>
-                {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
-                <br />
 ___________________________________<br />
                 <button className='btn-light' onClick={() => props.toggleAddResponderButton()
 
