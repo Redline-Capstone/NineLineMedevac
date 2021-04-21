@@ -13,7 +13,7 @@ const Responder = (props) => {
         
             <Select options={ props.responderList } values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
             <div class="container">
-            <table class="table table-bordered tableMod table-hover table-color w-50 p-4" >
+            <table class="table table-bordered table-hover table-color w-50 p-4" >
                 <thead class='thead-dark'>
                     <tr>
 
