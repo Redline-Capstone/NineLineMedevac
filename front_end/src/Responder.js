@@ -11,9 +11,12 @@ const Responder = (props) => {
             <br />
             <h1>  Responder Table</h1>  
         
-            <Select options={ props.responderList } values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
+            <Select className='dropDown' options={ props.responderList } values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
+
+
             <div class="container">
-            <table class="table table-bordered table-hover table-color w-50 p-4" >
+
+            <table class="table table-bordered table-hover table-color w-100 p-4"align= 'center' >
                 <thead class='thead-dark'>
                     <tr>
 
