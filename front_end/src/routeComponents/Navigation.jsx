@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import redlineChopper from './redlineChopper.png';
+import redlineChopper from './redline-logo.png';
 
 
 
