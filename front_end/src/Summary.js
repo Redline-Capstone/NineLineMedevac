@@ -33,23 +33,22 @@ export default class Summary extends Component {
                 <Select options={this.props.responderList.concat({ label: "All", value: "All" })} onChange={(choice) => { this.updateCurrentSummary(choice) }}></Select>
                 <div class="d-flex justify-content-center">
                     <div class="flex-left">
-                        <table class="table table-bordered table-hover table-color w-50 p-4">
+                        <table class="table table-bordered table-hover table-color w-100 p-4">
 
-                            <thead>
-                                <tr class="dispatch-table">
-                                    <th class="dispatch-table" scope="col">Location</th>
-                                    <th class="dispatch-table" scope="col">Callsign</th>
-                                    <th class="dispatch-table" scope="col">Priority</th>
-                                    <th class="dispatch-table" scope="col">Special Equipment</th>
-                                    <th class="dispatch-table" scope="col">Patient Type</th>
-                                    <th class="dispatch-table" scope="col">Security</th>
-                                    <th class="dispatch-table" scope="col">hlzMarking</th>
-                                    <th class="dispatch-table" scope="col">Nationality</th>
-                                    <th class="dispatch-table" scope="col">NBC</th>
-                                    <th class="dispatch-table" scope="col">Responder</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                            <thead class='thead-dark'>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Callsign</th>
+                                    <th>Priority</th>
+                                    <th>Special Equipment</th>
+                                    <th>Patient Type</th>
+                                    <th>Security</th>
+                                    <th>Marking</th>
+                                    <th>Nationality</th>
+                                    <th>NBC</th>
+                                    <th>Responder</th>
+                                </tr>                            </thead>
+                            <tbody class='table-not-required'>
 
                                 {temp.map(
                                     (request, index) => {
