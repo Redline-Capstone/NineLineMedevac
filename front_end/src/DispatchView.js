@@ -8,6 +8,7 @@ import { Select } from 'react-dropdown-select'
 import { Jumbotron, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Summary from './Summary'
 
 toast.configure()
 const DispatchView = (props) => {
@@ -87,12 +88,13 @@ ___________________________________<br />
                     />
                 </div>
                 ___________________________________<br />
-            <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
-            <div hidden={!props.toggleSummary} > 
-            <Summary 
-responderList={props.responderList}
-toggleSummary={props.toggleSummary}
-            /></div>
+                <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
+                <div hidden={!props.toggleSummary} >
+                    <Summary
+                        requests={props.requests}
+                        responderList={props.responderList}
+                        toggleSummary={props.toggleSummary}
+                    /></div>
             </div>
 
         </div>);
