@@ -8,20 +8,20 @@ import React from "react"
 //$ npm install react react-dom leaflet
 //$ npm install react-leaflet
 //$ npm install -D @types/leaflet
-import { MapContainer, TileLayer, Marker, Popup, Rectangle, useMap, useMapEvent } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, Rectangle, useMap, useMapEvent, Tooltip } from 'react-leaflet'
 //--For the MGRS--
 //library ref
 //https://www.movable-type.co.uk/scripts/geodesy-library.html#mgrs
 //$ npm install geodesy
-import { LatLon } from "geodesy/mgrs.js"
+import Mgrs, { LatLon } from "geodesy/mgrs.js"
 
 const center = [30.2760, -97.7480]
 const zoom = 13
 
 //-----This is for prettyfing the text around the map-----
-const DisplayPosition = ({ map, setLocation }) => {
+const DisplayPosition = ({ map, setLocation, summary }) => {
     const [position, setPosition] = React.useState(map.getCenter())
-    const [mgrs, setMGRS] = React.useState("")
+    const [mgrs, setMGRS] = React.useState(new LatLon(map.getCenter().lat.toFixed(3), map.getCenter().lng.toFixed(3)).toUtm().toMgrs().toString())
 
     const resetButton = React.useCallback(() => {
         map.setView(center, zoom)
@@ -37,7 +37,7 @@ const DisplayPosition = ({ map, setLocation }) => {
         // setMGRS(mgrsGRef.toString())
         //using position wouldn't update in real time
         setMGRS(new LatLon(map.getCenter().lat.toFixed(3), map.getCenter().lng.toFixed(3)).toUtm().toMgrs().toString())
-        
+
     }, [map])
 
     React.useEffect(() => {
@@ -48,14 +48,17 @@ const DisplayPosition = ({ map, setLocation }) => {
     }, [map, onMove])
 
     return (
-        <p>
+        <span>
             latitude: {position.lat.toFixed(4)}, longitude: {position.lng.toFixed(4)}{' '}
             <br />
             MGRS: {mgrs}
-            <br />
-            <button onClick={resetButton}>reset</button><button 
-            onClick={()=>setLocation(mgrs)}>set position</button>
-        </p>
+            {!summary ? <span>
+                <br />
+                <button
+                    onClick={() => setLocation(mgrs)}>set position</button><button
+                        onClick={resetButton}>reset</button>
+            </span> : ""}
+        </span>
     )
 }
 //----- This is for displaying the map -----
@@ -82,6 +85,37 @@ const BaseMap = props => {
                 />
 
                 {/* here is where we can add list.map to create icons dynamically */}
+                {props.summary ? props.requests.map((request, index) => {
+
+                    //how to regex: https://stackoverflow.com/questions/16617053/javascript-to-check-string-in-this-format
+                    var regex = /[0-9]{2}[A-Z]{1} [A-Z]{2} [0-9]{5} [0-9]{5}/;
+                    // console.log("regex comp", regex, request.location, regex.test(request.location))
+                    if (request.location.length && regex.test(request.location)) {
+
+                        // const mgrsGrid = Mgrs.parse(request.location);
+                        // const utmCoord = mgrsGrid.toUtm();
+                        // const latLongP = utmCoord.toLatLon();
+                        // console.log(latLongP.toString('d', 2)); // '52.20°N, 000.12°E'
+                        // if(latLongP.lat&&latLongP.lng){
+                        //this creates a lat long object
+                        var coord = Mgrs.parse(request.location).toUtm().toLatLon()
+                        //this will check that it is a valid object?
+                        if (coord.lat && coord.lng) {
+                            return (<Marker position={[coord.lat, coord.lng]}>
+                                <Tooltip 
+                                    offset={[0, 0]}
+                                    opacity={1}
+                                    permanent>
+                                    {request.callSign}
+                                </Tooltip>
+                                <Popup>
+                                    {request.location}<br />
+                                    {request.Responder}
+                                </Popup>
+                            </Marker>)
+                        }
+                    }
+                }) : ""}
 
             </MapContainer>
         ),
@@ -90,7 +124,10 @@ const BaseMap = props => {
 
     return (
         <div class="map">
-            {map ? <DisplayPosition map={map} setLocation={props.setLocation} /> : null}
+            {map ? <DisplayPosition
+                map={map}
+                setLocation={props.setLocation}
+                summary={props.summary} /> : null}
             {displayMap}
             {/* <button onClick={() => { console.log(map) }}>console log map</button> */}
         </div>

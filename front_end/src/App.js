@@ -70,6 +70,7 @@ export default class App extends Component {
       toggleDispatch: false,
       toggleResponder: false,
       toggleAddResponder: false,
+      toggleSummary: false,
     }
   }
 
@@ -217,6 +218,11 @@ export default class App extends Component {
   toggleAddResponderButton(){
     this.setState({toggleAddResponder:!this.state.toggleAddResponder})
   }
+
+  toggleSummaryButton(){
+    this.setState({toggleSummary:!this.state.toggleSummary})
+  }
+
   addedResponderAlert = () => {
     toast.success('Responder has been added!', {
         position: toast.POSITION.TOP_CENTER,
@@ -250,6 +256,8 @@ export default class App extends Component {
              addResponder={this.addResponder.bind(this)}
              toggleAddResponderButton={this.toggleAddResponderButton.bind(this)}
              toggleAddResponder={this.state.toggleAddResponder}
+             toggleSummary = {this.state.toggleSummary}
+             toggleSummaryButton = {this.toggleSummaryButton.bind(this)}
              onChange={(choice) => this.setCurrentSelection(choice)}                                             
             />} />
             <Route path="/Responder" exact component={() => 
