@@ -28,68 +28,51 @@ export default class Summary extends Component {
         })
 
         return (
-            <div>
+            <div class="justify-content-center">
                 <h1>SUMMARY</h1>
+
                 <Select className= 'dropDown' options={this.props.responderList.concat({label:"All", value:"All"})} onChange={(choice) => { this.updateCurrentSummary(choice) }}></Select>
 
-                {/* BO CODE */}
-                {/* {this.state.currentSummary ?
-                    temp.map(
-                        (request, index) => {
-                            if (this.state.currentSummary != 'All') {
-                                if (request.responder === "") {
-                                    return (
-                                        <Request
-                                            key={index}
-                                            requestObject={request}
-                                            setCurrentMissionAssignment={this.props.setCurrentMissionAssignment}
-                                            completeClick={this.props.completeClick}
-                                        />
-                                    )
-                                }
-                            }
-                        }
-                    ) : ""} */}
-                {/* TABLE CODE */}
-
                 <div class="d-flex justify-content-center">
-                    <table class="table table-bordered table-hover table-color w-50 p-4 flex-left">
+                    <div class="flex-left">
+                        <table class="table table-bordered table-hover table-color w-100 p-4">
 
-                        <thead>
-                            <tr class="dispatch-table">
-                                <th class="dispatch-table" scope="col">Location</th>
-                                <th class="dispatch-table" scope="col">Callsign</th>
-                                <th class="dispatch-table" scope="col">Priority</th>
-                                <th class="dispatch-table" scope="col">Special Equipment</th>
-                                <th class="dispatch-table" scope="col">Patient Type</th>
-                                <th class="dispatch-table" scope="col">Security</th>
-                                <th class="dispatch-table" scope="col">hlzMarking</th>
-                                <th class="dispatch-table" scope="col">Nationality</th>
-                                <th class="dispatch-table" scope="col">NBC</th>
-                                <th class="dispatch-table" scope="col">Responder</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                            <thead class='thead-dark'>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Callsign</th>
+                                    <th>Priority</th>
+                                    <th>Special Equipment</th>
+                                    <th>Patient Type</th>
+                                    <th>Security</th>
+                                    <th>Marking</th>
+                                    <th>Nationality</th>
+                                    <th>NBC</th>
+                                    <th>Responder</th>
+                                </tr>                            </thead>
+                            <tbody class='table-not-required'>
 
-                            {temp.map(
-                                (request, index) => {
-                                    console.log("if staet", this.state.currentSummary, request.responder, request.completed)
-                                    if ( (this.state.currentSummary === 'All' || this.state.currentSummary === request.responder) && request.responder !== "" && request.completed === true) {
-                                        return (
-                                            <Request
-                                                key={index}
-                                                requestObject={request}
-                                            // currentMissionAssignment={props.currentMissionAssignment}
-                                            // setCurrentMissionAssignment={props.setCurrentMissionAssignment}
-                                            // completeClick={props.completeClick}
-                                            />
-                                        )
+                                {temp.map(
+                                    (request, index) => {
+                                        // console.log("if staet", this.state.currentSummary, request.responder, request.completed)
+                                        if ((this.state.currentSummary === 'All' || this.state.currentSummary === request.responder) && request.responder !== "" && request.completed === true) {
+                                            return (
+                                                <Request
+                                                    key={index}
+                                                    requestObject={request}
+                                                // currentMissionAssignment={props.currentMissionAssignment}
+                                                // setCurrentMissionAssignment={props.setCurrentMissionAssignment}
+                                                // completeClick={props.completeClick}
+                                                />
+                                            )
+                                        }
                                     }
-                                }
-                            )}
-                        </tbody>
-                    </table>
-                    <BaseMap class="flex-right"
+                                )}
+                            </tbody>
+                        </table></div>
+                    <BaseMap key={"summaryMap"+this.state.currentSummary} 
+                    class="flex-right"
+                    currentSummary={this.state.currentSummary}
                         requests={this.props.requests}
                         summary={true}
                     />
