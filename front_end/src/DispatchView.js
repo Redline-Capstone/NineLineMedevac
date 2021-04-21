@@ -28,7 +28,7 @@ const DispatchView = (props) => {
                         <th>hlzMarking</th>
                         <th>Nationality</th>
                         <th>NBC</th>
-                        <th>Complete</th>
+                        
                     
                     </tr>
                 </thead>
@@ -60,7 +60,7 @@ const DispatchView = (props) => {
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
 ___________________________________<br />
-<button onClick={ ()=>props.toggleAddResponderButton()}>Add Responder</button>   
+<button onClick={ ()=>props.toggleAddResponderButton()}>New Responder</button>   
             <br/>
             <div hidden={!props.toggleAddResponder}>
 <ResponderCreator 
