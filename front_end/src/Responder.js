@@ -9,7 +9,7 @@ const Responder = (props) => {
 
         <div>
             <br />
-            <h1>  Responder Table</h1>  
+            <h1>  {props.selectedResponderView} { (props.selectedResponderView == "Responder Table") ? "" : " Missions"} </h1>  
         
             <Select className='dropDown' options={ props.responderList }  values={[{value: props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }/>
            
