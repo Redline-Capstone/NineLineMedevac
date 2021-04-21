@@ -5,7 +5,7 @@ import { Select } from 'react-dropdown-select';
 
 const Responder = (props) => {
     return (<div key={"responderdiv" + props.current}> 
-    <Select options={ props.responderList } onChange={(choice) => props.setCurrentSelection(choice) }/>
+    <Select options={ props.responderList } onSelect={(choice) => props.setCurrentSelection(choice) }/>
         <h5>  Responder Table</h5>  
         <table class="responder-table">
             <tr class="responder-table">

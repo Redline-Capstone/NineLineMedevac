@@ -71,14 +71,6 @@ class NineLineCreator extends Component {
         this.setState({ nbc: e.target.value });
         console.log(nbc);
     }
-<<<<<<< HEAD
-notify =() =>{
-    toast('Your Nine Line has been submitted!')
-}
-notifyError =() => {
-    toast('submit fist five lines')
-}
-=======
     CompleteNineline = () => {
         toast.success('Your Nine Line has been submitted!', {
             position: toast.POSITION.TOP_CENTER,
@@ -117,7 +109,6 @@ notifyError =() => {
 
         })
     }
->>>>>>> a8a7813724c5d79eee62072babe4667765694a77
 
 
     render() {
@@ -256,41 +247,6 @@ notifyError =() => {
                                         <option value='B – Biological'>B – Biological</option>,
                                         <option value='C – Chemical'>C – Chemical</option>,
                                     </select>
-<<<<<<< HEAD
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button onClick={() => {
-                        var pType = ""
-                        if (this.state.litterNumber > 0){ pType += this.state.litterNumber + " A - Litter "}
-                        if (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0){ pType += ", "}
-                        if (this.state.ambulatoryNumber > 0){ pType += this.state.ambulatoryNumber + " B - Ambulatory"}
-                        (this.state.location &&
-                        this.state.callSign &&
-                        this.state.patientUrgency &&
-                        this.state.specialEquipment && 
-                        (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
-                        this.notify() &&       
-                        this.props.handleNewRequest(
-                                    {
-                                        location: this.state.location,
-                                        callSign: this.state.callSign,
-                                        patientUrgency: "" + this.state.urgencyNumber + " " + this.state.patientUrgency,
-                                        specialEquipment: this.state.specialEquipment,
-                                        patientType: pType ,
-                                        security: " " + this.state.security,
-                                        hlzMarking: " " + this.state.hlzMarking,
-                                        nationality: " " + this.state.nationality,
-                                        nbc: " " + this.state.nbc,
-                                    }
-                                    ) : alert = this.notifyError()
-                                }
-                            }
-                            >Submit</button>
-                </fieldset>
-                            </div>
-=======
                                     </td>
                                 </tr>
                             </tbody>
@@ -309,7 +265,6 @@ notifyError =() => {
                         >Submit</button>
                     </fieldset>
                 </div>
->>>>>>> a8a7813724c5d79eee62072babe4667765694a77
             </div >
         );
 

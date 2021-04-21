@@ -52,7 +52,8 @@ const DispatchView = (props) => {
             </table>
             <br />
             <h5>RESPONDERS</h5>
-            <Select options={props.responderList} onChange={(choice) => props.setCurrentResponderAssignment(choice)} />
+            <Select options={props.responderList} defaultValue={props.currentResponderAssignment} onSelect={(choice) => props.setCurrentResponderAssignment(choice)} />
+            
             <br/>
            
             <button onClick={() => { props.assignResponder(props.currentResponderAssignment) }}>Assign to Mission</button>
