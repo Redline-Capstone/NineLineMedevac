@@ -5,32 +5,41 @@ import PropTypes from 'prop-types';
 
 const Responder = (props) => {
     return (<div key={"responderdiv" + props.current}> 
-    
-        <h5>  Responder Table</h5>  
-        <table class="responder-table">
-            <tr class="responder-table">
+        <div>
+            <br />
+            <h1>  Responder Table</h1>  
+        
+            <div class="container">
+            <table class="table table-bordered tableMod table-hover table-color w-50 p-4" >
+                <thead class='thead-dark'>
+                    <tr>
             {/* <th class="dispatch-table">Select</th> */}
-                    <th class="responder-table">Location</th>
-                    <th class="responder-table">Callsign</th>
-                    <th class="responder-table">Priority</th>
-                    <th class="responder-table">Special Equipment</th>
-                    <th class="responder-table">Patient Type</th>
-                    <th class="responder-table">Security</th>
-                    <th class="responder-table">hlzMarking</th>
-                    <th class="responder-table">Nationality</th>
-                    <th class="responder-table">NBC</th>
-                    <th class="responder-table">Complete</th>
+                    <th>Location</th>
+                    <th>Callsign</th>
+                    <th>Priority</th>
+                    <th>Special Equipment</th>
+                    <th>Patient Type</th>
+                    <th>Security</th>
+                    <th>hlzMarking</th>
+                    <th>Nationality</th>
+                    <th>NBC</th>
+                    <th>Complete</th>
             </tr>
-
+            </thead>
+            <tbody class='table-not-required'>
             {props.requests.map(
                 (request, i) => {
                     if (request.responder === props.current && !request.completed) {
-                        return (<Request key={"" + request.id + i + request.responder + request.completed} requestObject={request} completeClick={props.completeClick} />
-
+                        return (<Request key={"" + request.id + i + request.responder + request.completed} requestObject={request} completeClick={props.completeClick} 
+                        />
                         )
                     }
-                })}
+                }
+                )}
+        </tbody>
         </table>
+        </div>
+        </div>
     </div>);
 }
 
