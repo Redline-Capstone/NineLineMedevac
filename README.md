@@ -17,3 +17,8 @@ npm install packages:
                     react-toastify
                     react-bootstrap
                     bootstrap
+                    geodesy
+                    react react-dom leaflet
+                    react-leaflet
+                    -D @types/leaflet
+                    
