@@ -28,21 +28,22 @@ const DispatchView = (props) => {
             <br />
             <h1>Dispatcher View Table</h1>
             <br />
+
         <div className="container">
-<table className="table sticky-header w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
+<table className="table w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
                 <thead className='thead-dark'>
-                    <tr className="">
-                        <th>Select</th>
-                        <th>Location</th>
-                        <th>Callsign</th>
-                        <th>Priority</th>
-                        <th>Special Equipment</th>
-                        <th>Patient Type</th>
-                        <th>Security</th>
-                        <th>Marking</th>
-                        <th>Nationality</th>
-                        <th>NBC</th>
-                        
+                    <tr>
+                        <th class="sticky-header">Select</th>
+                        <th class="sticky-header">Location</th>
+                        <th class="sticky-header">Callsign</th>
+                        <th class="sticky-header">Priority</th>
+                        <th class="sticky-header">Special Equipment</th>
+                        <th class="sticky-header">Patient Type</th>
+                        <th class="sticky-header">Security</th>
+                        <th class="sticky-header">Marking</th>
+                        <th class="sticky-header">Nationality</th>
+                        <th class="sticky-header">NBC</th>
+
                     
                     </tr>
                 </thead>
