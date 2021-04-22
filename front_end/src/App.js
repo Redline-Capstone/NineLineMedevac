@@ -272,7 +272,7 @@ export default class App extends Component {
             />} />
             
           </Switch>
-          <Footer className= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></Footer>
+          <Footer className= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center" alt="SWF!"/></Footer>
         </Router>
       
       </div>
