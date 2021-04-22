@@ -258,7 +258,7 @@ export default class App extends Component {
             />} />
             
           </Switch>
-          {/* <Footer /> */}
+          <Footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></Footer>
         </Router>
       
       </div>
@@ -341,7 +341,7 @@ export default class App extends Component {
             onChange={(choice) => this.setCurrentSelection(choice)}
           /> : ""} */}
 
-        <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
+        
       </div>
          
     );

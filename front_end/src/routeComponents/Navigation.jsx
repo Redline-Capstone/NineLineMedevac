@@ -23,31 +23,34 @@ function Navigation(props) {
                   props.location.pathname === "/" ? "active" : ""
                 }`}
               >
-                <button className='btn-light-2'> 
+                {/* <button className='btn-light-2'>  */}
                 <Link class="nav-link" to="/">
                   NINE LINE 
                   <span class="sr-only">(current)</span>
-                </Link></button>
+                </Link>
+                {/* </button> */}
               </li>
               <li 
                 class={`nav-item  ${
                   props.location.pathname === "/DispatchView" ? "active" : "" 
                 }`}
               >
-                <button className='btn-light-2'>
+                {/* <button className='btn-light-2'> */}
                 <Link class="nav-link" to="/DispatchView">
                   DISPATCHER
-                </Link></button>
+                </Link>
+                {/* </button> */}
               </li>
               <li
                 class={`nav-item  ${
                   props.location.pathname === "/Responder" ? "active" : ""
                 }`}
               >
-                <button className='btn-light-2'>
+                {/* <button className='btn-light-2'> */}
                 <Link class="nav-link" to="/Responder">
                   RESPONDER
-                </Link></button>
+                </Link>
+                {/* </button> */}
               </li>
             </ul>
           </div>
