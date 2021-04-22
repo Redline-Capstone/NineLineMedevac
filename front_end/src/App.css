@@ -14,8 +14,6 @@
 
 .nav-link{
 font-weight: bolder;
-
-
 }
 
 .table {
@@ -485,21 +483,25 @@ color: black;
 
 .my-custom-scrollbar {
   position: relative;
-  height: 350px;
+  max-height: none;
+  height: 400px;
   overflow: auto;
   border-color: #cfcfcf ;
   }
 
   .responder-scrollbar {
     position: relative;
-    height: 600px;
+    max-height: auto;
+    max-width: fit-content;
+    height: auto;
     overflow: auto;
     border-color: #cfcfcf ;
     }
 
 .my-summary-scrollbar {
   position: relative;
-  height: 550px;
+  max-height: auto;
+  height:550px;
   overflow: auto;
   border-color: #cfcfcf ;
   }
