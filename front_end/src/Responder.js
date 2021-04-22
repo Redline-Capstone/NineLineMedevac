@@ -9,7 +9,7 @@ const Responder = (props) => {
 
         <div >
             <br />
-            <h1>  {props.selectedResponderView} { (props.selectedResponderView == "Responder Table") ? "" : " Missions"} </h1>  
+            <h1>  {props.selectedResponderView} { (props.selectedResponderView === "Responder Table") ? "" : " Missions"} </h1>  
         
             <Select className='dropDown' options={ props.responderList }  values={[{value:props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }></Select>
            
@@ -44,7 +44,7 @@ const Responder = (props) => {
                         return (<Request key={"" + request.id + i + request.responder + request.completed} requestObject={request} completeClick={props.completeClick} 
                         />
                         )
-                    }
+                    } else return ""
                 }
                 )}
         </tbody>
