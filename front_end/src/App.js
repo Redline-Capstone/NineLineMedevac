@@ -107,8 +107,8 @@ export default class App extends Component {
       body: JSON.stringify(request)
     };
     fetch(baseURL+'/nineline', nineLine)
-      .then(this.getRequests())
-      .then(this.toggleNineLineButton())
+    .then(() => this.toggleNineLineButton())
+    .then(() => this.getRequests())
     //setstate
     // let tempRequestList = this.state.requestList
     // request.complete = false;
@@ -131,7 +131,7 @@ export default class App extends Component {
     // tempResponderList.get(index).complete = true;
 
     // this.setState({responderList:tempResponderList})
-    this.getRequests()
+    .then(() => this.getRequests())
 
   }
 
