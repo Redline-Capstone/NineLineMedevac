@@ -7,6 +7,7 @@
   text-align: center;
   background-color: #cfcfcf;
   
+  
   min-height: max-content;
   
 }
@@ -462,3 +463,6 @@ color: black;
   display: block;
   
   }
+.divPadding{
+  padding-bottom: 5%;
+}
