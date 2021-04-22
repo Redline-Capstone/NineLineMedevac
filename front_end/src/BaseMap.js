@@ -9,6 +9,7 @@ import React from "react"
 //$ npm install react-leaflet
 //$ npm install -D @types/leaflet
 import { MapContainer, TileLayer, Marker, Popup, Rectangle, useMap, useMapEvent, Tooltip } from 'react-leaflet'
+import { Control, icon, marker } from "leaflet"
 //--For the MGRS--
 //library ref
 //https://www.movable-type.co.uk/scripts/geodesy-library.html#mgrs
@@ -61,10 +62,49 @@ const DisplayPosition = ({ map, setLocation, summary }) => {
         </span>
     )
 }
+
+//----- this is to have the center crosshair -----
+
+const CrossHiarFunction = ({ map }) => {
+
+    var crosshairIcon = icon({
+        iconUrl: './ThemedStyles/Location_29-512.png' , //'images/crosshair.png',
+        iconSize: [20, 20], // size of the icon
+        iconAnchor: [10, 10], // point of the icon which will correspond to marker's location
+    });
+
+    var crosshair = new marker(map.getCenter(), { icon: crosshairIcon, clickable: false });
+    crosshair.addTo(map);
+
+    // Move the crosshair to the center of the map when the user pans
+    map.on('move', function (e) {
+        crosshair.setLatLng(map.getCenter());
+    });
+
+    return (
+        ""
+    )
+
+}
+//----- this is for nice panning on click -----
+
+function SetViewOnClick({ animateRef }) {
+    const map = useMapEvent('click', (e) => {
+        map.setView(e.latlng, map.getZoom(), {
+            animate: animateRef.current || false,
+        })
+    })
+
+    return null
+}
+
+
 //----- This is for displaying the map -----
 
 const BaseMap = props => {
     const [map, setMap] = React.useState(null)
+    const animateRef = React.useRef(true)
+    
 
     const displayMap = React.useMemo(
         () => ( //MapContainer holds all the info for the frame
@@ -119,6 +159,7 @@ const BaseMap = props => {
                 }
                 ) : ""}
 
+            <SetViewOnClick animateRef={animateRef} />
             </MapContainer>
         ),
         [],
@@ -131,6 +172,7 @@ const BaseMap = props => {
                 setLocation={props.setLocation}
                 summary={props.summary} /> : null}
             {displayMap}
+            {map ? <CrossHiarFunction map={map} /> : null}
             {/* <button onClick={() => { console.log(map) }}>console log map</button> */}
         </div>
     )
