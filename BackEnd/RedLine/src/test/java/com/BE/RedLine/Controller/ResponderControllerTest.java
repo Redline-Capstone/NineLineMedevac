@@ -1,6 +1,7 @@
 package com.BE.RedLine.Controller;
 
 import com.BE.RedLine.DAO.RequestRepo;
+import com.BE.RedLine.DAO.ResponderRepo;
 import com.BE.RedLine.Model.Request;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,29 +31,42 @@ class ResponderControllerTest {
     @Autowired
     RequestRepo requestRepository;
 
+    @Autowired
+    ResponderRepo responderRepository;
+
+    //used one repo model
+//    @Test
+//    @Transactional
+//    @Rollback
+//    public void getMyRequestsTest() throws Exception {
+//        Request newRequest1 = new Request("Location5","Callsign5","Urgent Surgical","None","1-Ambulatory");
+//        newRequest1.setResponder("Bill");
+//        Long newRequest1Id = requestRepository.save(newRequest1).getId();
+//        Request newRequest2 = new Request("Location5","Callsign5","Urgent Surgical","None","1-Ambulatory");
+//        newRequest2.setResponder("Steve");
+//        Long newRequest2Id = requestRepository.save(newRequest2).getId();
+//
+//
+//
+//        MockHttpServletRequestBuilder getRequestByResponder1 = get("/responder/Bill")
+//                .contentType(MediaType.APPLICATION_JSON);
+//
+//        this.mvc.perform(getRequestByResponder1)
+//                .andExpect(jsonPath("$[0].responder",is("Bill")));
+//
+//        MockHttpServletRequestBuilder getRequestByResponder = get("/responder/Steve")
+//                .contentType(MediaType.APPLICATION_JSON);
+//
+//        this.mvc.perform(getRequestByResponder)
+//                .andExpect(jsonPath("$[0].responder",is("Steve")));
+//    }
+
     @Test
     @Transactional
     @Rollback
     public void getMyRequestsTest() throws Exception {
-        Request newRequest1 = new Request("Location5","Callsign5","Urgent Surgical","None","1-Ambulatory");
-        newRequest1.setResponder("Bill");
-        Long newRequest1Id = requestRepository.save(newRequest1).getId();
-        Request newRequest2 = new Request("Location5","Callsign5","Urgent Surgical","None","1-Ambulatory");
-        newRequest2.setResponder("Steve");
-        Long newRequest2Id = requestRepository.save(newRequest2).getId();
 
 
-
-        MockHttpServletRequestBuilder getRequestByResponder1 = get("/responder/Bill")
-                .contentType(MediaType.APPLICATION_JSON);
-
-        this.mvc.perform(getRequestByResponder1)
-                .andExpect(jsonPath("$[0].responder",is("Bill")));
-
-        MockHttpServletRequestBuilder getRequestByResponder = get("/responder/Steve")
-                .contentType(MediaType.APPLICATION_JSON);
-
-        this.mvc.perform(getRequestByResponder)
-                .andExpect(jsonPath("$[0].responder",is("Steve")));
     }
+
 }
