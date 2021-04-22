@@ -40,37 +40,37 @@ class NineLineCreator extends Component {
     }
 
     handleUrgency(e) {
-        let patientUrgency = e.target.value;
+        // let patientUrgency = e.target.value;
         this.setState({ patientUrgency: e.target.value });
         // console.log(patientUrgency);
     }
     handleEquipment(e) {
-        let specialEquipment = e.target.value;
+        // let specialEquipment = e.target.value;
         this.setState({ specialEquipment: e.target.value });
         // console.log(specialEquipment);
     }
     handleType(e) {
-        let patientType = e.target.value;
+        // let patientType = e.target.value;
         this.setState({ patientType: e.target.value });
         // console.log(patientType);
     }
     handleSecurity(e) {
-        let security = e.target.value;
+        // let security = e.target.value;
         this.setState({ security: e.target.value });
         // console.log(security);
     }
     handleMarking(e) {
-        let hlzMarking = e.target.value;
+        // let hlzMarking = e.target.value;
         this.setState({ hlzMarking: e.target.value });
         // console.log(hlzMarking);
     }
     handleNationality(e) {
-        let nationality = e.target.value;
+        // let nationality = e.target.value;
         this.setState({ nationality: e.target.value });
         // console.log(nationality);
     }
     handleNBC(e) {
-        let nbc = e.target.value;
+        // let nbc = e.target.value;
         this.setState({ nbc: e.target.value });
         // console.log(nbc);
     }
@@ -119,7 +119,7 @@ class NineLineCreator extends Component {
 
     render() {
         return (
-            <div className="title-main" overflow = 'scroll' white-space= 'nowrap' className = "divPadding2">
+            <div className="title-main divPadding2" overflow = 'scroll' white-space= 'nowrap' >
                 
                 <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 
@@ -269,7 +269,7 @@ class NineLineCreator extends Component {
                                 this.state.specialEquipment &&
                                 (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
                                 this.CompleteNineline()
-                                : alert = this.notifyError()
+                                :  this.notifyError()
                         }
                         }
                         >Submit</button>
