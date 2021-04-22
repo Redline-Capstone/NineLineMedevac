@@ -69,7 +69,7 @@ export default class Summary extends Component {
                                                 // completeClick={props.completeClick}
                                                 />
                                             )
-                                        }
+                                        } else return ""
                                     }
                                 )}
                             </tbody>
