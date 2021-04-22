@@ -2,12 +2,12 @@ import { Container,Jumbotron } from 'react-bootstrap';
 
 
 var sectionStyle = {
-    backgroundImage: `url(https://1.bp.blogspot.com/-McdZweoTlAQ/WxQdvQAIy_I/AAAAAAAA9Tg/-jJjF50Ig3Eug4i8fpqrj38oISudKDzlwCLcBGAs/s1600/medical-evacuation-medevac-documentary-mp4.jpg)` , 
+    backgroundImage:`url(https://1.bp.blogspot.com/-McdZweoTlAQ/WxQdvQAIy_I/AAAAAAAA9Tg/-jJjF50Ig3Eug4i8fpqrj38oISudKDzlwCLcBGAs/s1600/medical-evacuation-medevac-documentary-mp4.jpg)` , 
     backgroundRepeat: 'no-repeat' , //your welcome #w3schools ftw
     backgroundSize: '100%' ,
     backgroundPosition: "center top",
     height: "400px" ,
-    width: '95%' ,
+    width: '101%' ,
     marginLeft: 'auto',
     marginRight: 'auto',
     align: "center", 
