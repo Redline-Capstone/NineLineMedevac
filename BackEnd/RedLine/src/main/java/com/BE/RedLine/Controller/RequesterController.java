@@ -1,6 +1,6 @@
 package com.BE.RedLine.Controller;
 
-import com.BE.RedLine.DAO.*;
+import com.BE.RedLine.DAO.RequestRepo;
 import com.BE.RedLine.Model.NineLine;
 import com.BE.RedLine.Model.Request;
 import org.springframework.web.bind.annotation.*;
@@ -18,12 +18,15 @@ public class RequesterController {
     }
 
     //create one nineline
-    @PostMapping("/nineline")
+//    @PostMapping("/nineline")
+    @CrossOrigin
+    @RequestMapping(method=RequestMethod.POST, path = "/nineline")
     public Request createNineLine(@RequestBody NineLine input){
         Request temp = new Request(input);
         return requestRepository.save(temp);
 //        return requestRepository.save( input);
     }
+
 
 
 

@@ -13,7 +13,7 @@ function Navigation(props) {
           <Link className="navbar-brand" to="/home">
             {/* <img src="https://media.gq-magazine.co.uk/photos/5d1398faeef921e6e09ff155/16:9/w_1920,c_limit/airbus-helicopters-4-gq-3jun15-pr_b.jpg"/> */}
             {/* <img src={logo} style={{width:100, marginTop: -7}} /> */}
-            <img className = 'redlineLogo' src={redlineChopper} />
+            <img className = 'redlineLogo' src={redlineChopper} alt="the choppa" />
           </Link>
 
           <div>
