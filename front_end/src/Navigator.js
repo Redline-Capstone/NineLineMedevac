@@ -1,6 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Tabs from 'react-bootstrap/Tabs'
+// import PropTypes from 'prop-types'
+// import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
 import Row from 'react-bootstrap/Row'

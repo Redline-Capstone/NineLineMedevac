@@ -5,14 +5,14 @@ import ResponderCreator from './ResponderCreator'
 import './App.css';
 import './index.css';
 import { Select } from 'react-dropdown-select'
-import { Jumbotron, Table } from 'react-bootstrap'
+// import { Jumbotron, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Summary from './Summary'
 
 toast.configure()
 const DispatchView = (props) => {
-    console.log(props.currentResponderAssignment, "hidie ho")
+    // console.log(props.currentResponderAssignment, "hidie ho")
 
     const [responderValue, changeResponderValue] = useState(props.currentResponderAssignment)
 
@@ -28,9 +28,10 @@ const DispatchView = (props) => {
             <br />
             <h1>Dispatcher View Table</h1>
             <br />
-        <div class="container">
-<table class="table w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
-                <thead class='thead-dark'>
+
+        <div className="container">
+<table className="table w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
+                <thead className='thead-dark'>
                     <tr>
                         <th class="sticky-header">Select</th>
                         <th class="sticky-header">Location</th>
@@ -42,7 +43,7 @@ const DispatchView = (props) => {
                         <th class="sticky-header">Marking</th>
                         <th class="sticky-header">Nationality</th>
                         <th class="sticky-header">NBC</th>
-                        
+
                     
                     </tr>
                 </thead>
@@ -60,7 +61,7 @@ const DispatchView = (props) => {
                                 completeClick={props.completeClick}
                                 />
                                 )
-                            }
+                            } else return ""
                         }
                         )}
                 </tbody>
@@ -69,7 +70,7 @@ const DispatchView = (props) => {
             <h5>RESPONDERS</h5>
             <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
             changeResponderValue(choice[0].value)  
-            console.log(choice, "inside select")  
+            // console.log(choice, "inside select")  
             props.setCurrentResponderAssignment(choice)}} />
 
             
