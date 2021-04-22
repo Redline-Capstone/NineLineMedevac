@@ -101,8 +101,9 @@ class NineLineCreator extends Component {
                 nbc: " " + this.state.nbc,
             }
         )
-
+        
     }
+
     notifyError = () => {
         toast.warn('submit first five lines', {
             position: toast.POSITION.TOP_CENTER,
