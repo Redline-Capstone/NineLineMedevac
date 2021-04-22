@@ -142,7 +142,7 @@ export default class App extends Component {
     this.addedResponderAlert ()
     
     this.goFetch(baseURL+"/responder" , "POST", {id:0, name: event.value}, "")
-
+    .then(this.setState({toggleAddResponder: !this.state.toggleAddResponder}))
   }
 
   //goFetch toUse:
