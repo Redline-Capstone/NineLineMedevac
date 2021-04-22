@@ -76,7 +76,7 @@ const DispatchView = (props) => {
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
 
-___________________________________<br />
+            <br />
                 <button className='btn-light' onClick={() => props.toggleAddResponderButton()
 
 
@@ -89,7 +89,7 @@ ___________________________________<br />
 
                     />
                 </div>
-                ___________________________________<br />
+            <br />
                 <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
                 <div hidden={!props.toggleSummary} >
                     <Summary
