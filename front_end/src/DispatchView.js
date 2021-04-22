@@ -16,6 +16,13 @@ const DispatchView = (props) => {
 
     const [responderValue, changeResponderValue] = useState(props.currentResponderAssignment)
 
+    function toastMe(){
+        toast.warning('Please select a mission and a responder!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 5000
+        })
+    }
+
     return (
         <div>
             <br />
@@ -23,7 +30,7 @@ const DispatchView = (props) => {
             <br />
         <div class="container">
 
-            <table class="table table-bordered table-hover table-color w-100 p-4" align= 'center' >
+            <table class="table table-bordered table-hover table-color table-wrapper-scroll-y my-custom-scrollbar" align= 'center' >
 
                 <thead class='thead-dark'>
                     <tr>
@@ -56,26 +63,28 @@ const DispatchView = (props) => {
                                 />
                                 )
                             }
-                        })}
-                    </tbody>
-                </table>
-                <br />
-                <h5>RESPONDERS</h5>
-                <Select options={props.responderList} values={[{ value: responderValue, label: responderValue }]} onChange={(choice) => {
-                    changeResponderValue(choice[0].value)
-                    console.log(choice, "inside select")
-                    props.setCurrentResponderAssignment(choice)
-                }} />
+                        }
+                        )}
+                </tbody>
+            </table>
+            <br />
+<div class='container'>
+            <h5>RESPONDERS</h5>
+            <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
+            changeResponderValue(choice[0].value)  
+            console.log(choice, "inside select")  
+            props.setCurrentResponderAssignment(choice)}} />
 
+            
+            <br/>
+           
+            <button className= 'btn-light' disabled={!props.currentResponderAssignment || !props.currentMissionAssignment} onClick={() =>  {
+                props.currentResponderAssignment ? props.assignResponder(props.currentResponderAssignment): toastMe()
+                }} >Assign to Mission</button>
+            {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
+            <br />
 
-                <br />
-
-                <button className='btn-light' onClick={() => props.assignResponder(props.currentResponderAssignment)}
-
-                >Assign to Mission</button>
-                {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
-                <br />
-___________________________________<br />
+            <br />
                 <button className='btn-light' onClick={() => props.toggleAddResponderButton()
 
 
@@ -88,17 +97,20 @@ ___________________________________<br />
 
                     />
                 </div>
-                ___________________________________<br />
+            <br />
                 <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
                 <div hidden={!props.toggleSummary} >
                     <Summary
                         requests={props.requests}
                         responderList={props.responderList}
                         toggleSummary={props.toggleSummary}
-                    /></div>
+                    />
+                </div>
             </div>
-
-        </div>);
+            </div>
+        </div>
+        
+        );
 
 }
 

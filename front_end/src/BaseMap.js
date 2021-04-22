@@ -167,6 +167,7 @@ const BaseMap = props => {
                 ) : ""}
 
             <SetViewOnClick animateRef={animateRef} />
+
             </MapContainer>
         ),
         [],

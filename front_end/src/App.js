@@ -17,8 +17,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure()
 
-
-
 //with local repo
 //const baseURL = "http://localhost:9090";
 //with heroku
@@ -36,12 +34,6 @@ const baseURL = "https://frozen-retreat-75749.herokuapp.com";
   
 // }
 // sectionStyle.background-size = 100%
-
- 
-
-
-  
-
 
 export default class App extends Component {
   constructor(props) {
@@ -70,6 +62,7 @@ export default class App extends Component {
       toggleDispatch: false,
       toggleResponder: false,
       toggleAddResponder: false,
+      selectedResponderView: "Responder Table",
       toggleSummary: false,
     }
   }
@@ -77,6 +70,7 @@ export default class App extends Component {
   componentDidMount() {
     //Anything we want to run on application startup goes here.
     this.getRequests();
+    this.getResponder();
   }
 
   getRequests() {
@@ -94,7 +88,14 @@ export default class App extends Component {
     this.goFetch(url, "GET", null, "requestList")
   }
 
-
+  async getResponder(){
+    var tempList = await this.goFetch(baseURL+"/responder", "GET" )
+    var tempState = []
+    for( var responder of tempList){
+      tempState.push( { value: responder.name, label: responder.name} )
+    }
+    this.setState({responderList: tempState})
+  }
 
   handleNewRequest(request) {
     //Sends POST Request to backend
@@ -119,7 +120,6 @@ export default class App extends Component {
 
   }
 
-
   async completeButton(id) {
     //update db
     await this.goFetch(baseURL+"/requests/" + id, "PATCH", { completed: true }, "")
@@ -140,8 +140,10 @@ export default class App extends Component {
     tempResponderList.push(event)
     this.setState({ responderList: tempResponderList })
     this.addedResponderAlert ()
-  }
+    
+    this.goFetch(baseURL+"/responder" , "POST", {id:0, name: event.value}, "")
 
+  }
 
   //goFetch toUse:
   //give URL and Method of 'GET','PATCH','PUT'
@@ -160,7 +162,7 @@ export default class App extends Component {
     const data = await response.json() //JSON.stringify(response)//response.json() 
     console.log("data", data)
     if (statekey) await this.setState({ [statekey]: data })
-    else return await this.getRequests()
+    else return await data //this.getRequests()
     return true
   }
 
@@ -171,23 +173,22 @@ export default class App extends Component {
     console.log(this.state.currentMissionAssignment)
     console.log(assignedResponder)
     
-
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
-
+    .then(() => this.setState(this.state.currentMissionAssignment = undefined))
+    .then(() => this.setState(this.state.currentResponderAssignment = undefined))
   }
-
 
    assignedMissionAlert = () => {
     toast.success('Mission has been assigned!', {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000
+        autoClose: 5000
     })
-}
-
+  }
 
   setCurrentSelection(choice) {
     this.setState({ currentSelection: choice[0].value })
+    this.setState({ selectedResponderView: choice[0].value })
   }
 
   setCurrentResponderAssignment(choice) {
@@ -229,7 +230,6 @@ export default class App extends Component {
         autoClose: 2000
     })
 }
-  
 
   render() {
     return (
@@ -268,10 +268,11 @@ export default class App extends Component {
             onChange={(choice) => this.setCurrentSelection(choice)}
             responderList = { this.state.responderList } 
             setCurrentSelection = {this.setCurrentSelection.bind(this)}
+            selectedResponderView =  {this.state.selectedResponderView}
             />} />
             
           </Switch>
-          {/* <Footer /> */}
+          <Footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></Footer>
         </Router>
       
       </div>
@@ -354,7 +355,7 @@ export default class App extends Component {
             onChange={(choice) => this.setCurrentSelection(choice)}
           /> : ""} */}
 
-        <footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></footer>
+        
       </div>
          
     );
