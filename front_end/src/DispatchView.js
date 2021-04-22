@@ -17,7 +17,7 @@ const DispatchView = (props) => {
     const [responderValue, changeResponderValue] = useState(props.currentResponderAssignment)
 
     return (
-        <div>
+        <div className = "divPadding">
             <br />
             <h1>Dispatcher View Table</h1>
             <br />

@@ -7,7 +7,7 @@ const Responder = (props) => {
     return (<div key={"responderdiv" + props.current}> 
 
 
-        <div>
+        <div className = "divPadding">
             <br />
             <h1>  {props.selectedResponderView} { (props.selectedResponderView == "Responder Table") ? "" : " Missions"} </h1>  
         
