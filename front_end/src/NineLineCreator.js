@@ -128,7 +128,7 @@ class NineLineCreator extends Component {
 
                     <fieldset onChange={this.onChangeValue}>
                         <div className={this.state.showMap ? "" : "flex-left"} >
-                        <table className="table table-bordered table-hover table-color w-100 p-4"align= 'center'>
+                        <table className="table table-hover table-color w-100 p-4"align= 'center'>
                             <thead className="thead-dark">
                                 <tr>
                                     <th scope="col">Line</th>

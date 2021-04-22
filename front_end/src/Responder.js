@@ -21,16 +21,16 @@ const Responder = (props) => {
                     <tr>
 
             {/* <th className="dispatch-table">Select</th> */}
-                        <th class="sticky-header">Location</th>
-                        <th class="sticky-header">Callsign</th>
-                        <th class="sticky-header">Priority</th>
-                        <th class="sticky-header">Special Equipment</th>
-                        <th class="sticky-header">Patient Type</th>
-                        <th class="sticky-header">Security</th>
-                        <th class="sticky-header">Marking</th>
-                        <th class="sticky-header">Nationality</th>
-                        <th class="sticky-header">NBC</th>
-                        <th class="sticky-header">Complete</th>
+                    <th class="sticky-header">Location</th>
+                    <th class="sticky-header">Callsign</th>
+                    <th class="sticky-header">Priority</th>
+                    <th class="sticky-header">Special Equipment</th>
+                    <th class="sticky-header">Patient Type</th>
+                    <th class="sticky-header">Security</th>
+                    <th class="sticky-header">Marking</th>
+                    <th class="sticky-header">Nationality</th>
+                    <th class="sticky-header">NBC</th>
+                    <th class="sticky-header">Complete</th>
                     </tr>
 
         
