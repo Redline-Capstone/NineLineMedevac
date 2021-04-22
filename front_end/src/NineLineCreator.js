@@ -121,7 +121,7 @@ class NineLineCreator extends Component {
         return (
             <div class="title-main" overflow = 'scroll' white-space= 'nowrap' className = "divPadding2">
                 <br></br>
-                <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
+                <h1 className= "titleOnly"> Nine Line Request </h1>
                 <br></br>
                 <div class="d-flex justify-content-center" >
                     <fieldset onChange={this.onChangeValue}>
