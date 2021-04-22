@@ -275,7 +275,7 @@ class NineLineCreator extends Component {
                         >Submit</button>
                         </div>
                         <div hidden={this.state.showMap} class="flex-right white-text">
-                            <BaseMap setLocation={this.mapPosition.bind(this)} summary={false} />
+                            <BaseMap key={"9linemap"+this.state.showMap} setLocation={this.mapPosition.bind(this)} summary={false} />
                         </div>
                     </fieldset>
                 </div>
