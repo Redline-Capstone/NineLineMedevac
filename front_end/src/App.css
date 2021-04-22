@@ -22,6 +22,15 @@ font-weight: bolder;
   text-align: left;
 }
 
+
+table.table-bordered > thead > tr > th{
+  border:1px solid #414153;
+}
+
+table.table-bordered > tbody > tr > td{
+  border:1px solid #414153;
+}
+
 .table-required{
   background-color:#dcdcdc;
 }
@@ -35,8 +44,6 @@ font-weight: bolder;
 
 .white-text{
 color: black;
-
-
 }
 
 .App-logo {
@@ -481,6 +488,13 @@ color: black;
   overflow: auto;
   border-color: #cfcfcf ;
   }
+
+  .responder-scrollbar {
+    position: relative;
+    height: 600px;
+    overflow: auto;
+    border-color: #cfcfcf ;
+    }
 
 .my-summary-scrollbar {
   position: relative;
