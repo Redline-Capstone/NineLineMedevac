@@ -17,8 +17,8 @@ var sectionStyle = {
 const Home = () => {
 
     return (
-        <Jumbotron fluid>
-        <div class="Container" scroll-behaviour= 'smooth'> 
+        <Jumbotron fluid-max>
+      <div class="Container" scroll-behaviour= 'smooth'> 
         
             <div class="row">
               <div class="col-md-8 col-xs-8">

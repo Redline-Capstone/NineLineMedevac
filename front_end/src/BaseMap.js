@@ -9,16 +9,23 @@ import React from "react"
 //$ npm install react-leaflet
 //$ npm install -D @types/leaflet
 import { MapContainer, TileLayer, Marker, Popup, Rectangle, useMap, useMapEvent, Tooltip } from 'react-leaflet'
+import { Control, icon, marker } from "leaflet"
 //--For the MGRS--
 //library ref
 //https://www.movable-type.co.uk/scripts/geodesy-library.html#mgrs
 //$ npm install geodesy
 import Mgrs, { LatLon } from "geodesy/mgrs.js"
 
+import CHpng from './ThemedStyles/Location_29-512.png'
+
 const center = [30.2760, -97.7480]
 const zoom = 13
 
 //-----This is for prettyfing the text around the map-----
+//https://gis.stackexchange.com/questions/90225/how-to-add-a-floating-crosshairs-icon-above-leaflet-map
+//https://www.daftlogic.com/sandbox-leaflet-maps-centre-crosshairs.htm
+//https://leafletjs.com/reference-1.6.0.html#icon
+
 const DisplayPosition = ({ map, setLocation, summary }) => {
     const [position, setPosition] = React.useState(map.getCenter())
     const [mgrs, setMGRS] = React.useState(new LatLon(map.getCenter().lat.toFixed(3), map.getCenter().lng.toFixed(3)).toUtm().toMgrs().toString())
@@ -61,10 +68,50 @@ const DisplayPosition = ({ map, setLocation, summary }) => {
         </span>
     )
 }
+
+//----- this is to have the center crosshair -----
+//https://react-leaflet.js.org/docs/example-animated-panning
+
+const CrossHiarFunction = ({ map }) => {
+
+    var crosshairIcon = icon({
+        iconUrl: CHpng , //'images/crosshair.png',
+        iconSize: [30, 30], // size of the icon
+        iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
+    });
+
+    var crosshair = new marker(map.getCenter(), { icon: crosshairIcon, clickable: false });
+    crosshair.addTo(map);
+
+    // Move the crosshair to the center of the map when the user pans
+    map.on('move', function (e) {
+        crosshair.setLatLng(map.getCenter());
+    });
+
+    return (
+        ""
+    )
+
+}
+//----- this is for nice panning on click -----
+
+function SetViewOnClick({ animateRef }) {
+    const map = useMapEvent('click', (e) => {
+        map.setView(e.latlng, map.getZoom(), {
+            animate: animateRef.current || false,
+        })
+    })
+
+    return null
+}
+
+
 //----- This is for displaying the map -----
 
 const BaseMap = props => {
     const [map, setMap] = React.useState(null)
+    const animateRef = React.useRef(true)
+    
 
     const displayMap = React.useMemo(
         () => ( //MapContainer holds all the info for the frame
@@ -85,8 +132,8 @@ const BaseMap = props => {
                 />
 
                 {/* here is where we can add list.map to create icons dynamically */}
-                {props.summary ? props.requests.map((request, index) => {
-                    if (props.currentSummary === 'All' || props.currentSummary === request.responder) {
+                {props.summary ? props.requests.map((request, index) => {//TODO add completed=true to the statement
+                    if ((props.currentSummary === 'All' || props.currentSummary === request.responder )&& request.completed === true) {
                         //how to regex: https://stackoverflow.com/questions/16617053/javascript-to-check-string-in-this-format
                         var regex = /[0-9]{2}[A-Z]{1} [A-Z]{2} [0-9]{5} [0-9]{5}/;
                         // console.log("regex comp", regex, request.location, regex.test(request.location))
@@ -119,7 +166,7 @@ const BaseMap = props => {
                 }
                 ) : ""}
 
-                
+            <SetViewOnClick animateRef={animateRef} />
 
             </MapContainer>
         ),
@@ -133,6 +180,7 @@ const BaseMap = props => {
                 setLocation={props.setLocation}
                 summary={props.summary} /> : null}
             {displayMap}
+            {map ? <CrossHiarFunction map={map} /> : null}
             {/* <button onClick={() => { console.log(map) }}>console log map</button> */}
         </div>
     )
