@@ -29,11 +29,9 @@ const DispatchView = (props) => {
             <h1>Dispatcher View Table</h1>
             <br />
         <div class="container">
-
-            <table class="table table-bordered table-hover table-color table-wrapper-scroll-y my-custom-scrollbar" align= 'center' >
-
+<table class="table sticky-header w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
                 <thead class='thead-dark'>
-                    <tr>
+                    <tr class="">
                         <th>Select</th>
                         <th>Location</th>
                         <th>Callsign</th>
@@ -48,7 +46,7 @@ const DispatchView = (props) => {
                     
                     </tr>
                 </thead>
-                <tbody class='table-not-required'>
+                <tbody>
                 
                 {props.requests.map(
                     (request, index) => {
@@ -66,9 +64,8 @@ const DispatchView = (props) => {
                         }
                         )}
                 </tbody>
+
             </table>
-            <br />
-<div class='container'>
             <h5>RESPONDERS</h5>
             <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
             changeResponderValue(choice[0].value)  
@@ -108,7 +105,6 @@ const DispatchView = (props) => {
                 </div>
             </div>
             </div>
-        </div>
         
         );
 
