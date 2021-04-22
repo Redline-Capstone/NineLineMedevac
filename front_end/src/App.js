@@ -70,6 +70,7 @@ export default class App extends Component {
   componentDidMount() {
     //Anything we want to run on application startup goes here.
     this.getRequests();
+    this.getResponder();
   }
 
   getRequests() {
@@ -85,6 +86,15 @@ export default class App extends Component {
     //then data => setState({requestList: data})
 
     this.goFetch(url, "GET", null, "requestList")
+  }
+
+  async getResponder(){
+    var tempList = await   this.goFetch(url+"/responder", "GET", "", "")
+    var tempState = []
+    for( var responder in tempList){
+      tempState.push( { value: responder.name, label: responder.name} )
+    }
+    this.setState({responderList: tempState})
   }
 
   handleNewRequest(request) {
@@ -130,6 +140,9 @@ export default class App extends Component {
     tempResponderList.push(event)
     this.setState({ responderList: tempResponderList })
     this.addedResponderAlert ()
+    
+    this.goFetch(baseURL+"/responder" , "POST", {id:0, name: event.value}, "")
+
   }
 
   //goFetch toUse:
