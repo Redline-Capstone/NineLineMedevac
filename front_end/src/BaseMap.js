@@ -8,8 +8,8 @@ import React from "react"
 //$ npm install react react-dom leaflet
 //$ npm install react-leaflet
 //$ npm install -D @types/leaflet
-import { MapContainer, TileLayer, Marker, Popup, Rectangle, useMap, useMapEvent, Tooltip } from 'react-leaflet'
-import { Control, icon, marker } from "leaflet"
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent, Tooltip } from 'react-leaflet' // Rectangle, useMap,
+import {  icon, marker } from "leaflet" //{Control}
 //--For the MGRS--
 //library ref
 //https://www.movable-type.co.uk/scripts/geodesy-library.html#mgrs
@@ -132,7 +132,7 @@ const BaseMap = props => {
                 />
 
                 {/* here is where we can add list.map to create icons dynamically */}
-                {props.summary ? props.requests.map((request, index) => {//TODO add completed=true to the statement
+                {props.summary ? props.requests.map((request, index) => {
                     if ((props.currentSummary === 'All' || props.currentSummary === request.responder )&& request.completed === true) {
                         //how to regex: https://stackoverflow.com/questions/16617053/javascript-to-check-string-in-this-format
                         var regex = /[0-9]{2}[A-Z]{1} [A-Z]{2} [0-9]{5} [0-9]{5}/;
@@ -160,9 +160,9 @@ const BaseMap = props => {
                                         {request.Responder}
                                     </Popup>
                                 </Marker>)
-                            }
-                        }
-                    }
+                            } else return ""
+                        } else return ""
+                    }else return ""
                 }
                 ) : ""}
 
@@ -174,7 +174,7 @@ const BaseMap = props => {
     )
 
     return (
-        <div class="map">
+        <div className="map">
             {map ? <DisplayPosition
                 map={map}
                 setLocation={props.setLocation}

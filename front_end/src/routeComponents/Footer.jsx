@@ -9,24 +9,23 @@ import './Navigation'
 function Footer() {
   return (
     <div className='footer'>
-      <footer class="py-2 bg-dark fixed-bottom">
-        <div class="container">
-          <div class="m-4 text-bottom text-white" >
+      <footer className="py-2 bg-dark fixed-bottom">
+        <div className="container">
+          <div className="m-4 text-bottom text-white" >
           <a href='https://armyfuturescommand.com/software-factory/'>
           <img className = 'SWF-Logo' src={SWFlogo} /> </a>
           &copy;
 
           
-          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></link>
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossOrigin="anonymous"></link>
 
 
-          <div class="wrapper">
+          <div className="wrapper">
             <ul>
-              <li class="facebook"><a href="https://www.facebook.com/ArmyFutures"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-              <li class="twitter"><a href="https://www.twitter.com/ArmyFutures"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-              <li class="instagram"><a href="https://instagram.com/armyfutures"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-              <li class="google"><a href="https://armyfuturescommand.com/software-factory/"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
-
+              <li className="facebook"><a href="https://www.facebook.com/ArmyFutures"><i className="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+              <li className="twitter"><a href="https://www.twitter.com/ArmyFutures"><i className="fab fa-twitter" aria-hidden="true"></i></a></li>
+              <li className="instagram"><a href="https://instagram.com/armyfutures"><i className="fab fa-instagram" aria-hidden="true"></i></a></li>
+              <li className="linkedin"><a href="https://www.linkedin.com/company/armyfutures"><i className="fab fa-linkedin" aria-hidden="true"></i></a></li>
             </ul>
           </div>
 
