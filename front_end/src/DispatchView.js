@@ -16,6 +16,13 @@ const DispatchView = (props) => {
 
     const [responderValue, changeResponderValue] = useState(props.currentResponderAssignment)
 
+    function toastMe(){
+        toast.warning('Please select a mission and a responder!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 5000
+        })
+    }
+
     return (
         <div>
             <br />
@@ -71,9 +78,7 @@ const DispatchView = (props) => {
             
             <br/>
            
-            <button className= 'btn-light' onClick={() =>  props.assignResponder(props.currentResponderAssignment)}
-           
-            >Assign to Mission</button>
+            <button className= 'btn-light' onClick={() =>  {props.currentResponderAssignment? props.assignResponder(props.currentResponderAssignment): toastMe()}} >Assign to Mission</button>
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
 

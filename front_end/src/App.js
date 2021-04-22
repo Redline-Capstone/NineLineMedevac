@@ -175,13 +175,14 @@ export default class App extends Component {
     
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
-
+    .then(() => this.setState(this.state.currentMissionAssignment = undefined))
+    .then(() => this.setState(this.state.currentResponderAssignment = undefined))
   }
 
    assignedMissionAlert = () => {
     toast.success('Mission has been assigned!', {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000
+        autoClose: 5000
     })
   }
 
