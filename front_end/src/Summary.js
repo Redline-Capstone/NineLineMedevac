@@ -35,25 +35,21 @@ export default class Summary extends Component {
 
                 <div class="d-flex justify-content-center">
                     <div class="flex-left">
-                        <table class="table table-bordered w-100">
-
+                        <table class="table table-bordered w-100 table table-bordered table-hover my-summary-scrollbar table-wrapper-scroll-y">
                             <thead class='thead-dark'>
                                 <tr>
-                                    <th>Location</th>
-                                    <th>Callsign</th>
-                                    <th>Priority</th>
-                                    <th>Special Equipment</th>
-                                    <th>Patient Type</th>
-                                    <th>Security</th>
-                                    <th>Marking</th>
-                                    <th>Nationality</th>
-                                    <th>NBC</th>
-                                    <th>Responder</th>
+                                    <th class="sticky-header">Location</th>
+                                    <th class="sticky-header">Callsign</th>
+                                    <th class="sticky-header">Priority</th>
+                                    <th class="sticky-header">Special Equipment</th>
+                                    <th class="sticky-header">Patient Type</th>
+                                    <th class="sticky-header">Security</th>
+                                    <th class="sticky-header">Marking</th>
+                                    <th class="sticky-header">Nationality</th>
+                                    <th class="sticky-header">NBC</th>
+                                    <th class="sticky-header">Responder</th>
                                 </tr>
-                            </thead>
-                            </table>
-                            <table class="table table-bordered table-hover table-color w-100 table-wrapper-scroll-y my-summary-scrollbar">
-                    
+                            </thead>                    
                             <tbody class='table-not-required'>
 
                                 {temp.map(
@@ -73,7 +69,8 @@ export default class Summary extends Component {
                                     }
                                 )}
                             </tbody>
-                        </table></div>
+                        </table>
+                        </div>
                     <BaseMap key={"summaryMap"+this.state.currentSummary} 
                     class="flex-right"
                     currentSummary={this.state.currentSummary}
