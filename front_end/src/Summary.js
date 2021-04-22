@@ -28,16 +28,16 @@ export default class Summary extends Component {
         })
 
         return (
-            <div class="justify-content-center">
+            <div className="justify-content-center">
                 <h1>SUMMARY</h1>
 
                 <Select className= 'dropDown' options={this.props.responderList.concat({label:"All", value:"All"})} onChange={(choice) => { this.updateCurrentSummary(choice) }}></Select>
 
-                <div class="d-flex justify-content-center">
-                    <div class="flex-left">
-                        <table class="table table-bordered w-100">
+                <div className="d-flex justify-content-center">
+                    <div className="flex-left">
+                        <table className="table table-bordered w-100">
 
-                            <thead class='thead-dark'>
+                            <thead className='thead-dark'>
                                 <tr>
                                     <th>Location</th>
                                     <th>Callsign</th>
@@ -52,9 +52,9 @@ export default class Summary extends Component {
                                 </tr>
                             </thead>
                             </table>
-                            <table class="table table-bordered table-hover table-color w-100 table-wrapper-scroll-y my-summary-scrollbar">
+                            <table className="table table-bordered table-hover table-color w-100 table-wrapper-scroll-y my-summary-scrollbar">
                     
-                            <tbody class='table-not-required'>
+                            <tbody className='table-not-required'>
 
                                 {temp.map(
                                     (request, index) => {
@@ -75,7 +75,7 @@ export default class Summary extends Component {
                             </tbody>
                         </table></div>
                     <BaseMap key={"summaryMap"+this.state.currentSummary} 
-                    class="flex-right"
+                    claclassNamess="flex-right"
                     currentSummary={this.state.currentSummary}
                         requests={this.props.requests}
                         summary={true}

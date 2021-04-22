@@ -99,7 +99,7 @@ export default class App extends Component {
 
   handleNewRequest(request) {
     //Sends POST Request to backend
-    console.log(request)
+    // console.log(request)
     //request.target.reset()
     const nineLine = {
       method: 'POST',
@@ -157,10 +157,10 @@ export default class App extends Component {
       packet.headers = { 'Content-Type': 'application/json' }
     }
     const response = await fetch(url, packet)
-    console.log("response", response)
+    // console.log("response", response)
     if (!response.ok) return false
     const data = await response.json() //JSON.stringify(response)//response.json() 
-    console.log("data", data)
+    // console.log("data", data)
     if (statekey) await this.setState({ [statekey]: data })
     else return await data //this.getRequests()
     return true
@@ -170,8 +170,8 @@ export default class App extends Component {
     this.assignedMissionAlert()
     //Placeholder for our patch
     //Patches responder : assignedResponder
-    console.log(this.state.currentMissionAssignment)
-    console.log(assignedResponder)
+    // console.log(this.state.currentMissionAssignment)
+    // console.log(assignedResponder)
     
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
@@ -192,7 +192,7 @@ export default class App extends Component {
   }
 
   setCurrentResponderAssignment(choice) {
-    console.log(choice, "hiya")
+    // console.log(choice, "hiya")
     this.setState({ currentResponderAssignment: choice[0].value })
   }
     
@@ -200,7 +200,7 @@ export default class App extends Component {
   setCurrentMissionAssignment(choice) {
     this.setState({ currentMissionAssignment: choice })
     // console.log(choice);
-    console.log(this.state.currentMissionAssignment)
+    // console.log(this.state.currentMissionAssignment)
   }
 
   toggleNineLineButton(){
@@ -272,7 +272,7 @@ export default class App extends Component {
             />} />
             
           </Switch>
-          <Footer class= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></Footer>
+          <Footer className= "white-text"><img className= "SWF-Logo"src={SWFlogo} align= "center"/></Footer>
         </Router>
       
       </div>
@@ -314,7 +314,7 @@ export default class App extends Component {
         {/* <Navigator /> */}
 
         <link rel="stylesheet" href="./styles/styles.scss"></link>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossOrigin="anonymous" />
 
         {/* <button type ="button" className="btn-light btn-lg" onClick={()=> this.toggleNineLineButton()}><i class="fas fa-first-aid"></i>  Create New 9 Line <i class="fas fa-first-aid"></i>
         </button>{' '}

@@ -14,13 +14,13 @@ const Responder = (props) => {
             <Select className='dropDown' options={ props.responderList }  values={[{value:props.current, label: props.current}]} onChange={(choice) => props.setCurrentSelection(choice) }></Select>
            
 
-            <div class="container">
+            <div className="container">
 
-            <table class="table table-bordered table-hover table-color w-100 p-4"align= 'center' >
-                <thead class='thead-dark'>
+            <table className="table table-bordered table-hover table-color w-100 p-4"align= 'center' >
+                <thead className='thead-dark'>
                     <tr>
 
-            {/* <th class="dispatch-table">Select</th> */}
+            {/* <th className="dispatch-table">Select</th> */}
                     <th>Location</th>
                     <th>Callsign</th>
                     <th>Priority</th>
@@ -36,7 +36,7 @@ const Responder = (props) => {
         
 
             </thead>
-            <tbody class='table-not-required'>
+            <tbody className='table-not-required'>
 
             {props.requests.map(
                 (request, i) => {

@@ -174,7 +174,7 @@ const BaseMap = props => {
     )
 
     return (
-        <div class="map">
+        <div className="map">
             {map ? <DisplayPosition
                 map={map}
                 setLocation={props.setLocation}
