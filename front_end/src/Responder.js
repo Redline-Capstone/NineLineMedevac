@@ -41,11 +41,12 @@ const Responder = (props) => {
             {props.requests.map(
                 (request, i) => {
                     if (request.responder === props.current && !request.completed) {
+                        if (request.responder !== "") {
                         return (<Request key={"" + request.id + i + request.responder + request.completed} requestObject={request} completeClick={props.completeClick} 
                         />
                         )
                     } else return ""
-                }
+                }}
                 )}
         </tbody>
         </table>
@@ -53,11 +54,6 @@ const Responder = (props) => {
         </div>
     </div>);
 }
-
-
-
-
-
 
 Responder.propTypes = {
     requests: PropTypes.array,
