@@ -77,7 +77,9 @@ const DispatchView = (props) => {
             
             <br/>
            
-            <button className= 'btn-light' onClick={() =>  {props.currentResponderAssignment? props.assignResponder(props.currentResponderAssignment): toastMe()}} >Assign to Mission</button>
+            <button className= 'btn-light' disabled={!props.currentResponderAssignment || !props.currentMissionAssignment} onClick={() =>  {
+                props.currentResponderAssignment ? props.assignResponder(props.currentResponderAssignment): toastMe()
+                }} >Assign to Mission</button>
             {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
             <br />
 
