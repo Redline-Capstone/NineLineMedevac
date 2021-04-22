@@ -35,7 +35,7 @@ export default class Summary extends Component {
 
                 <div class="d-flex justify-content-center">
                     <div class="flex-left">
-                        <table class="table table-bordered table-hover table-color w-100 p-4">
+                        <table class="table table-bordered table-hover table-color w-100 p-4 table-wrapper-scroll-y my-custom-scrollbar">
 
                             <thead class='thead-dark'>
                                 <tr>
