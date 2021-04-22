@@ -5,11 +5,12 @@ import './Navigation'
 
 function Footer() {
   return (
-    <div className="footer">
-      <footer class="py-5 bg-dark fixed-bottom">
+    <div className='footer'>
+      <footer class="py-2 bg-dark fixed-bottom">
         <div class="container">
-          <p class="m-0 text-bottom text-white" >
-          <img className = 'SWF-Logo' src={SWFlogo} /> &copy;
+          <div class="m-4 text-bottom text-white" >
+          <img className = 'SWF-Logo' src={SWFlogo} /> 
+          &copy;
 
           
           <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"></link>
@@ -33,7 +34,7 @@ function Footer() {
 
           
               
-          </p>
+          </div>
         </div>
         
         

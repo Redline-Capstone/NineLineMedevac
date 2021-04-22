@@ -119,7 +119,7 @@ class NineLineCreator extends Component {
 
     render() {
         return (
-            <div class="title-main">
+            <div class="title-main" overflow = 'scroll' white-space= 'nowrap'>
                 
                 <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 
