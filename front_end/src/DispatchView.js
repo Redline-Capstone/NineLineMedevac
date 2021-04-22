@@ -60,7 +60,7 @@ const DispatchView = (props) => {
                                 completeClick={props.completeClick}
                                 />
                                 )
-                            }
+                            } else return ""
                         }
                         )}
                 </tbody>
