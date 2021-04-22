@@ -119,11 +119,13 @@ class NineLineCreator extends Component {
 
     render() {
         return (
-            <div className="title-main divPadding2" overflow = 'scroll' white-space= 'nowrap' >
-                
-                <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 
+            <div className="title-main divPadding2" overflow = 'scroll' white-space= 'nowrap' >
+                 <br></br>
+                <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
+                  <br></br>
                 <div className="d-flex justify-content-center" >
+
                     <fieldset onChange={this.onChangeValue}>
                         <div className={this.state.showMap ? "" : "flex-left"} >
                         <table className="table table-bordered table-hover table-color w-100 p-4"align= 'center'>
