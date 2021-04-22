@@ -3,13 +3,17 @@ import SWFlogo from './SF_logo_dark_bg.svg'
 import './Navigation'
 
 
+
+
+
 function Footer() {
   return (
     <div className='footer'>
       <footer class="py-2 bg-dark fixed-bottom">
         <div class="container">
           <div class="m-4 text-bottom text-white" >
-          <img className = 'SWF-Logo' src={SWFlogo} /> 
+          <a href='https://armyfuturescommand.com/software-factory/'>
+          <img className = 'SWF-Logo' src={SWFlogo} /> </a>
           &copy;
 
           
