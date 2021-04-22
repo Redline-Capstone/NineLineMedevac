@@ -128,11 +128,6 @@ color: black;
    text-align: center;
    border: solid green 1px;
    background: green;
-   background-image: -webkit-linear-gradient(top, #3D94F6, #1E62D0);
-   background-image: -moz-linear-gradient(top, #3D94F6, #1E62D0);
-   background-image: -ms-linear-gradient(top, #3D94F6, #1E62D0);
-   background-image: -o-linear-gradient(top, #3D94F6, #1E62D0);
-   background-image: -webkit-gradient(to bottom, #3D94F6, #1E62D0);
    -webkit-border-radius: 6px;
    -moz-border-radius: 6px;
    border-radius: 6px;
@@ -141,8 +136,17 @@ color: black;
    font-size: 20px;
    font-weight: 100;
    padding: 5px;
- 
 }
+   .btn-light:hover {
+ background-color: #4e9558;
+ color: #FFFFFF;
+ border: solid #4e9558 1px;
+   
+   
+   }
+
+ 
+
   .SWF-Logo{
     width: auto;
       height: 50px;
