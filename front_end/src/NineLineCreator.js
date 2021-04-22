@@ -1,7 +1,7 @@
 import { Component } from 'react'
-import PropTypes from 'prop-types';
-import { Dropdown, Container, Img } from 'react-bootstrap'
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+// import PropTypes from 'prop-types';
+// import { Dropdown, Container, Img } from 'react-bootstrap'
+// import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import './index.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,39 +40,39 @@ class NineLineCreator extends Component {
     }
 
     handleUrgency(e) {
-        let patientUrgency = e.target.value;
+        // let patientUrgency = e.target.value;
         this.setState({ patientUrgency: e.target.value });
-        console.log(patientUrgency);
+        // console.log(patientUrgency);
     }
     handleEquipment(e) {
-        let specialEquipment = e.target.value;
+        // let specialEquipment = e.target.value;
         this.setState({ specialEquipment: e.target.value });
-        console.log(specialEquipment);
+        // console.log(specialEquipment);
     }
     handleType(e) {
-        let patientType = e.target.value;
+        // let patientType = e.target.value;
         this.setState({ patientType: e.target.value });
-        console.log(patientType);
+        // console.log(patientType);
     }
     handleSecurity(e) {
-        let security = e.target.value;
+        // let security = e.target.value;
         this.setState({ security: e.target.value });
-        console.log(security);
+        // console.log(security);
     }
     handleMarking(e) {
-        let hlzMarking = e.target.value;
+        // let hlzMarking = e.target.value;
         this.setState({ hlzMarking: e.target.value });
-        console.log(hlzMarking);
+        // console.log(hlzMarking);
     }
     handleNationality(e) {
-        let nationality = e.target.value;
+        // let nationality = e.target.value;
         this.setState({ nationality: e.target.value });
-        console.log(nationality);
+        // console.log(nationality);
     }
     handleNBC(e) {
-        let nbc = e.target.value;
+        // let nbc = e.target.value;
         this.setState({ nbc: e.target.value });
-        console.log(nbc);
+        // console.log(nbc);
     }
     mapPosition(loc){
         this.setState({location:loc})
@@ -119,15 +119,17 @@ class NineLineCreator extends Component {
 
     render() {
         return (
-            <div class="title-main" overflow = 'scroll' white-space= 'nowrap' className = "divPadding2">
-                
-                <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 
-                <div class="d-flex justify-content-center" >
+            <div className="title-main divPadding2" overflow = 'scroll' white-space= 'nowrap' >
+                 <br></br>
+                <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
+                  <br></br>
+                <div className="d-flex justify-content-center" >
+
                     <fieldset onChange={this.onChangeValue}>
-                        <div class={this.state.showMap ? "" : "flex-left"} >
-                        <table class="table table-bordered table-hover table-color w-100 p-4"align= 'center'>
-                            <thead class="thead-dark">
+                        <div className={this.state.showMap ? "" : "flex-left"} >
+                        <table className="table table-bordered table-hover table-color w-100 p-4"align= 'center'>
+                            <thead className="thead-dark">
                                 <tr>
                                     <th scope="col">Line</th>
                                     <th scope="col">Description</th>
@@ -135,26 +137,26 @@ class NineLineCreator extends Component {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table-required">
+                                <tr className="table-required">
                                     <th scope="row">1</th>
                                     <td>
                                         Location
                                 </td>
                                     <td>
-                                        <input class="form-control" required defaultValue="Line 1" value={this.state.location} name="location">
+                                        <input className="form-control" required defaultValue="Line 1" value={this.state.location} name="location">
                                         </input><button
                                             onClick={() => this.setState({ showMap: !this.state.showMap })}>map</button>
                                     </td>
                                 </tr>
 
-                                <tr class="table-required">
+                                <tr className="table-required">
                                     <th scope="row">2</th>
                                     <td>Call Sign</td>
                                     <td>
-                                        <input class="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input>
+                                        <input className="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input>
                                     </td>
                                 </tr>
-                                <tr class="table-required">
+                                <tr className="table-required">
                                     <th scope="row">3</th>
                                     <td>
                                         Patient Urgency
@@ -171,7 +173,7 @@ class NineLineCreator extends Component {
                                         </select>
                                     </td>
                                 </tr>
-                                <tr class="table-required">
+                                <tr className="table-required">
                                     <th scope="row">4</th>
                                     <td>
                                         Special Equipment
@@ -186,7 +188,7 @@ class NineLineCreator extends Component {
                                         </select>
                                     </td>
                                 </tr>
-                                <tr class="table-required">
+                                <tr className="table-required">
                                     <th scope="row">5</th>
                                     <td>
                                         Patient Type
@@ -198,7 +200,7 @@ class NineLineCreator extends Component {
                                         <span> B – Ambulatory </span>
                                     </td>
                                 </tr>
-                                <tr class="table-not-required">
+                                <tr className="table-not-required">
                                     <th scope="row ">6</th>
                                     <td>
                                         Security
@@ -213,7 +215,7 @@ class NineLineCreator extends Component {
                                         </select>
                                     </td>
                                 </tr>
-                                <tr class="table-not-required">
+                                <tr className="table-not-required">
                                     <th scope="row">7</th>
                                     <td>
                                         Marking
@@ -229,7 +231,7 @@ class NineLineCreator extends Component {
                                     </select>
                                     </td>
                                 </tr>
-                                <tr class="table-not-required">
+                                <tr className="table-not-required">
                                     <th scope="row">8</th>
                                     <td>
                                         Nationality
@@ -245,7 +247,7 @@ class NineLineCreator extends Component {
                                         </select>
                                     </td>
                                 </tr>
-                                <tr class="table-not-required">
+                                <tr className="table-not-required">
                                     <th scope="row">9</th>
                                     <td>
                                         NBC
@@ -269,12 +271,12 @@ class NineLineCreator extends Component {
                                 this.state.specialEquipment &&
                                 (this.state.litterNumber > 0 || this.state.ambulatoryNumber > 0)) ?
                                 this.CompleteNineline()
-                                : alert = this.notifyError()
+                                :  this.notifyError()
                         }
                         }
-                        >Submit</button>
+                        >          Submit       </button>
                         </div>
-                        <div hidden={this.state.showMap} class="flex-right white-text">
+                        <div hidden={this.state.showMap} className="flex-right white-text">
                             <BaseMap key={"9linemap"+this.state.showMap} setLocation={this.mapPosition.bind(this)} summary={false} />
                         </div>
                     </fieldset>
