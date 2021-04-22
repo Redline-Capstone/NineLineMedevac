@@ -119,7 +119,7 @@ class NineLineCreator extends Component {
 
     render() {
         return (
-            <div class="title-main" overflow = 'scroll' white-space= 'nowrap'>
+            <div class="title-main" overflow = 'scroll' white-space= 'nowrap' className = "divPadding2">
                 
                 <h1 ><strong className= "titleOnly">Nine Line Request</strong></h1>
 

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import { Select } from 'react-dropdown-select';
 
 const Responder = (props) => {
-    return (<div key={"responderdiv" + props.current}> 
+    return (<div key={"responderdiv" + props.current} className = "divPadding"> 
 
 
-        <div className = "divPadding">
+        <div >
             <br />
             <h1>  {props.selectedResponderView} { (props.selectedResponderView == "Responder Table") ? "" : " Missions"} </h1>  
         
