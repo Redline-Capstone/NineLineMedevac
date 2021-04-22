@@ -1,0 +1,8 @@
+com/BE/RedLine/Controller/RequesterControllerTest.java
+ com.BE.RedLine.Controller.RequesterControllerTest
+com/BE/RedLine/Controller/DispatcherControllerTests.java
+ com.BE.RedLine.Controller.DispatcherControllerTests
+com/BE/RedLine/Controller/ResponderControllerTest.java
+ com.BE.RedLine.Controller.ResponderControllerTest
+com/BE/RedLine/RedLineApplicationTests.java
+ com.BE.RedLine.RedLineApplicationTests

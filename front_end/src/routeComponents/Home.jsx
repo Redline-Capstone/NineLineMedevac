@@ -29,10 +29,10 @@ const Home = () => {
           <Container>
             <div> 
                 <h1>
-                <strong className="title-main"> <img className= "AFC-Logo" src="https://1000logos.net/wp-content/uploads/2017/06/U.S.-Army-Logo.png" align="left"/>
+                <strong className="title-main"> <img className= "AFC-Logo" src="https://1000logos.net/wp-content/uploads/2017/06/U.S.-Army-Logo.png" align="left" alt="Biggus"/>
                     REDLINE MEDEVAC
                 </strong>
-                <img  className= "AFC-Logo"src='https://coders.army/assets/img/tech/AFC.png?h=c914384b26a11b63d203ccd8247ac508' align="right"/>
+                <img  className= "AFC-Logo"src='https://coders.army/assets/img/tech/AFC.png?h=c914384b26a11b63d203ccd8247ac508' align="right" alt="AFC yeah"/>
                 </h1>
             </div>
             <p className="white-text"><strong>

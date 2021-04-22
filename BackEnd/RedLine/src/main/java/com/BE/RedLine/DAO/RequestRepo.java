@@ -8,8 +8,11 @@ import java.util.Optional;
 
 @Repository
 public interface RequestRepo extends CrudRepository<Request, Long> {
-   //Optional<Request> findByCallSign(String callSign) throws IllegalArgumentException;
+   Optional<Request> findByCallSign(String callSign) throws IllegalArgumentException;
    Optional<Request> findByResponder(String responder) throws IllegalArgumentException;
 
    public Iterable<Request> getRequestsByResponder(String responder);
+
+
+
 }
