@@ -16,10 +16,16 @@ import { Control, icon, marker } from "leaflet"
 //$ npm install geodesy
 import Mgrs, { LatLon } from "geodesy/mgrs.js"
 
+import CHpng from './ThemedStyles/Location_29-512.png'
+
 const center = [30.2760, -97.7480]
 const zoom = 13
 
 //-----This is for prettyfing the text around the map-----
+//https://gis.stackexchange.com/questions/90225/how-to-add-a-floating-crosshairs-icon-above-leaflet-map
+//https://www.daftlogic.com/sandbox-leaflet-maps-centre-crosshairs.htm
+//https://leafletjs.com/reference-1.6.0.html#icon
+
 const DisplayPosition = ({ map, setLocation, summary }) => {
     const [position, setPosition] = React.useState(map.getCenter())
     const [mgrs, setMGRS] = React.useState(new LatLon(map.getCenter().lat.toFixed(3), map.getCenter().lng.toFixed(3)).toUtm().toMgrs().toString())
@@ -64,13 +70,14 @@ const DisplayPosition = ({ map, setLocation, summary }) => {
 }
 
 //----- this is to have the center crosshair -----
+//https://react-leaflet.js.org/docs/example-animated-panning
 
 const CrossHiarFunction = ({ map }) => {
 
     var crosshairIcon = icon({
-        iconUrl: './ThemedStyles/Location_29-512.png' , //'images/crosshair.png',
-        iconSize: [20, 20], // size of the icon
-        iconAnchor: [10, 10], // point of the icon which will correspond to marker's location
+        iconUrl: CHpng , //'images/crosshair.png',
+        iconSize: [30, 30], // size of the icon
+        iconAnchor: [15, 15], // point of the icon which will correspond to marker's location
     });
 
     var crosshair = new marker(map.getCenter(), { icon: crosshairIcon, clickable: false });
