@@ -89,9 +89,9 @@ export default class App extends Component {
   }
 
   async getResponder(){
-    var tempList = await   this.goFetch(baseURL+"/responder", "GET", "", "")
+    var tempList = await this.goFetch(baseURL+"/responder", "GET" )
     var tempState = []
-    for( var responder in tempList){
+    for( var responder of tempList){
       tempState.push( { value: responder.name, label: responder.name} )
     }
     this.setState({responderList: tempState})
@@ -162,7 +162,7 @@ export default class App extends Component {
     const data = await response.json() //JSON.stringify(response)//response.json() 
     console.log("data", data)
     if (statekey) await this.setState({ [statekey]: data })
-    else return await this.getRequests()
+    else return await data //this.getRequests()
     return true
   }
 
