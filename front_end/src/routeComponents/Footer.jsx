@@ -25,7 +25,7 @@ function Footer() {
               <li class="facebook"><a href="https://www.facebook.com/ArmyFutures"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
               <li class="twitter"><a href="https://www.twitter.com/ArmyFutures"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
               <li class="instagram"><a href="https://instagram.com/armyfutures"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-              <li class="google"><a href="https://armyfuturescommand.com/software-factory/"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
+              <li class="linkedin"><a href="https://www.linkedin.com/company/armyfutures"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
 
             </ul>
           </div>
