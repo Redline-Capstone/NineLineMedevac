@@ -40,7 +40,7 @@ const Request = (props) => {
 
 
             {/* ternary to hide button when on dispatch */}
-            {props.requestObject.responder && !props.requestObject.completed ? (<td><button onClick={() => props.completeClick(props.requestObject.id)}>complete</button></td>) : ""}
+            {props.requestObject.responder && !props.requestObject.completed ? (<td><button className="btn-light" onClick={() => props.completeClick(props.requestObject.id)}>complete</button></td>) : ""}
         </tr>
     )
 
