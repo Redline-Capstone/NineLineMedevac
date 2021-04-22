@@ -5,7 +5,7 @@ import ResponderCreator from './ResponderCreator'
 import './App.css';
 import './index.css';
 import { Select } from 'react-dropdown-select'
-import { Jumbotron, Table } from 'react-bootstrap'
+// import { Jumbotron, Table } from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Summary from './Summary'

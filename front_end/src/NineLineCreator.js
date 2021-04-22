@@ -1,7 +1,7 @@
 import { Component } from 'react'
-import PropTypes from 'prop-types';
-import { Dropdown, Container, Img } from 'react-bootstrap'
-import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
+// import PropTypes from 'prop-types';
+// import { Dropdown, Container, Img } from 'react-bootstrap'
+// import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 import './index.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

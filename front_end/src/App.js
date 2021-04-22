@@ -3,11 +3,11 @@ import NineLineCreator from './NineLineCreator';
 import Home from './routeComponents/Home'
 import Responder from "./Responder";
 import { Component } from 'react';
-import ResponderCreator from "./ResponderCreator";
+// import ResponderCreator from "./ResponderCreator";
 import DispatchView from "./DispatchView";
-import { Dropdown,Container,Jumbotron } from 'react-bootstrap';
-import { Select } from 'react-dropdown-select';
-import Navigator from './Navigator';
+// import { Dropdown,Container,Jumbotron } from 'react-bootstrap';
+// import { Select } from 'react-dropdown-select';
+// import Navigator from './Navigator';
 import SWFlogo from './ThemedStyles/SF_logo_grayscale_dark_bg.png'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navigation from "./routeComponents/Navigation";
@@ -175,8 +175,8 @@ export default class App extends Component {
     
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
-    .then(() => this.setState(this.state.currentMissionAssignment = undefined))
-    .then(() => this.setState(this.state.currentResponderAssignment = undefined))
+    .then(() => this.setState({currentMissionAssignment: undefined}))
+    .then(() => this.setState({currentResponderAssignment: undefined}))
   }
 
    assignedMissionAlert = () => {
