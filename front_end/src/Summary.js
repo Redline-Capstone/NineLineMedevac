@@ -35,7 +35,7 @@ export default class Summary extends Component {
 
                 <div class="d-flex justify-content-center">
                     <div class="flex-left">
-                        <table class="table table-bordered table-hover table-color w-100 p-4 table-wrapper-scroll-y my-summary-scrollbar">
+                        <table class="table table-bordered w-100">
 
                             <thead class='thead-dark'>
                                 <tr>
@@ -49,7 +49,11 @@ export default class Summary extends Component {
                                     <th>Nationality</th>
                                     <th>NBC</th>
                                     <th>Responder</th>
-                                </tr>                            </thead>
+                                </tr>
+                            </thead>
+                            </table>
+                            <table class="table table-bordered table-hover table-color w-100 table-wrapper-scroll-y my-summary-scrollbar">
+                    
                             <tbody class='table-not-required'>
 
                                 {temp.map(
