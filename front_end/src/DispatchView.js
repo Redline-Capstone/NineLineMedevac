@@ -83,7 +83,7 @@ const DispatchView = (props) => {
             <br />
 
             <br />
-                <button className='btn-light' onClick={() => props.toggleAddResponderButton()
+                <button className='btn-light' hidden={props.toggleAddResponder} onClick={() => props.toggleAddResponderButton()
 
 
                 }

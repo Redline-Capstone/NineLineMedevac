@@ -100,8 +100,7 @@ class NineLineCreator extends Component {
                 nationality: " " + this.state.nationality,
                 nbc: " " + this.state.nbc,
             }
-        )
-        
+        )  
     }
 
     notifyError = () => {
@@ -143,7 +142,7 @@ class NineLineCreator extends Component {
                                         Location
                                 </td>
                                     <td>
-                                        <input className="form-control" required defaultValue="Line 1" value={this.state.location} name="location">
+                                        <input className="form-control" required value={this.state.location} name="location">
                                         </input><button
                                             onClick={() => this.setState({ showMap: !this.state.showMap })}>map</button>
                                     </td>
@@ -153,7 +152,7 @@ class NineLineCreator extends Component {
                                     <th scope="row">2</th>
                                     <td>Call Sign</td>
                                     <td>
-                                        <input className="form-control" required defaultValue="Line 2" value={this.state.callSign} name="callSign"></input>
+                                        <input className="form-control" required name="callSign"></input>
                                     </td>
                                 </tr>
                                 <tr className="table-required">
@@ -162,7 +161,7 @@ class NineLineCreator extends Component {
                                         Patient Urgency
                                 </td>
                                     <td>
-                                        <input type="number" name="urgencyNumber" min={0} max={10} value={this.state.urgencyNumber} />
+                                        <input type="number" name="urgencyNumber" min={0} max={10} /> 
                                         <select value={this.state.patientUrgency} onChange={this.handleUrgency}>
                                             <option value='Select one'>Select One</option>,
                                         <option value='A – Urgent'>A – Urgent</option>,
