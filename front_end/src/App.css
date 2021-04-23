@@ -483,8 +483,8 @@ color: black;
 
 .my-custom-scrollbar {
   position: relative;
-  max-height: none;
-  height: 400px;
+  max-height: 400px;
+  height: auto;
   overflow: auto;
   border-color: #cfcfcf ;
   }
@@ -500,8 +500,8 @@ color: black;
 
 .my-summary-scrollbar {
   position: relative;
-  max-height: auto;
-  height:550px;
+  max-height: 535px;
+  height:auto;
   overflow: auto;
   border-color: #cfcfcf ;
   }
