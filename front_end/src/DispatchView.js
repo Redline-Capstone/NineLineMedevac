@@ -83,18 +83,29 @@ const DispatchView = (props) => {
             <br />
 
             <br />
-                <button className='btn-light' hidden={props.toggleAddResponder} onClick={() => props.toggleAddResponderButton()
-
-
-                }
-                >New Responder</button>
-                <br />
-                <div hidden={!props.toggleAddResponder}>
+       
+    <a className ="btn-light" href="#popup1" hidden={props.toggleAddResponder} onClick={() => props.toggleAddResponderButton()
+}> New Responder </a> 
+    
+    
+ 
+            <div id="popup1" class="overlay">
+	<div class="popup" hidden={!props.toggleAddResponder}>
                     <ResponderCreator
                         addResponder={props.addResponder}
-
-                    />
-                </div>
+   />
+            <div class="content" >
+        
+     
+		
+		    <a class="close" href="#">&times;</a>
+		
+		</div>
+	</div>
+</div>
+                
+                <br />
+               
             <br />
                 <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
                 <div hidden={!props.toggleSummary} >
