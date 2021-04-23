@@ -30,7 +30,7 @@ const Responder = (props) => {
                     <th class="sticky-header">Marking</th>
                     <th class="sticky-header">Nationality</th>
                     <th class="sticky-header">NBC</th>
-                    <th class="sticky-header">Complete</th>
+                    <th class="sticky-header">Actions</th>
                     </tr>
 
         
