@@ -57,7 +57,7 @@ export default class App extends Component {
       // viewSelector: this.state.responderList.concat({ value: "Dispatch", label: "Dispatch" }),
       currentSelection: "",
       currentResponderAssignment: "",
-      currentMissionAssignment: undefined,
+      currentMissionAssignment: "",
       toggleNineLine: false,
       toggleDispatch: false,
       toggleResponder: false,
@@ -142,7 +142,7 @@ export default class App extends Component {
     this.addedResponderAlert ()
     
     this.goFetch(baseURL+"/responder" , "POST", {id:0, name: event.value}, "")
-
+    .then(this.setState({toggleAddResponder: !this.state.toggleAddResponder}))
   }
 
   //goFetch toUse:
@@ -175,8 +175,8 @@ export default class App extends Component {
     
     fetch(baseURL+'/requests/' + this.state.currentMissionAssignment.id, { method: 'PATCH', body: JSON.stringify({ responder: assignedResponder }), headers: { 'Content-Type': 'application/json' } })
     .then(() => this.getRequests()) // gets rid of race condition
-    .then(() => this.setState({currentMissionAssignment: undefined}))
-    .then(() => this.setState({currentResponderAssignment: undefined}))
+    .then(() => this.setState({currentMissionAssignment: ""}))
+    .then(() => this.setState({currentResponderAssignment: ""}))
   }
 
    assignedMissionAlert = () => {

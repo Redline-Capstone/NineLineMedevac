@@ -17,10 +17,10 @@ var sectionStyle = {
 const Home = () => {
 
     return (
-        <Jumbotron fluid-max>
+        <Jumbotron>
       <div className="Container" scroll-behaviour= 'smooth'> 
         
-            <div claclassNamess="row">
+            <div className="row">
               <div className="col-md-8 col-xs-8">
                 {/* <img src="..."></img> */}
               </div>
