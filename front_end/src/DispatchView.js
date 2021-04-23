@@ -22,8 +22,16 @@ const DispatchView = (props) => {
             autoClose: 5000
         })
     }
+    
+            function doSomething(){
+                if(props.toggleSummary){
+                    props.toggleSummaryButton()
+                    props.toggleAddResponderButton()
+                }else {props.toggleAddResponderButton()}}
+
 
     return (
+        
         <div className="divPadding">
             <br />
             <h1>Dispatcher View Table</h1>
@@ -77,15 +85,15 @@ const DispatchView = (props) => {
 
                 <br />
 
-                <a className='btn-light' disabled={!props.currentResponderAssignment || !props.currentMissionAssignment} onClick={() => {
+                <button className='btn-light' disabled={!props.currentResponderAssignment || !props.currentMissionAssignment} onClick={() => {
                     props.currentResponderAssignment ? props.assignResponder(props.currentResponderAssignment) : toastMe()
-                }} >Assign to Mission</a>
+                }} >Assign to Mission</button>
                 {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
                 <br />
 
                 <br />
 
-                <a className="btn-light" href="#popup1" hidden={props.toggleAddResponder} onClick={() => props.toggleAddResponderButton()
+                <a className="btn-light" href="#popup1" hidden={props.toggleAddResponder} onClick={() => doSomething()
                 }> New Responder </a>
 
 
