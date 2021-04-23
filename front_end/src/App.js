@@ -134,6 +134,13 @@ export default class App extends Component {
     .then(() => this.getRequests())
 
   }
+  async handoffButton(id) {
+    
+    await this.goFetch(baseURL+"/requests/" + id, "PATCH", { responder: "" }, "")
+    
+    .then(() => this.getRequests())
+
+  }
 
   addResponder(event) {
     var tempResponderList = this.state.responderList
@@ -264,6 +271,7 @@ export default class App extends Component {
             <Responder
             requests={this.state.requestList}
             completeClick={this.completeButton.bind(this)}
+            handoffClick={this.handoffButton.bind(this)}
             current={this.state.currentSelection}
             onChange={(choice) => this.setCurrentSelection(choice)}
             responderList = { this.state.responderList } 

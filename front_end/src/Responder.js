@@ -42,7 +42,11 @@ const Responder = (props) => {
                 (request, i) => {
                     if (request.responder === props.current && !request.completed) {
                         if (request.responder !== "") {
-                        return (<Request key={"" + request.id + i + request.responder + request.completed} requestObject={request} completeClick={props.completeClick} 
+                        return (<Request
+                             key={"" + request.id + i + request.responder + request.completed} 
+                             requestObject={request} 
+                             completeClick={props.completeClick} 
+                             handoffClick={props.handoffClick} 
                         />
                         )
                     } else return ""
@@ -59,6 +63,7 @@ Responder.propTypes = {
     requests: PropTypes.array,
     completeClick: PropTypes.func,
     current: PropTypes.string,
+    handoffClick: PropTypes.func,
 }
 
 export default Responder;
