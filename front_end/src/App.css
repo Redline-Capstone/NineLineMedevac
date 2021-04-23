@@ -463,8 +463,10 @@ color: black;
         }
         
         .popup {
-          margin: 70px auto;
+          margin: 90px auto;
           padding: 20px;
+          margin-left: auto;
+          margin-right: 20px auto;
           background: #fff;
           border-radius: 5px;
           width: 30%;
@@ -478,9 +480,9 @@ color: black;
           font-family: Tahoma, Arial, sans-serif;
         }
         .popup .close {
-          position: absolute;
+    
           top: 20px;
-          right: 30px;
+          right: 100px ;
           transition: all 200ms;
           font-size: 30px;
           font-weight: bold;
