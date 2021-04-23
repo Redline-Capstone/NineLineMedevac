@@ -16,7 +16,7 @@ const DispatchView = (props) => {
 
     const [responderValue, changeResponderValue] = useState(props.currentResponderAssignment)
 
-    function toastMe(){
+    function toastMe() {
         toast.warning('Please select a mission and a responder!', {
             position: toast.POSITION.TOP_CENTER,
             autoClose: 5000
@@ -24,78 +24,90 @@ const DispatchView = (props) => {
     }
 
     return (
-        <div className = "divPadding">
+        <div className="divPadding">
             <br />
             <h1>Dispatcher View Table</h1>
             <br />
 
-        <div className="container">
-<table className="table w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
-                <thead className='thead-dark'>
-                    <tr>
-                        <th class="sticky-header">Select</th>
-                        <th class="sticky-header">Location</th>
-                        <th class="sticky-header">Callsign</th>
-                        <th class="sticky-header">Priority</th>
-                        <th class="sticky-header">Special Equipment</th>
-                        <th class="sticky-header">Patient Type</th>
-                        <th class="sticky-header">Security</th>
-                        <th class="sticky-header">Marking</th>
-                        <th class="sticky-header">Nationality</th>
-                        <th class="sticky-header">NBC</th>
+            <div className="container">
+                <table className="table w-100 table-not-required table-bordered table-hover my-custom-scrollbar table-wrapper-scroll-y">
+                    <thead className='thead-dark'>
+                        <tr>
+                            <th class="sticky-header">Select</th>
+                            <th class="sticky-header">Location</th>
+                            <th class="sticky-header">Callsign</th>
+                            <th class="sticky-header">Priority</th>
+                            <th class="sticky-header">Special Equipment</th>
+                            <th class="sticky-header">Patient Type</th>
+                            <th class="sticky-header">Security</th>
+                            <th class="sticky-header">Marking</th>
+                            <th class="sticky-header">Nationality</th>
+                            <th class="sticky-header">NBC</th>
 
-                    
-                    </tr>
-                </thead>
-                <tbody>
-                
-                {props.requests.map(
-                    (request, index) => {
-                        if (request.responder === "") {
-                            return (
-                                <Request
-                                key={index}
-                                requestObject={request}
-                                currentMissionAssignment={props.currentMissionAssignment}
-                                setCurrentMissionAssignment={props.setCurrentMissionAssignment}
-                                completeClick={props.completeClick}
-                                />
-                                )
-                            } else return ""
-                        }
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {props.requests.map(
+                            (request, index) => {
+                                if (request.responder === "") {
+                                    return (
+                                        <Request
+                                            key={index}
+                                            requestObject={request}
+                                            currentMissionAssignment={props.currentMissionAssignment}
+                                            setCurrentMissionAssignment={props.setCurrentMissionAssignment}
+                                            completeClick={props.completeClick}
+                                        />
+                                    )
+                                } else return ""
+                            }
                         )}
-                </tbody>
+                    </tbody>
 
-            </table>
-            <h5>RESPONDERS</h5>
-            <Select className= 'dropDown' options={props.responderList}  values={[{value:responderValue, label: responderValue}]} onChange={(choice) =>{
-            changeResponderValue(choice[0].value)  
-            // console.log(choice, "inside select")  
-            props.setCurrentResponderAssignment(choice)}} />
-
-            
-            <br/>
-           
-            <button className= 'btn-light' disabled={!props.currentResponderAssignment || !props.currentMissionAssignment} onClick={() =>  {
-                props.currentResponderAssignment ? props.assignResponder(props.currentResponderAssignment): toastMe()
-                }} >Assign to Mission</button>
-            {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
-            <br />
-
-            <br />
-                <button className='btn-light' hidden={props.toggleAddResponder} onClick={() => props.toggleAddResponderButton()
+                </table>
+                <h5>RESPONDERS</h5>
+                <Select className='dropDown' options={props.responderList} values={[{ value: responderValue, label: responderValue }]} onChange={(choice) => {
+                    changeResponderValue(choice[0].value)
+                    // console.log(choice, "inside select")  
+                    props.setCurrentResponderAssignment(choice)
+                }} />
 
 
-                }
-                >New Responder</button>
                 <br />
-                <div hidden={!props.toggleAddResponder}>
-                    <ResponderCreator
-                        addResponder={props.addResponder}
 
-                    />
+                <a className='btn-light' disabled={!props.currentResponderAssignment || !props.currentMissionAssignment} onClick={() => {
+                    props.currentResponderAssignment ? props.assignResponder(props.currentResponderAssignment) : toastMe()
+                }} >Assign to Mission</a>
+                {/* onChange={(choice) => this.setCurrentSelection(choice)}  */}
+                <br />
+
+                <br />
+
+                <a className="btn-light" href="#popup1" hidden={props.toggleAddResponder} onClick={() => props.toggleAddResponderButton()
+                }> New Responder </a>
+
+
+
+                <div id="popup1" class="overlay">
+                    <div class="popup" hidden={!props.toggleAddResponder}>
+                        <ResponderCreator
+                            addResponder={props.addResponder}
+                        />
+                        <div class="content" >
+
+
+
+                            <a class="close" href="#" onClick={() => props.toggleAddResponderButton()}>&times;</a>
+
+                        </div>
+                    </div>
                 </div>
-            <br />
+
+                <br />
+
+                <br />
                 <button className='btn-light' onClick={() => props.toggleSummaryButton()}>Summary</button>
                 <div hidden={!props.toggleSummary} >
                     <Summary
@@ -105,9 +117,9 @@ const DispatchView = (props) => {
                     />
                 </div>
             </div>
-            </div>
-        
-        );
+        </div>
+
+    );
 
 }
 
