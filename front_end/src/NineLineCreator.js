@@ -80,7 +80,7 @@ class NineLineCreator extends Component {
     CompleteNineline = () => {
         toast.success('Your Nine Line has been submitted!', {
             position: toast.POSITION.TOP_CENTER,
-            autoClose: 2000
+            autoClose: 5000
         })
 
         var pType = ""
@@ -106,13 +106,8 @@ class NineLineCreator extends Component {
     notifyError = () => {
         toast.warn('submit first five lines', {
             position: toast.POSITION.TOP_CENTER,
-            autoClose: 3000,
-
-        })
-        toast.warn('submit first five lines', {
-            position: toast.POSITION.BOTTOM_CENTER,
-            autoClose: 3000,
-
+            autoClose: 5000,
+        
         })
     }
 
